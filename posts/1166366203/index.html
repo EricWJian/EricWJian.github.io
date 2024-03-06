@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MySQL执行效率 | Eric</title><meta name="robots" content="noindex"><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="https:&amp;#x2F;&amp;#x2F;juejin.cn&amp;#x2F;post&amp;#x2F;7025079353608257550 https:&amp;#x2F;&amp;#x2F;www.cnblogs.com&amp;#x2F;LoveBB&amp;#x2F;p&amp;#x2F;15181075.html https:&amp;#x2F;&amp;#x2F;blog.csdn.net&amp;#x2F;qq_41931364&amp;#x2F;article&amp;#x2F;details&amp;#x2F;121848865"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/posts/1166366203/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MySQL执行效率',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-13 20:16:05'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">105</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">MySQL执行效率</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-16T16:00:00.000Z" title="发表于 2023-07-17 00:00:00">2023-07-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-13T12:16:05.900Z" title="更新于 2023-10-13 20:16:05">2023-10-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MySQL/">MySQL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MySQL执行效率"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><hr>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7025079353608257550">https://juejin.cn/post/7025079353608257550</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/LoveBB/p/15181075.html">https://www.cnblogs.com/LoveBB/p/15181075.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41931364/article/details/121848865">https://blog.csdn.net/qq_41931364/article/details/121848865</a></p>
+<p>[<a href="%E4%B8%80">MySQL高级</a> EXPLAIN用法和结果分析_mysql explain-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/why15732625998/article/details/80388236?ops_request_misc=%7B%22request_id%22:%22169577889616800188538794%22,%22scm%22:%2220140713.130102334..%22%7D&amp;request_id=169577889616800188538794&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-80388236-null-null.142%5Ev94%5Einsert_down1&amp;utm_term=MySQL">https://blog.csdn.net/why15732625998/article/details/80388236?ops_request_misc=%7B%22request%5Fid%22%3A%22169577889616800188538794%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=169577889616800188538794&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-80388236-null-null.142^v94^insert_down1&amp;utm_term=MySQL</a> explain&amp;spm=1018.2226.3001.4187)</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Iven-L/p/15945990.html">MYSQL进阶学习笔记 - 爱文(Iven) - 博客园 (cnblogs.com)</a></p>
+<hr>
+<p>创建SQL</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span> 用户表</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `<span class="keyword">user</span>`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `<span class="keyword">user</span>` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `name` <span class="type">varchar</span>(<span class="number">25</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `age` <span class="type">int</span>(<span class="number">11</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">  `update_time` datetime <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="keyword">user</span>` (`id`, `name`, `age`,`update_time`) <span class="keyword">VALUES</span> (<span class="number">1</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="number">23</span>,<span class="string">&#x27;2021-08-24 15:27:18&#x27;</span>), (<span class="number">2</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="number">24</span>,<span class="string">&#x27;2021-06-21 15:27:18&#x27;</span>), (<span class="number">3</span>,<span class="string">&#x27;王五&#x27;</span>,<span class="number">25</span>,<span class="string">&#x27;2021-07-20 15:27:18&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `role`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `role` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `name` <span class="type">varchar</span>(<span class="number">10</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`),</span><br><span class="line">  KEY `index_name` (`name`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `role` (`id`, `name`) <span class="keyword">VALUES</span> (<span class="number">1</span>,<span class="string">&#x27;产品经理&#x27;</span>),(<span class="number">2</span>,<span class="string">&#x27;技术经理&#x27;</span>),(<span class="number">3</span>,<span class="string">&#x27;项目总监&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `role_user`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `role_user` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `role_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `user_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`),</span><br><span class="line">  KEY `index_role_user_id` (`role_id`,`user_id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `role_user` (`id`, `role_id`, `user_id`) <span class="keyword">VALUES</span> (<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>),(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>),(<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>); </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>用法</p>
+</blockquote>
+<p>explain + sql语句</p>
+<h2 id="select-type字段"><a href="#select-type字段" class="headerlink" title="select_type字段"></a>select_type字段</h2><p>查询类型,区别普通查询，联合查询，子查询等等。</p>
+<ul>
+<li>Simple：简单查询</li>
+<li>Primary：复杂查询，查询中包含任何复杂的子查询，最外层查询标记为 Primary。</li>
+<li>Derived：衍生查询</li>
+<li>Subquery：子查询</li>
+<li>Union：</li>
+</ul>
+<h2 id="table字段"><a href="#table字段" class="headerlink" title="table字段"></a>table字段</h2><p>查询到的数据是关于哪张表的。</p>
+<h2 id="partitions"><a href="#partitions" class="headerlink" title="partitions"></a>partitions</h2><p>分区</p>
+<h2 id="type"><a href="#type" class="headerlink" title="type"></a>type</h2><p>访问类型，从好到坏：</p>
+<p><code>system &gt; const &gt; eq_ref &gt; ref &gt; range &gt; index &gt; ALL</code>。</p>
+<h2 id="possible-keys"><a href="#possible-keys" class="headerlink" title="possible_keys"></a>possible_keys</h2><p>mysql 推测使用到的索引。</p>
+<h2 id="key字段"><a href="#key字段" class="headerlink" title="key字段"></a>key字段</h2><p>实际使用到的索引，如果为NULL,则没有使用到索引。</p>
+<h2 id="ref字段"><a href="#ref字段" class="headerlink" title="ref字段"></a>ref字段</h2><h2 id="rows字段"><a href="#rows字段" class="headerlink" title="rows字段"></a>rows字段</h2><p>找到所需的记录需要读取的行数。</p>
+<h2 id="filtered字段"><a href="#filtered字段" class="headerlink" title="filtered字段"></a>filtered字段</h2><h2 id="Extra字段"><a href="#Extra字段" class="headerlink" title="Extra字段"></a>Extra字段</h2><h2 id="SQL语句及索引的优化"><a href="#SQL语句及索引的优化" class="headerlink" title="SQL语句及索引的优化"></a>SQL语句及索引的优化</h2><ol>
+<li>对查询进行优化，应当尽量避免全表扫描，首先考虑在 where 及 order by涉及的列上建立索引。</li>
+<li>尽量避免在where中对字段进行操作（使用参数、表达式、函数、运算）。</li>
+<li>不能对索引列进行任何操作（计算，类型转换等）。</li>
+<li>减少使用（！=、&lt;&gt;、&gt;、&lt;）、is not null、is null 否则将导致放弃使用索引进而进行全表扫描。</li>
+<li>like 以 ‘%’ 开头会导致索引失效。</li>
+<li>字符串不加单引号会导致索引失效</li>
+<li>减少使用 or ，会导致索引失效</li>
+<li> order by 中，尽量使用 Using Index 方式排序，避免使用 Using FileSort 方式排序。</li>
+<li>尽可能在索引列上完成排序操作，遵照索引建的最佳左前缀原则。</li>
+<li>尽量不要使用 distinct。</li>
+<li>优化嵌套查询：子查询可以被更有效率的链接(join)替代。</li>
+<li>很多时候用exists或between代替in是一个好的选择。</li>
+</ol>
+<hr>
+<h2 id="Explain使用"><a href="#Explain使用" class="headerlink" title="Explain使用"></a>Explain使用</h2><blockquote>
+<p>建表</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `t1`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t1`  (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">0</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `other_column` <span class="type">varchar</span>(<span class="number">30</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb3 <span class="keyword">COLLATE</span> utf8mb3_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB AUTO_INCREMENT <span class="operator">=</span> <span class="number">2</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb3 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb3_general_ci ROW_FORMAT <span class="operator">=</span> <span class="keyword">Dynamic</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t1` <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;111&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `t2`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t2`  (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">0</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `other_column` <span class="type">varchar</span>(<span class="number">30</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb3 <span class="keyword">COLLATE</span> utf8mb3_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  <span class="keyword">UNIQUE</span> INDEX `index_other_column`(`other_column`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB AUTO_INCREMENT <span class="operator">=</span> <span class="number">33</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb3 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb3_general_ci ROW_FORMAT <span class="operator">=</span> <span class="keyword">Dynamic</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t2` <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;111&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `t3`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t3`  (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">0</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `other_column` <span class="type">varchar</span>(<span class="number">30</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb3 <span class="keyword">COLLATE</span> utf8mb3_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB AUTO_INCREMENT <span class="operator">=</span> <span class="number">3</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb3 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb3_general_ci ROW_FORMAT <span class="operator">=</span> <span class="keyword">Dynamic</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t3` <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="1、id介绍"><a href="#1、id介绍" class="headerlink" title="1、id介绍"></a>1、id介绍</h2><p>select 查询的序列号，包含一组数字，表示查询中执行select子句或操作表的顺序</p>
+<p>三种情况：</p>
+<ul>
+<li>id相同，执行顺序由上至下</li>
+<li>id不同，如果是子查询，id的序号会递增，id值越大优先级越高，越先被执行</li>
+<li>id相同不同，同时存在：id 越大越先被执行；id相同从上至下执行。</li>
+</ul>
+<p><strong>1、id相同，执行顺序由上至下</strong></p>
+<p><code>explain select t2.* from t1,t2,t3 where t1.id = t2.id and t1.id = t3.id and t1.other_column = &#39;&#39;;</code></p>
+<img src="/posts/1166366203/489a7f6eff3f1bd0b1b72ce7efd3860f.png" class="" title="img">
+
+<blockquote>
+<p>加载顺序 t1&gt;t3&gt;t2</p>
+</blockquote>
+<p>2、id不同，如果是子查询，id的序号会递增，id值越大优先级越高，越先被执行</p>
+<p><code>explain select t2.* from t2 where id = (select id from t1 where id =  (select t3.id from t3 where t3.other_column = &#39;&#39;));</code></p>
+<img src="/posts/1166366203/1fbb87af7a3428f3ded4ce9ef927eabf.png" class="" title="img">
+
+<blockquote>
+<p>表加载顺序：t3&gt;t1&gt;t2</p>
+</blockquote>
+<p>3、id相同不同，同时存在</p>
+<p><code>explain select t2.* from (select t3.id from t3 where t3.other_column = &#39;&#39;) s1,t2  where s1.id = t2.id;</code></p>
+<img src="/posts/1166366203/b3447be516e705f3adb4348fa1cc1229.png" class="" title="img">
+
+<blockquote>
+<p>derived：衍生; derived2 中的 2 表示 id=2 的值</p>
+<p>表加载顺序：t3&gt;t2</p>
+<p>id如果相同，可以认为是一组，从上往下顺序执行；在所有组中，id值越大，优先级越高，越先执行</p>
+</blockquote>
+<blockquote>
+<p>小结</p>
+<p>id越大越先查询,id 号每个号码，表示一趟独立的查询。一个 sql 的查询趟数越少越好。</p>
+</blockquote>
+<h2 id="13、explain之select-type和table介绍"><a href="#13、explain之select-type和table介绍" class="headerlink" title="13、explain之select_type和table介绍"></a>13、explain之select_type和table介绍</h2><p><strong>select_type</strong>：查询的类型，主要是用于区别普通查询、联合查询、子查询等的复杂查询。</p>
+<p>1、select_type有哪些？</p>
+<table>
+<thead>
+<tr>
+<th>select_type</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Simple</td>
+<td><code>简单的 select 查询</code>,查询中<code>不包含子查询或者 UNION</code>。</td>
+</tr>
+<tr>
+<td>Primary</td>
+<td>查询中若<code>包含任何复杂的子部分</code>，最外层查询则被标记为 Primary。</td>
+</tr>
+<tr>
+<td>Derived</td>
+<td>这个是在from语句后面的查询语句，MySQL会将结果存放在一个临时表中，也称为派生表。</td>
+</tr>
+<tr>
+<td>Subquery</td>
+<td><code>在SELECT或WHERE列表中包含了子查询</code>。</td>
+</tr>
+<tr>
+<td>UNION</td>
+<td>若第二个SELECT出现在UNION之后，则被标记为UNION；若UNION包含在FROM子句的子查询中外层SELECT将被标记为：DERIVED</td>
+</tr>
+<tr>
+<td>UNION RESULT</td>
+<td>从UNION表获取结果的SELECT</td>
+</tr>
+</tbody></table>
+<p>2、<strong>SIMPLE</strong></p>
+<p>simple代表单表查询</p>
+<img src="/posts/1166366203/image-20211026141219962.png" class="" title="image-20211026141219962">
+
+<p>3、<strong>PRIMARY</strong></p>
+<p>查询中若包含任何复杂的子部分，则最外层查询被标记为primary。</p>
+<img src="/posts/1166366203/image-20211026141505233.png" class="" title="image-20211026141505233">
+
+<p>4、<strong>DERIVED</strong></p>
+<p>在 FROM 列表中包含的子查询被标记为 DERIVED(衍生),MySQL 会递归执行这些子查询, 把结果放在临时表里。</p>
+<p>5、<strong>SUBQUERY</strong> </p>
+<p>在 select 或 where 列表中包含了子查询。</p>
+<img src="/posts/1166366203/image-20211026142007638.png" class="" title="image-20211026142007638">
+
+<p>6、<strong>DEPENDENT SUBQUERY</strong></p>
+<p>在 select 或 where 列表中包含了子查询，子查询基于外层。</p>
+<img src="/posts/1166366203/image-20211026142351256.png" class="" title="image-20211026142351256">
+
+<p>7、<strong>UNCACHEABLE SUBQUREY</strong></p>
+<img src="/posts/1166366203/image-20211026155933450.png" class="" title="image-20211026155933450">
+
+<p>当使用了@@来引用系统变量的时候，不会使用缓存。</p>
+<p>8、<strong>UNION</strong></p>
+<p>若第二个 SELECT 出现在 UNION 之后，则被标记为 UNION；若 UNION 包含在 FROM 子句的子查询中,外层 SELECT 将被标记为：DERIVED。 </p>
+<img src="/posts/1166366203/image-20211026160343093.png" class="" title="image-20211026160343093">
+
+<p>9、<strong>UNION RESULT</strong></p>
+<p>从 UNION 表获取结果的 SELECT。</p>
+<p><strong>table</strong>：显示这一行的数据是关于哪张表的。</p>
+<h2 id="14、explain之type介绍"><a href="#14、explain之type介绍" class="headerlink" title="14、explain之type介绍"></a>14、explain之type介绍</h2><p><strong>访问类型排列</strong></p>
+<p>type显示的是访问类型，是较为重要的一个指标，结果值从最好到最坏依次是：</p>
+<p><code>system&gt;const&gt;eq_ref&gt;ref&gt;range&gt;index&gt;ALL</code></p>
+<p>一般来说，得保证查询至少达到range级别，最好能达到ref。</p>
+<p>百万以上如果是 All，必须优化：</p>
+<p><strong>详细说明</strong></p>
+<p><strong>system</strong>：表只有一行记录（等于系统表），这是const类型的特列，平时不会出现，这个也可以忽略不计。</p>
+<p><strong>const</strong>：表示通过索引一次就找到了，const用于比较primary key或者unique索引。因为只匹配一行数据，所以很快，如将主键置于where列表中，MySQL就能将该查询转换为一个常量。</p>
+<img src="/posts/1166366203/13e25a155803062c26ec5669e74c5fa4.png" class="" title="img">
+
+<p><strong>eq_ref</strong>：唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描。</p>
+<img src="/posts/1166366203/7cff8e85d84605216d677387460f10d7.png" class="" title="img">
+
+<p><strong>ref</strong>：非唯一性索引扫描，返回匹配某个单独值的所有行，本质上也是一种索引访问，它返回所有匹配某个单独值的行，然而，它可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合体。</p>
+<img src="/posts/1166366203/26633a476411b138886bb94b13fbfb6e.png" class="" title="img">
+
+<p><strong>range</strong>：只检索给定范围的行,使用一个索引来选择行。key列显示使用了哪个索引一般就是在你的where语句中出现了between、&lt;、&gt;、in等的查询。这种范围扫描索引扫描比全表扫描要好，因为它只需要开始于索引的某一点，而结束语另一点，不用扫描全部索引。</p>
+<img src="/posts/1166366203/2f69477aa5f79e3092352644aba9c3b2.png" class="" title="img">
+
+<p><strong>index</strong>：Full Index Scan，index与ALL区别为index类型只遍历索引树。这通常比ALL快，因为索引文件通常比数据文件小（也就是说虽然all和Index都是读全表，但index是从索引中读取的，而all是从硬盘中读的）。</p>
+<img src="/posts/1166366203/1f740bdbde95ce4ee3dbc86499b93f98.png" class="" title="img">
+
+<p><strong>all</strong>：Full Table Scan，将遍历全表以找到匹配的行。</p>
+<img src="/posts/1166366203/e7a941c6ba4b1f674843a31f5e32c849.png" class="" title="img">
+
+<p>备注：一般来说，得保证查询至少达到range级别，最好能达到ref。</p>
+<h2 id="15、explain之possible-keys和key介绍"><a href="#15、explain之possible-keys和key介绍" class="headerlink" title="15、explain之possible_keys和key介绍"></a>15、explain之possible_keys和key介绍</h2><p><strong>possible_keys</strong></p>
+<blockquote>
+<p>显示可能应用在这张表中的索引，一个或多个。</p>
+<p>查询涉及到的字段火若存在索引，则该索引将被列出，<code>但不一定被查询实际使用</code>。</p>
+<p>通俗来说：mysql推测用到的索引</p>
+</blockquote>
+<p><strong>key</strong></p>
+<blockquote>
+<p>实际使用的索引。如果为NULL，则没有使用索引。</p>
+<p><code>查询中若使用了覆盖索引，则该索引仅出现在key列表中</code></p>
+<blockquote>
+<p>覆盖索引：</p>
+<p>select 查询的字段和 创建的复合索引一致；</p>
+</blockquote>
+</blockquote>
+<h2 id="16、explain之key-len介绍"><a href="#16、explain之key-len介绍" class="headerlink" title="16、explain之key_len介绍"></a>16、explain之key_len介绍</h2><p>表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度。在不损失精确性的情况下，长度越短越好</p>
+<p>key_len显示的值为索引字段的最大可能长度，<strong>并非实际使用长度</strong>，即key_len是根据表定义计算而得，不是通过表内检索出的</p>
+<img src="/posts/1166366203/image-20211017141515257.png" class="" title="image-20211017141515257">
+
+
+
+<h2 id="17、explain之ref介绍"><a href="#17、explain之ref介绍" class="headerlink" title="17、explain之ref介绍"></a>17、explain之ref介绍</h2><p>显示索引的哪一列被使用了，如果可能的话，是一个常数。哪些列或常量被用于查找索引列上的值。</p>
+<img src="/posts/1166366203/c3f5c1c1b1db3f4e2014d9b113466365.png" class="" title="img">
+
+<p>由key_len可知t1表的idx_col1_col2被充分使用，col1匹配t2表的col1，col2匹配了一个常量，即 ‘ac’。</p>
+<p>查询中与其它表关联的字段，外键关系建立索引。</p>
+<h2 id="18、explain之rows介绍"><a href="#18、explain之rows介绍" class="headerlink" title="18、explain之rows介绍"></a>18、explain之rows介绍</h2><p>根据表统计信息及索引选用情况，大致估算出找到所需的记录所需要读取的行数。</p>
+<img src="/posts/1166366203/1cc2534c7e7149b22fc67a45a84b5d3c.png" class="" title="img">
+
+<h2 id="19、explain之Extra介绍"><a href="#19、explain之Extra介绍" class="headerlink" title="19、explain之Extra介绍"></a>19、explain之Extra介绍</h2><p>包含不适合在其他列中显示但十分重要的额外信息。</p>
+<p><strong>Using filesort</strong></p>
+<p>说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。MySQL中无法利用索引完成的排序操作称为”文件排序”</p>
+<img src="/posts/1166366203/348a6753472b993e35ab8e016d6dbc8b.png" class="" title="img">
+
+<p>后者的性能高于前者；</p>
+<p><strong>Using temporary</strong></p>
+<p>使了用临时表保存中间结果，MysQL在对查询结果排序时使用临时表。常见于排序order by和分组查询group by。</p>
+<img src="/posts/1166366203/b2ff96a5474c9ed9dc3866c0077fd50c.png" class="" title="img">
+
+<p><strong>Using index</strong></p>
+<p>表示相应的select操作中使用了覆盖索引（Covering Index），避免访问了表的数据行，效率不错！</p>
+<p>如果同时出现using where，表明索引被用来执行索引键值的查找；</p>
+<p>如果没有同时出现using where，表明索引用来读取数据而非执行查找动作。</p>
+<img src="/posts/1166366203/b833dcdeadfd386eeb9347c5f23b1b9a.png" class="" title="img">
+
+<p>如果同时出现using where，表明索引被用来执行索引键值的查找；</p>
+<img src="/posts/1166366203/0d8667b3f990407f9f4ad2c8e4b4f9ea.png" class="" title="img">
+
+<p>如果没有同时出现using where，表明索引用来读取数据而非执行查找动作。</p>
+<p><strong>覆盖索引（Covering Index）</strong>,一说为索引覆盖。</p>
+<p>理解方式一：就是select的数据列只用从索引中就能够取得，不必读取数据行，MySQL可以利用索引返回select列表中的字段，而不必根据索引再次读取数据文件,换句话说查询列要被所建的索引覆盖。</p>
+<p>理解方式二：索引是高效找到行的一个方法，但是一般数据库也能使用索引找到一个列的数据，因此它不必读取整个行。毕竟索引叶子节点存储了它们索引的数据；当能通过读取索引就可以得到想要的数据，那就不需要读取行了。一个索引包含了（或覆盖了）满足查询结果的数据就叫做覆盖索引。</p>
+<p>注意：</p>
+<p>如果要使用覆盖索引，一定要注意select列表中只取出需要的列，不可select*，因为</p>
+<p>如果将所有字段一起做索引会导致索引文件过大，查询性能下降。</p>
+<p><strong>Using where</strong></p>
+<p>表明使用了where过滤。</p>
+<p><strong>Using join buffer</strong></p>
+<p>使用了连接缓存。</p>
+<p><strong>impossible where</strong></p>
+<p>where子句的值总是false，不能用来获取任何元组。</p>
+<img src="/posts/1166366203/e879ce43d5bbbed4e712034201dae403.png" class="" title="img">
+
+<p><strong>select tables optimized away</strong></p>
+<p>在没有GROUPBY子句的情况下，基于索引优化MIN/MAX操作，或者对于MyISAM存储引擎优化COUNT(*)操作，不必等到执行阶段再进行计算，查询执行计划生成的阶段即完成优化。</p>
+<p><strong>distinct</strong></p>
+<p>优化distinct操作，在找到第一匹配的元组后即停止找同样值的动作。</p>
+<h2 id="20、explain之热身Case"><a href="#20、explain之热身Case" class="headerlink" title="20、explain之热身Case"></a>20、explain之热身Case</h2><img src="/posts/1166366203/bdfcbbf0a47e1bb6cd3943c687d76b1a.png" class="" title="img">
+
+<p>第一行（执行顺序4）：id列为1，表示是union里的第一个select，select_type列的primary表示该查询为外层查询，table列被标记为，表示查询结果来自一个衍生表，其中derived3中3代表该查询衍生自第三个select查询，即id为3的select。【select d1.name… 】<br>第二行（执行顺序2）：id为3，是整个查询中第三个select的一部分。因查询包含在from中，所以为derived。【select id,namefrom t1 where other_column=’’】</p>
+<p>第三行（执行顺序3）：select列表中的子查询select_type为subquery，为整个查询中的第二个select。【select id from t3】</p>
+<p>第四行（执行顺序1）：select_type为union，说明第四个select是union里的第二个select，最先执行【select name,id from t2】</p>
+<p>第五行（执行顺序5）：代表从union的临时表中读取行的阶段，table列的&lt;union1,4&gt;表示用第一个和第四个select的结果进行union操作。【两个结果union操作】</p>
+<!-- flag of hidden posts --></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io">Eric</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io/posts/1166366203/">https://ericwjian.github.io/posts/1166366203/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ericwjian.github.io" target="_blank">Eric</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/MySQL/">MySQL</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/1948779159/" title="Linux安装MYSQL"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-04-18</div><div class="title">Linux安装MYSQL</div></div></a></div><div><a href="/posts/1135024868/" title="MySQL索引"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-17</div><div class="title">MySQL索引</div></div></a></div><div><a href="/posts/3356725626/" title="MySQL搭建主从复制"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-19</div><div class="title">MySQL搭建主从复制</div></div></a></div><div><a href="/posts/2575450474/" title="MySQL高级"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-01</div><div class="title">MySQL高级</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">105</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#select-type%E5%AD%97%E6%AE%B5"><span class="toc-text">select_type字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#table%E5%AD%97%E6%AE%B5"><span class="toc-text">table字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#partitions"><span class="toc-text">partitions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#type"><span class="toc-text">type</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#possible-keys"><span class="toc-text">possible_keys</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#key%E5%AD%97%E6%AE%B5"><span class="toc-text">key字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ref%E5%AD%97%E6%AE%B5"><span class="toc-text">ref字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rows%E5%AD%97%E6%AE%B5"><span class="toc-text">rows字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filtered%E5%AD%97%E6%AE%B5"><span class="toc-text">filtered字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extra%E5%AD%97%E6%AE%B5"><span class="toc-text">Extra字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E8%AF%AD%E5%8F%A5%E5%8F%8A%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-text">SQL语句及索引的优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explain%E4%BD%BF%E7%94%A8"><span class="toc-text">Explain使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81id%E4%BB%8B%E7%BB%8D"><span class="toc-text">1、id介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13%E3%80%81explain%E4%B9%8Bselect-type%E5%92%8Ctable%E4%BB%8B%E7%BB%8D"><span class="toc-text">13、explain之select_type和table介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14%E3%80%81explain%E4%B9%8Btype%E4%BB%8B%E7%BB%8D"><span class="toc-text">14、explain之type介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15%E3%80%81explain%E4%B9%8Bpossible-keys%E5%92%8Ckey%E4%BB%8B%E7%BB%8D"><span class="toc-text">15、explain之possible_keys和key介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16%E3%80%81explain%E4%B9%8Bkey-len%E4%BB%8B%E7%BB%8D"><span class="toc-text">16、explain之key_len介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17%E3%80%81explain%E4%B9%8Bref%E4%BB%8B%E7%BB%8D"><span class="toc-text">17、explain之ref介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18%E3%80%81explain%E4%B9%8Brows%E4%BB%8B%E7%BB%8D"><span class="toc-text">18、explain之rows介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19%E3%80%81explain%E4%B9%8BExtra%E4%BB%8B%E7%BB%8D"><span class="toc-text">19、explain之Extra介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20%E3%80%81explain%E4%B9%8B%E7%83%AD%E8%BA%ABCase"><span class="toc-text">20、explain之热身Case</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3906916735/" title="微服务核心概念和基本思想">微服务核心概念和基本思想</a><time datetime="2023-09-19T16:00:00.000Z" title="发表于 2023-09-20 00:00:00">2023-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/471314486/" title="微服务演变">微服务演变</a><time datetime="2023-09-18T16:00:00.000Z" title="发表于 2023-09-19 00:00:00">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2880216239/" title="数据脱敏">数据脱敏</a><time datetime="2023-08-31T16:00:00.000Z" title="发表于 2023-09-01 00:00:00">2023-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4211792226/" title="时间格式处理">时间格式处理</a><time datetime="2023-08-31T16:00:00.000Z" title="发表于 2023-09-01 00:00:00">2023-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3699994232/" title="SpringBoot Web">SpringBoot Web</a><time datetime="2023-06-30T16:00:00.000Z" title="发表于 2023-07-01 00:00:00">2023-07-01</time></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+      appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
