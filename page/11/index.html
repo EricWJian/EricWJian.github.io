@@ -1,0 +1,388 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Eric - 个人博客</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/page/11/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Eric',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-14 11:47:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">74</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3306982612/" title="VScode 常用插件">VScode 常用插件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-03-01T16:00:00.000Z" title="发表于 2018-03-02 00:00:00">2018-03-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/VScode/">VScode</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/3306982612/#post-comment"><span class="valine-comment-count" data-xid="/posts/3306982612/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+1、常用插件
+
+
+插件名称
+功能
+
+
+
+Bracket Pair Colorizer 2
+这个插件可以匹配括号的，并以彩色的形式展现出来。
+
+
+Auto Close Tag
+自动添加闭合标签
+
+
+Atuo Rename Tag
+修改 html 标签，自动帮你完成头部和尾部闭合标签的同步修改
+
+
+beautify
+美化 javascript, JSON, CSS, Sass和HTML代码。
+
+
+Chinese (Simplified) Language Pack for Visual Studio Code
+将 vscode 设置为中文。
+
+
+Code Runner
+在 vscode 中直接执行代码。
+
+
+code settings sync
+vscode 配置项同步。
+
+
+CSS Peek
+点击 css 样式，直接跳转到 css 文件。
+
+
+HTML CSS Support
+
+
+
+Live Server
+以服务器的形式，打开文件。
+
+
+npm
+
+
+
+open in browser
+在浏览器中打开
+
+
+TODO-HIGHLIGHT 和 Todo Tree
+在 vscode中 以树结构显 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2890961836/" title="移动Web开发">移动Web开发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-01-18T16:00:00.000Z" title="发表于 2018-01-19 00:00:00">2018-01-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2890961836/#post-comment"><span class="valine-comment-count" data-xid="/posts/2890961836/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">视频地址：
+
+1.移动端基础兼容移动端主流浏览器，处理Webkit内核浏览器即可。
+2. 视口视口（viewport）就是浏览器显示页面内容的屏幕区域。 视口可以分为布局视口、视觉视口和理想视口
+2.1 布局视口 layout viewport
+一般移动设备的浏览器都默认设置了一个布局视口，用于解决早期的PC端页面在手机上显示的问题。 
+iOS, Android基本都将这个视口分辨率设置为 980px，所以PC上的网页大多都能在手机上呈现，只不过元 素看上去很小，一般默认可以通过手动缩放网页。
+
+2.2 视觉视口 visual viewport
+字面意思，它是用户正在看到的网站的区域。注意：是网站的区域。 
+我们可以通过缩放去操作视觉视口，但不会影响布局视口，布局视口仍保持原来的宽度。
+
+2.3 理想视口 ideal viewport
+为了使网站在移动端有最理想的浏览和阅读宽度而设定 
+理想视口，对设备来讲，是最理想的视口尺寸
+需要手动添写meta视口标签通知浏览器操作 
+meta视口标签的主要目的：布局视口的宽度应该与理想视口的宽度一致，简单理解就是设备有多宽，我们布 局的视口就多宽 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/138443329/" title="SSM">SSM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-01-12T16:00:00.000Z" title="发表于 2018-01-13 00:00:00">2018-01-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SSM/">SSM</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/138443329/#post-comment"><span class="valine-comment-count" data-xid="/posts/138443329/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+项目地址：SSM-Project: SSM 框架搭建 (gitee.com)
+北京尚学堂2020java_SpringMVC第二天 - 明卿册 - 博客园 (cnblogs.com)
+1、两个容器当 Spring 和 SpringMVC 同时出现，我们的项目中将存在两个容器，一个是 Spring 容器，另一个是 SpringMVC 容器，Spring 容器通过 ContextLoaderListener 来加载，SpringMVC 容器则通过 DispatcherServlet 来加载，这两个容器不一样：
+
+
+从图中可以看出：
+
+ContextLoaderListener 初始化的上下文加载的 Bean 是对于整个应用程序共享的，不管是使用什么表现层技术，一般如 DAO 层、Service 层 Bean；
+DispatcherServlet 初始化的上下文加载的 Bean 是只对 Spring Web MVC 有效的 Bean，如 Controller、HandlerMapping、HandlerAdapter 等等，该初始化上下文应该只加载 Web相关组件。
+
+
+为什么不在 Spr ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1012917595/" title="JQuery">JQuery</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-12-25T16:00:00.000Z" title="发表于 2017-12-26 00:00:00">2017-12-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1012917595/#post-comment"><span class="valine-comment-count" data-xid="/posts/1012917595/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">视频地址：
+
+JQuery概述JavaScript库：即 library，是一个封装好的特定的集合（方法和函数）。从封装一大堆函数的角度理解库，就 是在这个库中，封装了很多预先定义好的函数在里面，比如动画animate、hide、show，比如获取元素等。简单理解： 就是一个JS 文件，里面对我们原生js代码进行了封装，存放到里面。这样我们可以快速高效的使用 这些封装好的功能了。比如 JQuery，就是为了快速方便的操作DOM，里面基本都是函数（方法）。
+JQuery 是一个快速、简洁的 JavaScript 库，其设计的宗旨是“write Less，Do More”，即倡导写更少的代码， 做更多的事情。j 就是 JavaScript； Query 查询； 意思就是查询js，把js中的DOM操作做了封装，我们可以快速的查询使用里 面的功能。JQuery 封装了 JavaScript 常用的功能代码，优化了 DOM 操作、事件处理、动画设计和 Ajax 交互。学习JQuery本质： 就是学习调用这些函数（方法）。JQuery 出现的目的是加快前端人员的开发速度，我们可以非常方便的调用和使 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2920256992/" title="SpringMVC">SpringMVC</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-12-09T16:00:00.000Z" title="发表于 2017-12-10 00:00:00">2017-12-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SSM/">SSM</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2920256992/#post-comment"><span class="valine-comment-count" data-xid="/posts/2920256992/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+视频地址
+Spring MVC 5.x 学习_刘Java的博客-CSDN博客
+项目地址
+1、SpringMVC 简介1.SpringMVC 中重要组件1、DispatcherServlet : 前端控制器用户请求到达前端控制器，它就相当于 mvc 模式中的c，DispatcherServlet 是整个流程控制的中心，相当于是 SpringMVC 的大脑，由它调用其它组件处理用户的请求，DispatcherServlet 的存在降低了组件之间的耦合性。
+2、HandlerMapping：处理器映射器HandlerMapping 负责根据用户请求找到 Handler 即处理器（也就是我们所说的 Controller），SpringMVC 提供了不同的映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等，在实际开发中，我们常用的方式是注解方式。
+3、Handler：处理器Handler 是继 DispatcherServlet 前端控制器的后端控制器，在DispatcherServlet 的控制下 Handler 对具体的用户请求进行处理。由于 Handler 涉及到具体 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3424359953/" title="JavaScript">JavaScript</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-11-17T16:00:00.000Z" title="发表于 2017-11-18 00:00:00">2017-11-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/3424359953/#post-comment"><span class="valine-comment-count" data-xid="/posts/3424359953/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">视频地址：
+
+1.初识 JavaScript1.1 JavaScript 是什么
+JavaScript 是世界上最流行的语言之一，是一种运行在客户端的脚本语言 （Script 是脚本的意思）。
+脚本语言：不需要编译，运行过程中由 js 解释器( js 引擎）逐行来进行解释并执行。
+
+1.2 JavaScript 的作用
+表单动态校验（密码强度检测）  （ JS 产生最初的目的 ）。
+网页特效。
+服务端开发(Node.js)。
+桌面程序(Electron)。
+App(Cordova) 
+控制硬件-物联网(Ruff)
+游戏开发(cocos2d-js)
+
+1.3 HTML/CSS/JS 的关系HTML/CSS 标记语言--描述类语言
+
+HTML 决定网页结构和内容( 决定看到什么 )，相当于人的身体。 
+CSS 决定网页呈现给用户的模样( 决定好不好看 )， 相当于给人穿衣服、化妆。
+
+JS 脚本语言--编程类语言
+
+实现业务逻辑和页面控制( 决定功能 )，相当于人的各种动作 。
+
+1.4 浏览器执行 JS 简介浏览器分成两部分：渲染引擎和 JS 引擎.
+
+渲染引擎：用来解析 HTML 与  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/583548277/" title="CSS 学习">CSS 学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-10-14T16:00:00.000Z" title="发表于 2017-10-15 00:00:00">2017-10-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/583548277/#post-comment"><span class="valine-comment-count" data-xid="/posts/583548277/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">视频地址：
+
+1.认识CSS
+CSS的三大特性
+
+css 又称作层叠样式表。
+层叠性；后面的覆盖前面定义的（以最后的定义为准）。继承性；子标签会继承父标签的某些样式（跟文字相关的一般会继承，块级元素一般不继承）。优先级：默认样式 &lt; 标签选择器 &lt; 类选择器 &lt; id选择器 &lt; 行内样式 &lt;!important。
+2.CSS 基础选择器2.1 CSS 选择器的作用选择器(选择符)就是根据不同需求，把不同的标签选出来，这就是选择器的作用。 简单来说，就是选择标签用的。 
+2.2 选择器分类选择器分为基础选择器和复合选择器两个大类，我们这里先讲解一下基础选择器。 
+
+基础选择器是由单个选择器组成的 。
+
+基础选择器又包括：标签选择器、类选择器、id选择器 和 通配符选择器。
+
+
+2.3 标签选择器标签选择器（元素选择器）是指用 HTML 标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的 CSS 样式
+作用： 
+标签选择器可以把某一类标签全部选择出来，比如所有的 &lt;div&gt; 标签和所有的 &lt;span&gt; 标签。 
+优点： 
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1821512031/" title="Spring">Spring</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-10-11T16:00:00.000Z" title="发表于 2017-10-12 00:00:00">2017-10-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SSM/">SSM</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1821512031/#post-comment"><span class="valine-comment-count" data-xid="/posts/1821512031/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+视频地址：
+Gitee 地址：
+
+
+
+
+
+
+一、Spring 环境搭建1、使用maven创建项目123456789101112131415161718192021222324252627282930313233&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;    &lt;artifactId&gt;Sp ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/787223889/" title="HTML">HTML</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-09-13T16:00:00.000Z" title="发表于 2017-09-14 00:00:00">2017-09-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/787223889/#post-comment"><span class="valine-comment-count" data-xid="/posts/787223889/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">视频地址
+
+1、HTML使用Web 标准的构成：
+
+
+1.HTML 语法规范1.1 基本语法概述
+HTML 标签是由尖括号包围的关键词，例如 &lt;html&gt;。 
+HTML 标签通常是成对出现的，例如 &lt;html&gt; 和 &lt;/html&gt; ，我们称为双标签。标签对中的第一个标签是开始标签，第二个标签是结束标签。 
+有些特殊的标签必须是单个标签（极少情况），例如 &lt;br/&gt; 我们称为单标签。 
+
+1.2 标签关系双标签关系可以分为两类：包含关系和并列关系。
+
+
+2.HTML 基本结构标签2.1 第一个 HTML 网页每个网页都会有一个基本的结构标签（也称为骨架标签），页面内容也是在这些基本标签上书写。 
+HTML页面也称为 HTML 文档
+每个网页都会有一个基本的结构标签（也称为骨架标签），页面内容也是在这些基本标签上书写。
+&lt;!DOCTYPE html&gt; 声明为 HTML5 文档
+
+
+
+标签名
+定义
+说明
+
+
+
+&lt;html&gt;&lt;/html&gt;
+HTML标签
+页面中最大的标签，我们 称为 根标签
+
+
+&lt;head ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3336967128/" title="Maven">Maven</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-08-18T16:00:00.000Z" title="发表于 2017-08-19 00:00:00">2017-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/maven/">maven</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/3336967128/#post-comment"><span class="valine-comment-count" data-xid="/posts/3336967128/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">1、安装1、解压部署Maven核心程序
+
+解压Maven的核心程序
+将apache-maven-3.2.2-bin.zip解压到一个非中文无空格的目录下。例如：D:\DevInstall\apache-maven-3.2.2
+
+配置环境变量
+12MAVEN_HOME = D:\DevInstall\apache-maven-3.2.2path	= %MAVEN_HOME%\bin
+查看Maven版本信息验证安装是否正确
+1mvn -v
+
+2、修改本地仓库
+
+默认本地仓库位置：~.m2\repository
+
+~表示当前用户的家目录，例如：C:\Users\[你当前登录系统的用户名]
+
+
+指定本地仓库位置的配置信息文件：apache-maven-3.2.2\conf\settings.xml
+
+在根标签settings下添加如下内容：
+1&lt;localRepository&gt;[本地仓库路径，也就是RepMaven.zip的解压目录]&lt;/localRepository&gt;
+设置 阿里云 国内镜像源
+12345678&lt;mirrors&gt;    &lt;mirror ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/10/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/12/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">74</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2889834893/" title="SpringCloud Feign">SpringCloud Feign</a><time datetime="2024-07-01T16:00:00.000Z" title="发表于 2024-07-02 00:00:00">2024-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3906916735/" title="微服务核心概念和基本思想">微服务核心概念和基本思想</a><time datetime="2023-09-19T16:00:00.000Z" title="发表于 2023-09-20 00:00:00">2023-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/471314486/" title="微服务演变">微服务演变</a><time datetime="2023-09-18T16:00:00.000Z" title="发表于 2023-09-19 00:00:00">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2880216239/" title="数据脱敏">数据脱敏</a><time datetime="2023-08-31T16:00:00.000Z" title="发表于 2023-09-01 00:00:00">2023-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4211792226/" title="时间格式处理">时间格式处理</a><time datetime="2023-08-31T16:00:00.000Z" title="发表于 2023-09-01 00:00:00">2023-09-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ES/"><span class="card-category-list-name">ES</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/IDEA/"><span class="card-category-list-name">IDEA</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Jenkins/"><span class="card-category-list-name">Jenkins</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/K8s/"><span class="card-category-list-name">K8s</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">18</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/seata/" style="font-size: 1.15em; color: rgb(176, 104, 19)">seata</a><a href="/tags/hexo/" style="font-size: 1.15em; color: rgb(9, 31, 176)">hexo</a><a href="/tags/SpringBoot/" style="font-size: 1.39em; color: rgb(9, 56, 123)">SpringBoot</a><a href="/tags/Redis/" style="font-size: 1.45em; color: rgb(4, 14, 161)">Redis</a><a href="/tags/Docker/" style="font-size: 1.33em; color: rgb(70, 143, 47)">Docker</a><a href="/tags/RabbitMQ/" style="font-size: 1.21em; color: rgb(26, 133, 191)">RabbitMQ</a><a href="/tags/Vue/" style="font-size: 1.15em; color: rgb(141, 95, 77)">Vue</a><a href="/tags/VScode/" style="font-size: 1.15em; color: rgb(169, 156, 71)">VScode</a><a href="/tags/Nodejs/" style="font-size: 1.15em; color: rgb(101, 143, 166)">Nodejs</a><a href="/tags/CROS/" style="font-size: 1.15em; color: rgb(110, 111, 80)">CROS</a><a href="/tags/Java/" style="font-size: 1.15em; color: rgb(56, 80, 104)">Java</a><a href="/tags/JVM/" style="font-size: 1.15em; color: rgb(72, 198, 158)">JVM</a><a href="/tags/JUC/" style="font-size: 1.15em; color: rgb(182, 130, 44)">JUC</a><a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 1.15em; color: rgb(124, 63, 171)">多线程</a><a href="/tags/annotation/" style="font-size: 1.15em; color: rgb(176, 55, 63)">annotation</a><a href="/tags/log/" style="font-size: 1.15em; color: rgb(48, 15, 74)">log</a><a href="/tags/web/" style="font-size: 1.15em; color: rgb(88, 35, 6)">web</a><a href="/tags/AOP/" style="font-size: 1.15em; color: rgb(94, 98, 122)">AOP</a><a href="/tags/Thymeleaf/" style="font-size: 1.15em; color: rgb(37, 73, 77)">Thymeleaf</a><a href="/tags/Admin/" style="font-size: 1.15em; color: rgb(191, 61, 38)">Admin</a><a href="/tags/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" style="font-size: 1.15em; color: rgb(76, 15, 111)">文件处理</a><a href="/tags/ShardingSphere/" style="font-size: 1.15em; color: rgb(165, 124, 165)">ShardingSphere</a><a href="/tags/Mybatis/" style="font-size: 1.27em; color: rgb(60, 15, 193)">Mybatis</a><a href="/tags/MybatisPlus/" style="font-size: 1.15em; color: rgb(30, 124, 69)">MybatisPlus</a><a href="/tags/SpringCloud/" style="font-size: 1.15em; color: rgb(47, 176, 187)">SpringCloud</a><a href="/tags/Alibaba/" style="font-size: 1.21em; color: rgb(51, 72, 7)">Alibaba</a><a href="/tags/Nacos/" style="font-size: 1.15em; color: rgb(47, 27, 178)">Nacos</a><a href="/tags/Sentinel/" style="font-size: 1.15em; color: rgb(137, 2, 135)">Sentinel</a><a href="/tags/GateWay/" style="font-size: 1.15em; color: rgb(148, 161, 158)">GateWay</a><a href="/tags/Session/" style="font-size: 1.21em; color: rgb(42, 10, 78)">Session</a><a href="/tags/feign/" style="font-size: 1.15em; color: rgb(33, 17, 145)">feign</a><a href="/tags/SpringSecurity/" style="font-size: 1.15em; color: rgb(0, 54, 40)">SpringSecurity</a><a href="/tags/JWT/" style="font-size: 1.15em; color: rgb(164, 152, 59)">JWT</a><a href="/tags/Shiro/" style="font-size: 1.15em; color: rgb(89, 53, 137)">Shiro</a><a href="/tags/MySQL/" style="font-size: 1.33em; color: rgb(180, 16, 21)">MySQL</a><a href="/tags/OAuth2/" style="font-size: 1.15em; color: rgb(46, 99, 144)">OAuth2</a><a href="/tags/Linux/" style="font-size: 1.15em; color: rgb(86, 73, 44)">Linux</a><a href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/" style="font-size: 1.15em; color: rgb(12, 110, 88)">防火墙</a><a href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" style="font-size: 1.15em; color: rgb(57, 87, 125)">网络配置</a><a href="/tags/JDK/" style="font-size: 1.15em; color: rgb(1, 43, 7)">JDK</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">112</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">546k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-14T03:47:35.713Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+        appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+        serverURLs: ''
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
+
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

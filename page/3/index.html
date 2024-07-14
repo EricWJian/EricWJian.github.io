@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Eric - 个人博客</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Eric',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-14 11:47:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">74</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/156314962/" title="Redis分布式Session">Redis分布式Session</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-29T16:00:00.000Z" title="发表于 2023-01-30 00:00:00">2023-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/156314962/#post-comment"><span class="valine-comment-count" data-xid="/posts/156314962/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Redis实现分布式Session管理1、管理机制redis的session管理是利用spring提供的session管理解决方案,将一个应用session交给Redis存储,整个应用中所有session的请求都会去redis中获取对应的session数据。
+
+
+2、开发Session管理1. 引入依赖1234&lt;dependency&gt;  &lt;groupId&gt;org.springframework.session&lt;/groupId&gt;  &lt;artifactId&gt;spring-session-data-redis&lt;/artifactId&gt;&lt;/dependency&gt;
+
+2. 开发Session管理配置类12345@Configuration@EnableRedisHttpSessionpublic class RedisSessionManager &#123;   &#125;
+
+3.打包测试即可</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1278012423/" title="Redis中使用lua脚本">Redis中使用lua脚本</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-29T12:46:25.000Z" title="发表于 2023-01-29 20:46:25">2023-01-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Redis/">Redis</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1278012423/#post-comment"><span class="valine-comment-count" data-xid="/posts/1278012423/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+一、在Redis使用lua脚本的好处
+减少网络开销。可以将多个请求通过脚本的形式一次发送，减少网络时延。
+原子操作。Redis会将整个脚本作为一个整体执行，中间不会被其他请求插入。因此在脚本运行过程中无需担心会出现竞态条件，无需使用事务。
+复用。客户端发送的脚本会永久存在redis中，这样其他客户端可以复用这一脚本，而不需要使用代码完成相同的逻辑。
+
+二、在Redis中使用lua脚本
+EVAL
+EVALSHA
+SCRIPT LOAD - SCRIPT EXISTS
+SCRIPT FLUSH
+SCRIPT KILL
+
+1、EVAL
+命令格式
+
+123456127.0.0.1:6379&gt; help eval  EVAL script numkeys key [key ...] arg [arg ...]  summary: Execute a Lua script server side  since: 2.6.0  group: scripting
+
+
+script参数是一段 Lua5.1 脚本程序。
+numkeys指定后续参数有几个key，即：key [key …]中key的个 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/28041543234/" title="RocketMQ使用">RocketMQ使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-13T16:00:00.000Z" title="发表于 2023-01-14 00:00:00">2023-01-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/RocketMQ/">RocketMQ</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/28041543234/#post-comment"><span class="valine-comment-count" data-xid="/posts/28041543234/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+一、概念1、基本概念1、消息(Message)消息是指，消息系统所传输信息的物理载体，生产和消费数据的最小单位，每条消息必须属于一个主题。
+2、主题(Topic)Topic 表示一类消息的集合，每个主题包含若干条消息，每条消息只能属于一个主题，是RocketMQ 进行消息订阅的基本单位。
+3、标签(Tag)为消息设置的标签，用于同一主题下区分不同类型的消息。来自同一业务单元的消息，可以根据不同业务目的在同一主题下设置不同标签。消费者可以根据 Tag 实现对不同子主题的不同消费逻辑，实现更好的扩展性。
+Topic是消息的一级分类，Tag是消息的二级分类。
+4、消息标识(MessageId/Key)RocketMQ中每个消息拥有唯一的 MessageId，且可以携带具有业务标识的 Key，以方便对消息的查询。不过需要注意的是，MessageId 有两个：在生产者 send() 消息时会自动生成一个 MessageId（msgId)，当消息到达Broker后，Broker也会自动生成一个MessageId(offsetMsgId)。msgId、offsetMsgId 与 key 都称为消息 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2595157687/" title="SpringBoot 日志">SpringBoot 日志</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-12T16:00:00.000Z" title="发表于 2023-01-13 00:00:00">2023-01-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2595157687/#post-comment"><span class="valine-comment-count" data-xid="/posts/2595157687/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Gitee 地址
+Log4jAppenderAppender：日志输出器，配置日志的输出级别、输出位置等，包括以下几类：
+
+ConsoleAppender: 日志输出到控制台；
+FileAppender：输出到文件；
+RollingFileAppender：输出到文件，文件达到一定阈值时，自动备份日志文件;
+DailyRollingFileAppender：可定期备份日志文件，默认一天一个文件，也可设置为每分钟一个、每小时一个；
+WriterAppender：可自定义日志输出位置。
+
+配置日志信息输出目的地
+123451.org.apache.log4j.ConsoleAppender（控制台）  2.org.apache.log4j.FileAppender（文件）  3.org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件）  4.org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件）  5.org.apache.log4j.WriterAppender（将日志信息 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2981466874/" title="RocketMQ安装">RocketMQ安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-12T16:00:00.000Z" title="发表于 2023-01-13 00:00:00">2023-01-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2981466874/#post-comment"><span class="valine-comment-count" data-xid="/posts/2981466874/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+一、Linux安装RocketMQ1、下载官网：https://rocketmq.apache.org/download/，下载 Binary 文件。
+2、安装1、解压1234# 解压unzip rocketmq-all-5.0.0-bin-release.zip # 移动并修改名称mv rocketmq-all-5.0.0-bin-release /usr/local/rocketmq-all-5.0.0
+
+2、配置环境变量12# 配置环境变量 ROCKETMQ_HOME 和 PATHvim /etc/profile
+
+在文件中填入以下内容
+123# rocketmq 环境变量export ROCKETMQ_HOME=/usr/local/rocketmq-all-5.0.0export PATH=$ROCKETMQ_HOME/bin:$PATH
+
+使配置生效
+12# 立即生效source /etc/profile
+
+3、减小内存12345678910111213141516171819202122232425# 编辑 bin/runserver.shvim bin/runserv ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2730732825/" title="Java多线程">Java多线程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-13T16:00:00.000Z" title="发表于 2022-12-14 00:00:00">2022-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2730732825/#post-comment"><span class="valine-comment-count" data-xid="/posts/2730732825/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Java多线程、并发编程和源码分析1、线程是什么、并发与并行、为什么需要线程1、线程和进程
+
+进程：简单的说，在系统中运行的一个应用程序就是一个进程。
+线程：也被称为轻量级进程，是大多数操作系统进行时序调度的基本单元。
+轻量级的含义(线程和进程最主要的区别):
+
+就是线程耗费的资源比进程要少，运行速度相对更快。
+进程之间是相互独立的，资源是不共享的。
+同一个进程内的线程是共享资源的。
+
+
+线程的切换速度更快，而进程切换很耗费资源，相对代价更高。
+
+时序调度的含义：就是操作系统对任务按照时间先后进行调度的过程。
+
+时序调度的基本单元就是线程。
+基本的调度方式：就是抢占式(抢占的是 CPU 的时间片)。
+
+
+举例：
+1、打开一个浏览器、一个聊天窗口分别是一个进程。进程可以有多个子任务，如聊天工具接收消息、发送消息，这些子任务成为线程。
+2、Tomcat是一个进程，当用户访问的时候，会为每个用户创建一个线程来进行访问。
+
+2、相关概念1、并发一个时间段多个线程在单个核心运行，同一时间只能一个线程运行，系统不停切换线程，看起来像同时运行实际上是线程不停切换。
+
+
+2、并行一个时间段内每个线程 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1372806157/" title="Spring注解">Spring注解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-13T16:00:00.000Z" title="发表于 2022-12-14 00:00:00">2022-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1372806157/#post-comment"><span class="valine-comment-count" data-xid="/posts/1372806157/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Spring 注解
+@SpringBootApplication
+Spring Boot 最最最核心的注解，用在 Spring Boot 主类上，标识这是一个 Spring Boot 应用，用来开启 Spring Boot 的各项能力。实际上这个注解是 @Configuration,@EnableAutoConfiguration,@ComponentScan三个注解的组合。由于这些注解一般都是一起使用，所以Spring Boot提供了一个统一的注解@SpringBootApplication。
+
+@Configuration@Configuration用于定义配置类，可替换xml配置文件，被注解的类内部包含有一个或多个被@Bean注解的方法，这些方法将会被AnnotationConfigApplicationContext或AnnotationConfigWebApplicationContext类进行扫描，并用于构建bean定义，初始化Spring容器。
+
+@EnableAutoConfiguration允许 Spring Boot 自动配置注解，开启这个注解之后，Spring  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1779313766/" title="SpringBoot 解析传值">SpringBoot 解析传值</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-02T16:00:00.000Z" title="发表于 2022-12-03 00:00:00">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1779313766/#post-comment"><span class="valine-comment-count" data-xid="/posts/1779313766/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Content-Type在HTTP协议消息头中，使用 Content-Type 来表示媒体类型信息。它被用来告诉服务端如何处理请求的数据，以及告诉客户端（一般是浏览器）如何解析响应的数据，比如显示图片，解析html或仅仅展示一个文本等。
+Post请求的内容放置在请求体中，Content-Type 定义了请求体的编码格式。数据发送出去后，还需要接收端解析才可以。接收端依靠请求头中的 Content-Type 字段来获知请求体的编码格式，最后再进行解析。
+1、GET 请求GET 请求不存在请求实体部分，键值对参数放置在 URL 尾部，浏览器把form数据转换成一个字串（name1=value1&amp;name2=value2…），然后把这个字串追加到url后面，用?分割，加载这个新的url。因此请求头不需要设置 Content-Type 字段，设置了也不会去使用。
+非 ASCII 码会自动进行编码转换，例如发送请求：www.bilibili.com?hehe=你的我的
+值得一提的是，GET 参数的编码方式是无法人为干涉的，这导致了不同浏览器有不同的编码方式。
+2、POST请求Http  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/619407742/" title="SpringBoot 读取配置方式">SpringBoot 读取配置方式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-26T16:00:00.000Z" title="发表于 2022-11-27 00:00:00">2022-11-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/619407742/#post-comment"><span class="valine-comment-count" data-xid="/posts/619407742/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+读取配置项目地址：
+1、有哪几种读取配置的方式Spring Boot 可以通过 
+
+@Value
+@ConfigurationProperties
+@PropertySource
+@Environment 
+
+来绑定变量。
+2、@Value1234info:  name: wangjian  age: 18  address: USA
+
+12345678910@Data@Componentpublic class TestValue &#123;    @Value(&quot;$&#123;info.name&#125;&quot;)    String name;    @Value(&quot;$&#123;info.age&#125;&quot;)    int age;    @Value(&quot;$&#123;info.address&#125;&quot;)    String address;&#125;
+
+12345678@AutowiredTestValue testValue;@Testvoid TestValue() &#123;   System.out ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1909746602/" title="SpringBoot使用AOP">SpringBoot使用AOP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-26T16:00:00.000Z" title="发表于 2022-11-27 00:00:00">2022-11-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1909746602/#post-comment"><span class="valine-comment-count" data-xid="/posts/1909746602/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+AOPGitee地址。
+一、pom导入依赖1234&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;&lt;/dependency&gt;
+
+二、相关注解
+@Component ：将当前类注入到Spring容器内。
+
+@Aspect ：表明当前类是一个切面类。
+
+@Before ：前置通知，在被切入方法执行之前执行。
+
+@After ：后置通知，在被切入方法执行之后执行。
+
+@AfterRuturning ：返回通知，在被切入方法返回结果之后执行。
+
+@AfterThrowing ：异常通知，在被切入方法抛出异常之后执行。
+
+@Around ：环绕通知，围绕着被切入方法执行。参数必须为ProceedingJoinPoint，pjp.proceed相应于执行被切面的方法。环绕通知一般单独使用，环绕通知可以替代上面的四种通知，后面单独介绍。
+
+@Pointcu ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">74</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2889834893/" title="SpringCloud Feign">SpringCloud Feign</a><time datetime="2024-07-01T16:00:00.000Z" title="发表于 2024-07-02 00:00:00">2024-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3906916735/" title="微服务核心概念和基本思想">微服务核心概念和基本思想</a><time datetime="2023-09-19T16:00:00.000Z" title="发表于 2023-09-20 00:00:00">2023-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/471314486/" title="微服务演变">微服务演变</a><time datetime="2023-09-18T16:00:00.000Z" title="发表于 2023-09-19 00:00:00">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2880216239/" title="数据脱敏">数据脱敏</a><time datetime="2023-08-31T16:00:00.000Z" title="发表于 2023-09-01 00:00:00">2023-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4211792226/" title="时间格式处理">时间格式处理</a><time datetime="2023-08-31T16:00:00.000Z" title="发表于 2023-09-01 00:00:00">2023-09-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ES/"><span class="card-category-list-name">ES</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/IDEA/"><span class="card-category-list-name">IDEA</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Jenkins/"><span class="card-category-list-name">Jenkins</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/K8s/"><span class="card-category-list-name">K8s</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">18</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/seata/" style="font-size: 1.15em; color: rgb(176, 104, 19)">seata</a><a href="/tags/hexo/" style="font-size: 1.15em; color: rgb(9, 31, 176)">hexo</a><a href="/tags/SpringBoot/" style="font-size: 1.39em; color: rgb(9, 56, 123)">SpringBoot</a><a href="/tags/Redis/" style="font-size: 1.45em; color: rgb(4, 14, 161)">Redis</a><a href="/tags/Docker/" style="font-size: 1.33em; color: rgb(70, 143, 47)">Docker</a><a href="/tags/RabbitMQ/" style="font-size: 1.21em; color: rgb(26, 133, 191)">RabbitMQ</a><a href="/tags/Vue/" style="font-size: 1.15em; color: rgb(141, 95, 77)">Vue</a><a href="/tags/VScode/" style="font-size: 1.15em; color: rgb(169, 156, 71)">VScode</a><a href="/tags/Nodejs/" style="font-size: 1.15em; color: rgb(101, 143, 166)">Nodejs</a><a href="/tags/CROS/" style="font-size: 1.15em; color: rgb(110, 111, 80)">CROS</a><a href="/tags/Java/" style="font-size: 1.15em; color: rgb(56, 80, 104)">Java</a><a href="/tags/JVM/" style="font-size: 1.15em; color: rgb(72, 198, 158)">JVM</a><a href="/tags/JUC/" style="font-size: 1.15em; color: rgb(182, 130, 44)">JUC</a><a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 1.15em; color: rgb(124, 63, 171)">多线程</a><a href="/tags/annotation/" style="font-size: 1.15em; color: rgb(176, 55, 63)">annotation</a><a href="/tags/log/" style="font-size: 1.15em; color: rgb(48, 15, 74)">log</a><a href="/tags/web/" style="font-size: 1.15em; color: rgb(88, 35, 6)">web</a><a href="/tags/AOP/" style="font-size: 1.15em; color: rgb(94, 98, 122)">AOP</a><a href="/tags/Thymeleaf/" style="font-size: 1.15em; color: rgb(37, 73, 77)">Thymeleaf</a><a href="/tags/Admin/" style="font-size: 1.15em; color: rgb(191, 61, 38)">Admin</a><a href="/tags/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" style="font-size: 1.15em; color: rgb(76, 15, 111)">文件处理</a><a href="/tags/ShardingSphere/" style="font-size: 1.15em; color: rgb(165, 124, 165)">ShardingSphere</a><a href="/tags/Mybatis/" style="font-size: 1.27em; color: rgb(60, 15, 193)">Mybatis</a><a href="/tags/MybatisPlus/" style="font-size: 1.15em; color: rgb(30, 124, 69)">MybatisPlus</a><a href="/tags/SpringCloud/" style="font-size: 1.15em; color: rgb(47, 176, 187)">SpringCloud</a><a href="/tags/Alibaba/" style="font-size: 1.21em; color: rgb(51, 72, 7)">Alibaba</a><a href="/tags/Nacos/" style="font-size: 1.15em; color: rgb(47, 27, 178)">Nacos</a><a href="/tags/Sentinel/" style="font-size: 1.15em; color: rgb(137, 2, 135)">Sentinel</a><a href="/tags/GateWay/" style="font-size: 1.15em; color: rgb(148, 161, 158)">GateWay</a><a href="/tags/Session/" style="font-size: 1.21em; color: rgb(42, 10, 78)">Session</a><a href="/tags/feign/" style="font-size: 1.15em; color: rgb(33, 17, 145)">feign</a><a href="/tags/SpringSecurity/" style="font-size: 1.15em; color: rgb(0, 54, 40)">SpringSecurity</a><a href="/tags/JWT/" style="font-size: 1.15em; color: rgb(164, 152, 59)">JWT</a><a href="/tags/Shiro/" style="font-size: 1.15em; color: rgb(89, 53, 137)">Shiro</a><a href="/tags/MySQL/" style="font-size: 1.33em; color: rgb(180, 16, 21)">MySQL</a><a href="/tags/OAuth2/" style="font-size: 1.15em; color: rgb(46, 99, 144)">OAuth2</a><a href="/tags/Linux/" style="font-size: 1.15em; color: rgb(86, 73, 44)">Linux</a><a href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/" style="font-size: 1.15em; color: rgb(12, 110, 88)">防火墙</a><a href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" style="font-size: 1.15em; color: rgb(57, 87, 125)">网络配置</a><a href="/tags/JDK/" style="font-size: 1.15em; color: rgb(1, 43, 7)">JDK</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">112</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">546k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-14T03:47:35.713Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+        appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+        serverURLs: ''
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
+
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
