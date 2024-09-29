@@ -1,0 +1,420 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Eric - 个人博客</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/page/7/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Eric',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-09-29 10:31:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4018737370/" title="Ape Frame">Ape Frame</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-21T16:00:00.000Z" title="发表于 2022-09-22 00:00:00">2022-09-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/4018737370/#post-comment"><span class="valine-comment-count" data-xid="/posts/4018737370/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+
+经典鸡翅的 ape-frame 框架
+
+Day 011、maven 的依赖关系
+业务模型不掺杂公共模型。
+公共模型应该作为一个单独的模块存在。
+所有依赖的版本号应该提取锁定。
+
+
+
+2、pom 中指定阿里镜像配置maven仓库，可以在maven的settings.xml里改。优点是全局统一配置，缺点是不受你项目git管理。也可以直接在pom.xml里改, 好处就是 可以受git管理，缺点是每个项目的pom你都得配置。
+maven自动下载依赖时，会涉级读取三个配置文件，分别是项目下的pom.xml 文件 、家目录下的.m2/settings.xml 与 maven 全局配置settings.xml 。
+三者的级先是 pom.xml &gt; /home_dir/.m2/settings.xml &gt; /maven_dir/conf/settings.xml 。
+12345678910111213141516171819202122232425262728&lt;repositories&gt;    &lt;repository&gt;        &lt;id&gt;cent ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/385996612/" title="SpringSecurity 管理 Session">SpringSecurity 管理 Session</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-09T16:00:00.000Z" title="发表于 2022-08-10 00:00:00">2022-08-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/">认证授权</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/385996612/#post-comment"><span class="valine-comment-count" data-xid="/posts/385996612/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+1、Session 什么时候的产生的Spring Security默认的行为是每个登录成功的用户会新建一个Session。这也就是下面的配置的效果：
+1&lt;http create-session=&quot;ifRequired&quot;&gt;...&lt;/http&gt;
+
+SpringSession中Session的创建机制：
+
+
+
+机制
+描述
+
+
+
+always
+如果没有session存在就创建一个
+
+
+ifRequired
+如果需要就创建一个Session（默认）
+
+
+never
+SpringSecurity 将不会创建Session，但是如果应用中其他地方创建了Session，那么Spring Security将会使用它。
+
+
+stateless
+SpringSecurity将绝对不会创建Session
+
+
+2、Session 超时当用户登录后，我们可以设置 session 的超时时间，当达到超时时间后，自动将用户退出登录。Session 超时的配置是 SpringBoot 原生支持的，我们只需要在 application.properties 配置文件中配置：
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1514862636/" title="实际面试">实际面试</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-11T16:00:00.000Z" title="发表于 2022-06-12 00:00:00">2022-06-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1514862636/#post-comment"><span class="valine-comment-count" data-xid="/posts/1514862636/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+整理实际面试过程中，问到的问题：
+
+项目中的闪光点和亮点
+
+JVM 内存设计策略
+
+同一个接口多次调用问题
+
+Hystrix 注解
+
+Spring 事务失效
+
+mysql 锁
+
+springCloud 链路追踪
+
+mysql 索引失效
+
+redis zset 使用场景
+
+服务端日志 排错。
+
+fullGC 发生时机
+
+虚拟机启动参数是怎样设置的
+
+mysql的索引
+
+@Autowired 和 @Resource的区别
+
+数据库表设计原则
+
+group by 和 partition by 的区别
+
+ribbon 和 feign 的区别
+
+数据库分库分表的原则
+
+分布式下数据不一致的问题
+
+Java的异常分为哪些
+
+线程池的配置参数以及执行逻辑
+
+订单30分钟过期怎么处理
+
+怎样保证接口的幂等性
+
+两个页面同时提交同一个订单，后端怎样处理
+
+事务的隔离级别
+
+重写和重载的区别
+
+ThreadLocal 的用法
+
+SpringSecurity 的原理
+
+Spring 的数据校验
+
+feign 的原理
+
+mybatis 的接口绑定原理
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1514862635/" title="数据结构">数据结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-11T16:00:00.000Z" title="发表于 2022-06-12 00:00:00">2022-06-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1514862635/#post-comment"><span class="valine-comment-count" data-xid="/posts/1514862635/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">过程演示:https://www.cs.usfca.edu/~galles/visualization/Algorithms.html，
+链表一、数组的优点随机访问性强，查找速度快
+二、数组的缺点1、对内存的要求高，必须要连续的内存空间2、插入和删除的效率比较低3、数组大小固定，动态拓展性差，而且可能浪费内存
+三、链表的优点1、对内存的要求低2、大小可以不固定，内存的利用率比较高3、插入和删除方便
+四、链表的缺点查找效率低，不可以随机查找，每次查找必须从头开始
+12345678910public class Node&#123;    //节点的值    int value；    //指向下一个节点的指针（java 中表现为下一个节点的引用）    Node next；        public void Node(int value)&#123;        this.value = value;    &#125;&#125;
+
+单链表的特点
+
+链表增删元素的时间复杂度为O(1),查找一个元素的时间复杂度为 O(n);
+单链表不用像数组那样预先分配存储空间的大小，避免了空间浪 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2037477332/" title="面试其他问题">面试其他问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-10T16:00:00.000Z" title="发表于 2022-06-11 00:00:00">2022-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2037477332/#post-comment"><span class="valine-comment-count" data-xid="/posts/2037477332/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+1、如何实现30分钟内未支付则取消订单
+数据库定时扫描(不推荐)
+
+JDK的延迟队列(不推荐)
+利用JDK自带的无界阻塞队列DelayQueue来实现，该队列只有在延迟期满的时候扌能从中获取元素，放入DelayQueue中的对象，是必须实现Delayed接口的。这种方式优点在于延时低，缺点就是一旦服务重启，之前放入队列的任务全部丢失。如果有大量的任务，可能会造成oom。代码复杂度也比较高。
+
+时间轮算法(不推荐)
+
+消息队列
+采用延时队列，超时放入死信交换机。
+
+
+2、百万并发抢券业务你如何设计？
+
+可能产生的问题
+1、没有锁，扣减会不会存在问题?
+2、业务校验是否可抽取?在事务中?是否会有原子性问题?
+3、扣减券数量是否存在性能瓶颈?
+
+
+
+
+3、常用的限流算法
+漏桶算法
+
+首先，我们有一个固定容量的桶，有水流进来，也有水流出去。对于流进来的水来说，我们无法预计一共有多少水会流进来，也无法预计水流的速度。但是对于流出去的水来说，这个桶可以固定水流出的速率。而且，当桶满了之后，多余的水将会溢出。当使用了漏桶算法，我们可以保证接口会以一个常速速率来处理请求。
+
+
+实现的关键点
+
+桶的容 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/742890947/" title="Mybatis 面试题">Mybatis 面试题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-10T16:00:00.000Z" title="发表于 2022-06-11 00:00:00">2022-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/742890947/#post-comment"><span class="valine-comment-count" data-xid="/posts/742890947/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Mybatis 简介1、什么是 Mybatis
+Mybatis 是一个半 ORM（对象关系映射）框架，它内部封装了JDBC，加载驱动、创建连接、创建 statement 等繁杂的过程，开发者开发时只需要关注如何编写SQL语句，可以严格控制sql执行性能，灵活度高。
+
+作为一个半 ORM 框架，MyBatis 可以使用 XML 或注解来配置和映射原生信息，将 POJO 映射成数据库中的记录，避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。
+
+通过 xml 文件或注解的方式将要执行的各种 statement 配置起来，并通过 java 对象和 statement 中sql的动态参数进行映射生成最终执行的 sql 语句，最后由 Mybatis 框架执行sql并将结果映射为java对象并返回。（从执行sql到返回result的过程）。
+
+由于MyBatis专注于SQL本身，灵活度高，所以比较适合对性能的要求很高，或者需求变化较多的项目，如互联网项目.
+
+称Mybatis是半自动ORM映射工具，是因为在查询关联对象或关联集合对象时，需要手动编写sql来完成。不像Hibernate ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1636770274/" title="SpringMVC 面试题">SpringMVC 面试题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-10T16:00:00.000Z" title="发表于 2022-06-11 00:00:00">2022-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1636770274/#post-comment"><span class="valine-comment-count" data-xid="/posts/1636770274/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+概述1、什么是 Spring MVCSpring MVC 是一个基于Java 的实现了 MVC 设计模式的请求驱动类型的轻量级 Web 框架，通过把 Model，View，Controller 分离，将 web 层进行职责解耦，把复杂的 web 应用分成逻辑清晰的几个部分来简化开发。
+2、Spring MVC的优点
+支持各种视图技术,而不仅仅局限于JSP；
+与 Spring 框架集成，如AOP、IOC容器等；
+清晰的角色分配，前端控制器(dispatcherServlet) ，请求到处理器映射（handlerMapping)，处理器适配器（HandlerAdapter)，视图解析器（ViewResolver）；
+支持各种请求资源的映射策略。
+
+3、过滤器和拦截器的区别
+过滤器和拦截器的区别是：
+
+
+拦截器基于java反射机制，过滤器基于函数回调；
+拦截器不依赖于servlet容器，过滤器依赖于servlet容器；
+拦截器只对action请求起作用，过滤器可以对几乎所有的请求起作用。
+
+
+过滤器
+
+依赖于servlet容器，是基于函数回调来实现的，几乎可以对所有的请求进行过滤，特点是过 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1218378067/" title="Spring面试题">Spring面试题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-10T16:00:00.000Z" title="发表于 2022-06-11 00:00:00">2022-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1218378067/#post-comment"><span class="valine-comment-count" data-xid="/posts/1218378067/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Spring 概述1、Spring是什么?Spring是一个轻量级的 IoC 和 AOP 容器框架。是为Java应用程序提供基础性服务的一套框架，目的是用于简化企业应用程序的开发，它使得开发者只需要关心业务需求。
+主要包括以下七个模块：
+
+Spring Context：提供框架式的 Bean 访问方式，以及企业级功能（JNDI、定时任务等）；
+Spring Core：核心类库，所有功能都依赖于该类库，提供IOC和DI服务；
+Spring AOP：AOP服务；
+Spring Web：提供了基本的面向Web的综合特性，提供对常见框架如Struts2的支持，Spring能够管理这些框架，将Spring的资源注入给框架，也能在这些框架的前后插入拦截器；
+Spring MVC：提供面向Web应用的Model-View-Controller，即MVC实现。
+Spring DAO：对JDBC的抽象封装，简化了数据访问异常的处理，并能统一管理JDBC事务；
+Spring ORM：对现有的ORM框架的支持；
+
+2、Spring 的优点？
+Spring 属于低侵入式设计，代码的污染极低；
+Spring  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/62751513/" title="SpringCloud面试题">SpringCloud面试题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-10T16:00:00.000Z" title="发表于 2022-06-11 00:00:00">2022-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/62751513/#post-comment"><span class="valine-comment-count" data-xid="/posts/62751513/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+概念什么是微服务架构微服务架构就是将单体的应用程序分成多个应用程序，这多个应用程序就成为微服务，每个微服务运行在自己的进程中，并使用轻量级的机制通信。这些服务围绕业务能力来划分，并通过自动化部署机制来独立部署。这些服务可以使用不同的编程语言，不同数据库，以保证最低限度的集中式管理。 
+什么是SpringCloudSpring Cloud 基于 Spring Boot 使得整体的开发、配置、部署都非常方便，可快速搭建基于微服务的分布式应用。
+SpringCloud的优缺点
+优点：
+
+
+耦合度比较低。不会影响其他模块的开发。
+
+减轻团队的成本，可以并行开发，不用关注其他人怎么开发，先关注自己的开发。
+
+配置比较简单，基本用注解就能实现，不用使用过多的配置文件。
+
+微服务跨平台的，可以用任何一种语言开发。
+
+每个微服务可以有自己的独立的数据库也有用公共的数据库。
+
+直接写后端的代码，不用关注前端怎么开发，直接写自己的后端代码即可，然后暴露接口，通过组件进行服务通信。
+
+
+
+缺点：
+
+
+部署比较麻烦，给运维工程师带来一定的麻烦。
+
+针对数据的管理比麻烦，因为微服务可以每个微服务使用一个数据库 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1973909180/" title="SpringBoot 面试题">SpringBoot 面试题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-10T16:00:00.000Z" title="发表于 2022-06-11 00:00:00">2022-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1973909180/#post-comment"><span class="valine-comment-count" data-xid="/posts/1973909180/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+1、什么是 Spring Boot？SpringBoot是简化Spring应用开发的一个框架。他整合了Spring的技术栈，提供各种现成的整合starter。提供各种标准化的默认配置。使得我们可以快速开发Spring项目，免掉xml配置的麻烦。降低Spring项目的成本。
+2、Spring Boot 有哪些优点？Spring Boot 优点非常多
+
+独立运行 
+简化配置 
+自动配置 
+无代码生成和XML配置 
+无需部署war文件
+避免大量的 Maven 导入和各种版本冲突
+
+3、Spring Boot 的核心注解是哪个？启动类上面的注解是@SpringBootApplication，它也是 SpringBoot 的核心注解，主要组合包含了以下 3 个注解：
+
+@SpringBootConfiguration：组合了 @Configuration 注解，实现配置文件的功能。
+@EnableAutoConfiguration：打开自动配置的功能，也可以关闭某个自动配置的选项，如关闭数据源自动配置功能： @SpringBootApplication(exclude = { DataSour ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/#content-inner">14</a><a class="extend next" rel="next" href="/page/8/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148432/" title="MyBatis 拦截器">MyBatis 拦截器</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148434/" title="MyBatis 集成druid数据源">MyBatis 集成druid数据源</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1166366203/" title="SQL调优">SQL调优</a><time datetime="2024-07-16T16:00:00.000Z" title="发表于 2024-07-17 00:00:00">2024-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3109398172/" title="ContextHolder">ContextHolder</a><time datetime="2024-07-11T16:00:00.000Z" title="发表于 2024-07-12 00:00:00">2024-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2889834893/" title="SpringCloud Feign">SpringCloud Feign</a><time datetime="2024-07-01T16:00:00.000Z" title="发表于 2024-07-02 00:00:00">2024-07-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/BAT/"><span class="card-category-list-name">BAT</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ES/"><span class="card-category-list-name">ES</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/IDEA/"><span class="card-category-list-name">IDEA</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Jenkins/"><span class="card-category-list-name">Jenkins</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/K8s/"><span class="card-category-list-name">K8s</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/seata/" style="font-size: 1.15em; color: rgb(20, 15, 87)">seata</a><a href="/tags/Prometheus/" style="font-size: 1.15em; color: rgb(146, 47, 163)">Prometheus</a><a href="/tags/hexo/" style="font-size: 1.15em; color: rgb(165, 90, 36)">hexo</a><a href="/tags/BAT/" style="font-size: 1.15em; color: rgb(11, 20, 160)">BAT</a><a href="/tags/%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98/" style="font-size: 1.15em; color: rgb(71, 118, 166)">实际问题</a><a href="/tags/Redis/" style="font-size: 1.45em; color: rgb(121, 77, 147)">Redis</a><a href="/tags/Docker/" style="font-size: 1.33em; color: rgb(109, 87, 62)">Docker</a><a href="/tags/RabbitMQ/" style="font-size: 1.21em; color: rgb(22, 78, 90)">RabbitMQ</a><a href="/tags/webpack/" style="font-size: 1.15em; color: rgb(91, 18, 119)">webpack</a><a href="/tags/Nodejs/" style="font-size: 1.15em; color: rgb(196, 61, 1)">Nodejs</a><a href="/tags/CROS/" style="font-size: 1.15em; color: rgb(101, 65, 0)">CROS</a><a href="/tags/VScode/" style="font-size: 1.15em; color: rgb(107, 92, 41)">VScode</a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.15em; color: rgb(180, 46, 165)">设计模式</a><a href="/tags/Vue/" style="font-size: 1.15em; color: rgb(196, 147, 183)">Vue</a><a href="/tags/JVM/" style="font-size: 1.15em; color: rgb(61, 13, 34)">JVM</a><a href="/tags/Java/" style="font-size: 1.27em; color: rgb(81, 33, 24)">Java</a><a href="/tags/Java%E5%BC%95%E7%94%A8/" style="font-size: 1.15em; color: rgb(121, 84, 95)">Java引用</a><a href="/tags/Alibaba/" style="font-size: 1.21em; color: rgb(124, 71, 131)">Alibaba</a><a href="/tags/Nacos/" style="font-size: 1.15em; color: rgb(41, 125, 60)">Nacos</a><a href="/tags/JUC/" style="font-size: 1.15em; color: rgb(112, 121, 140)">JUC</a><a href="/tags/GateWay/" style="font-size: 1.15em; color: rgb(49, 58, 107)">GateWay</a><a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 1.15em; color: rgb(64, 15, 98)">多线程</a><a href="/tags/Sentinel/" style="font-size: 1.15em; color: rgb(13, 148, 182)">Sentinel</a><a href="/tags/Sleuth/" style="font-size: 1.15em; color: rgb(2, 131, 76)">Sleuth</a><a href="/tags/feign/" style="font-size: 1.15em; color: rgb(16, 26, 35)">feign</a><a href="/tags/jsp/" style="font-size: 1.15em; color: rgb(123, 105, 5)">jsp</a><a href="/tags/SpringBoot/" style="font-size: 1.39em; color: rgb(171, 142, 174)">SpringBoot</a><a href="/tags/log/" style="font-size: 1.15em; color: rgb(160, 155, 61)">log</a><a href="/tags/AOP/" style="font-size: 1.15em; color: rgb(180, 33, 180)">AOP</a><a href="/tags/Thymeleaf/" style="font-size: 1.15em; color: rgb(71, 164, 153)">Thymeleaf</a><a href="/tags/Admin/" style="font-size: 1.15em; color: rgb(32, 187, 97)">Admin</a><a href="/tags/SpringCloud/" style="font-size: 1.15em; color: rgb(128, 30, 186)">SpringCloud</a><a href="/tags/web/" style="font-size: 1.15em; color: rgb(25, 192, 154)">web</a><a href="/tags/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" style="font-size: 1.15em; color: rgb(183, 55, 1)">文件处理</a><a href="/tags/xxl-job/" style="font-size: 1.15em; color: rgb(141, 152, 14)">xxl-job</a><a href="/tags/ShardingSphere/" style="font-size: 1.15em; color: rgb(200, 82, 154)">ShardingSphere</a><a href="/tags/Mybatis/" style="font-size: 1.27em; color: rgb(140, 170, 29)">Mybatis</a><a href="/tags/Activiti7/" style="font-size: 1.15em; color: rgb(142, 5, 193)">Activiti7</a><a href="/tags/MybatisPlus/" style="font-size: 1.15em; color: rgb(145, 36, 100)">MybatisPlus</a><a href="/tags/websocket/" style="font-size: 1.15em; color: rgb(181, 86, 178)">websocket</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">140</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">580.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-29T02:31:20.456Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+        appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+        serverURLs: ''
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
+
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

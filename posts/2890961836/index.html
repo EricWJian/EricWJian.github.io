@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>移动Web开发 | Eric</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="视频地址：  1.移动端基础兼容移动端主流浏览器，处理Webkit内核浏览器即可。 2. 视口视口（viewport）就是浏览器显示页面内容的屏幕区域。 视口可以分为布局视口、视觉视口和理想视口 2.1 布局视口 layout viewport 一般移动设备的浏览器都默认设置了一个布局视口，用于解决"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/posts/2890961836/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '移动Web开发',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-21 09:23:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">移动Web开发</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-01-18T16:00:00.000Z" title="发表于 2018-01-19 00:00:00">2018-01-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-21T01:23:50.926Z" title="更新于 2023-09-21 09:23:50">2023-09-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="移动Web开发"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14J4114768?p=391">视频地址：</a></p>
+<hr>
+<h1 id="1-移动端基础"><a href="#1-移动端基础" class="headerlink" title="1.移动端基础"></a>1.移动端基础</h1><p>兼容移动端主流浏览器，处理Webkit内核浏览器即可。</p>
+<h1 id="2-视口"><a href="#2-视口" class="headerlink" title="2. 视口"></a>2. 视口</h1><p>视口（viewport）就是浏览器显示页面内容的屏幕区域。 视口可以分为布局视口、视觉视口和理想视口</p>
+<h2 id="2-1-布局视口-layout-viewport"><a href="#2-1-布局视口-layout-viewport" class="headerlink" title="2.1 布局视口 layout viewport"></a>2.1 布局视口 layout viewport</h2><ul>
+<li>一般移动设备的浏览器都默认设置了一个布局视口，用于解决早期的PC端页面在手机上显示的问题。 </li>
+<li>iOS, Android基本都将这个视口分辨率设置为 980px，所以PC上的网页大多都能在手机上呈现，只不过元 素看上去很小，一般默认可以通过手动缩放网页。</li>
+</ul>
+<h2 id="2-2-视觉视口-visual-viewport"><a href="#2-2-视觉视口-visual-viewport" class="headerlink" title="2.2 视觉视口 visual viewport"></a>2.2 视觉视口 visual viewport</h2><ul>
+<li>字面意思，它是用户正在看到的网站的区域。注意：是网站的区域。 </li>
+<li>我们可以通过缩放去操作视觉视口，但不会影响布局视口，布局视口仍保持原来的宽度。</li>
+</ul>
+<h2 id="2-3-理想视口-ideal-viewport"><a href="#2-3-理想视口-ideal-viewport" class="headerlink" title="2.3 理想视口 ideal viewport"></a>2.3 理想视口 ideal viewport</h2><ul>
+<li>为了使网站在移动端有最理想的浏览和阅读宽度而设定 </li>
+<li>理想视口，对设备来讲，是最理想的视口尺寸</li>
+<li>需要手动添写meta视口标签通知浏览器操作 </li>
+<li>meta视口标签的主要目的：布局视口的宽度应该与理想视口的宽度一致，简单理解就是设备有多宽，我们布 局的视口就多宽</li>
+</ul>
+<h2 id="2-5-meta视口标签"><a href="#2-5-meta视口标签" class="headerlink" title="2.5 meta视口标签"></a>2.5 meta视口标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="/posts/2890961836/1604539761828.png" class="" width="1604539761828">
+
+<h1 id="3-二倍图"><a href="#3-二倍图" class="headerlink" title="3.二倍图"></a>3.二倍图</h1><h2 id="3-1-物理像素-amp-物理像素比"><a href="#3-1-物理像素-amp-物理像素比" class="headerlink" title="3.1 物理像素&amp;物理像素比"></a>3.1 物理像素&amp;物理像素比</h2><ul>
+<li>物理像素点指的是屏幕显示的最小颗粒，是物理真实存在的。这是厂商在出厂时就设置好了,比如苹果6\7\8  是  750* 1334 </li>
+<li>我们开发时候的1px 不是一定等于1个物理像素的 </li>
+<li>PC端页面，1个px 等于1个物理像素的，但是移动端就不尽相同 </li>
+<li>一个px的能显示的物理像素点的个数，称为物理像素比或屏幕像素比</li>
+</ul>
+<h2 id="3-2-多倍图"><a href="#3-2-多倍图" class="headerlink" title="3.2 多倍图"></a>3.2 多倍图</h2><h2 id="3-3-背景缩放-background-size"><a href="#3-3-背景缩放-background-size" class="headerlink" title="3.3 背景缩放 background-size"></a>3.3 背景缩放 background-size</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-size</span>: 背景图片宽度 背景图片高度;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>单位：  长度|百分比|cover|contain; </li>
+<li>cover把背景图像扩展至足够大，以使背景图像完全覆盖背景区域(会超出父盒子)。 </li>
+<li>contain把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区（父盒子中最大显示）</li>
+</ul>
+<h1 id="5-移动端技术解决方案"><a href="#5-移动端技术解决方案" class="headerlink" title="5.移动端技术解决方案"></a>5.移动端技术解决方案</h1><h2 id="5-2-CSS初始化-normalize-css"><a href="#5-2-CSS初始化-normalize-css" class="headerlink" title="5.2 CSS初始化 normalize.css"></a>5.2 CSS初始化 normalize.css</h2><ul>
+<li>Normalize.css：保护了有价值的默认值 </li>
+<li>Normalize.css：修复了浏览器的bug </li>
+<li>Normalize.css：是模块化的 </li>
+<li>Normalize.css：拥有详细的文档</li>
+</ul>
+<h2 id="5-3-CSS3-盒子模型-box-sizing"><a href="#5-3-CSS3-盒子模型-box-sizing" class="headerlink" title="5.3 CSS3 盒子模型 box-sizing"></a>5.3 CSS3 盒子模型 box-sizing</h2><ul>
+<li>传统模式宽度计算：盒子的宽度 =  CSS中设置的width + border + padding </li>
+<li>CSS3盒子模型：     盒子的宽度 =  CSS中设置的宽度width 里面包含了 border 和 padding </li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*CSS3盒子模型*/</span>    </span><br><span class="line"><span class="attribute">box-sizing</span>: border-box;    </span><br><span class="line"><span class="comment">/*传统盒子模型*/</span>    </span><br><span class="line"><span class="attribute">box-sizing</span>: content-box;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-4-特殊样式"><a href="#5-4-特殊样式" class="headerlink" title="5.4 特殊样式"></a>5.4 特殊样式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*CSS3盒子模型*/</span>    </span><br><span class="line"><span class="attribute">box-sizing</span>: border-box;    </span><br><span class="line">-webkit-<span class="attribute">box-sizing</span>: border-box;    </span><br><span class="line"><span class="comment">/*点击高亮我们需要清除清除  设置为transparent 完成透明*/</span>    </span><br><span class="line">-webkit-tap-highlight-<span class="attribute">color</span>: transparent;    </span><br><span class="line"><span class="comment">/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/</span>    </span><br><span class="line">-webkit-appearance: none;    </span><br><span class="line"><span class="comment">/*禁用长按页面时的弹出菜单*/</span>    </span><br><span class="line"><span class="selector-tag">img</span>,<span class="selector-tag">a</span> &#123; -webkit-touch-callout: none; &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="6-移动端常见布局"><a href="#6-移动端常见布局" class="headerlink" title="6.移动端常见布局"></a>6.移动端常见布局</h1><img src="/posts/2890961836/1604542383738.png" class="" width="1604542383738">
+
+
+
+<h2 id="6-1-流式布局（百分比布局）"><a href="#6-1-流式布局（百分比布局）" class="headerlink" title="6.1 流式布局（百分比布局）"></a>6.1 流式布局（百分比布局）</h2><ul>
+<li>流式布局，就是百分比布局，也称非固定像素布局。 </li>
+<li>通过盒子的宽度设置成百分比来根据屏幕的宽度来进行伸缩，不受固定像素的限制，内容向两侧填充。 </li>
+<li>流式布局方式是移动web开发使用的比较常见的布局方式。</li>
+<li> max-width   最大宽度 （max-height  最大高度）  </li>
+<li>min-width    最小宽度 （min-height  最小高度）</li>
+</ul>
+<h1 id="7-flex布局"><a href="#7-flex布局" class="headerlink" title="7.flex布局"></a>7.flex布局</h1><h2 id="1-1-传统布局与flex布局"><a href="#1-1-传统布局与flex布局" class="headerlink" title="1.1 传统布局与flex布局"></a>1.1 传统布局与flex布局</h2><p>传统布局</p>
+<ul>
+<li>兼容性好 </li>
+<li>布局繁琐 </li>
+<li>局限性，不能再移动端很好的布局</li>
+</ul>
+<p>flex 弹性布局</p>
+<ul>
+<li>操作方便，布局极为简单，移动端应用很广泛 </li>
+<li>PC 端浏览器支持情况较差 </li>
+<li>IE 11或更低版本，不支持或仅部分支持</li>
+</ul>
+<p><strong>建议</strong>： </p>
+<ol>
+<li>如果是PC端页面布局，我们还是传统布局。 </li>
+<li>如果是移动端或者不考虑兼容性问题的PC端页面布局，我们还是使用flex弹性布局</li>
+</ol>
+<h2 id="2-1-布局原理"><a href="#2-1-布局原理" class="headerlink" title="2.1 布局原理"></a>2.1 布局原理</h2><p>flex 是 flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性，任何一个容器都可以 指定为 flex 布局。</p>
+<ul>
+<li>当我们为父盒子设为 flex 布局以后，子元素的 float、clear 和 vertical-align 属性将失效。 </li>
+<li>伸缩布局 = 弹性布局 = 伸缩盒布局 = 弹性盒布局 =flex布局</li>
+</ul>
+<p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称”容器”。它的所有子元素自动成为容器成 员，称为 Flex 项目（flex item），简称”项目”。</p>
+<h2 id="3-flex布局父项常见属性"><a href="#3-flex布局父项常见属性" class="headerlink" title="3. flex布局父项常见属性"></a>3. flex布局父项常见属性</h2><h3 id="3-1-常见父项属性"><a href="#3-1-常见父项属性" class="headerlink" title="3.1 常见父项属性"></a>3.1 常见父项属性</h3><ul>
+<li>flex-direction：设置主轴的方向 </li>
+<li>justify-content：设置主轴上的子元素排列方式 </li>
+<li>flex-wrap：设置子元素是否换行  </li>
+<li>align-content：设置侧轴上的子元素的排列方式（多行） </li>
+<li>align-items：设置侧轴上的子元素排列方式（单行） </li>
+<li>flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap</li>
+</ul>
+<h3 id="3-2-flex-direction-设置主轴的方向"><a href="#3-2-flex-direction-设置主轴的方向" class="headerlink" title="3.2 flex-direction 设置主轴的方向"></a>3.2 flex-direction 设置主轴的方向</h3><ol>
+<li>主轴与侧轴</li>
+</ol>
+<ul>
+<li><p> 默认主轴方向就是 x 轴方向，水平向右 </p>
+</li>
+<li><p>默认侧轴方向就是 y 轴方向，水平向下</p>
+</li>
+</ul>
+<ol start="2">
+<li>属性值</li>
+</ol>
+<img src="/posts/2890961836/1604544721213.png" class="" width="1604544721213">
+
+<h3 id="3-3-justify-content-设置主轴上的子元素排列方式"><a href="#3-3-justify-content-设置主轴上的子元素排列方式" class="headerlink" title="3.3 justify-content 设置主轴上的子元素排列方式"></a>3.3 justify-content 设置主轴上的子元素排列方式</h3><p>注意： 使用这个属性之前一定要确定好主轴是哪个</p>
+<img src="/posts/2890961836/1604544787742.png" class="" width="1604544787742">
+
+<h3 id="3-4-flex-wrap-设置子元素是否换行"><a href="#3-4-flex-wrap-设置子元素是否换行" class="headerlink" title="3.4 flex-wrap 设置子元素是否换行"></a>3.4 flex-wrap 设置子元素是否换行</h3><p> 默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，flex布局中默认是不换行的。r如果装不开，会缩小子元素的宽度。</p>
+<img src="/posts/2890961836/1604545217260.png" class="" width="1604545217260">
+
+
+
+<h3 id="3-5-align-items-设置侧轴上的子元素排列方式（单行-）"><a href="#3-5-align-items-设置侧轴上的子元素排列方式（单行-）" class="headerlink" title="3.5 align-items 设置侧轴上的子元素排列方式（单行 ）"></a>3.5 align-items 设置侧轴上的子元素排列方式（单行 ）</h3><p>该属性是控制子项在侧轴（默认是y轴）上的排列方式  在子项为单项（单行）的时候使用</p>
+<img src="/posts/2890961836/1604545475236.png" class="" width="1604545475236">
+
+<h3 id="3-6-align-content-设置侧轴上的子元素的排列方式（多行）"><a href="#3-6-align-content-设置侧轴上的子元素的排列方式（多行）" class="headerlink" title="3.6  align-content  设置侧轴上的子元素的排列方式（多行）"></a>3.6  align-content  设置侧轴上的子元素的排列方式（多行）</h3><p>设置子项在侧轴上的排列方式 并且只能用于子项出现 换行 的情况（多行），在单行下是没有效果的。</p>
+<img src="/posts/2890961836/1604545852452.png" class="" width="1604545852452">
+
+<p><strong>align-content 和 align-items 区别</strong></p>
+<ul>
+<li>align-items  适用于单行情况下， 只有上对齐、下对齐、居中和 拉伸 </li>
+<li>align-content 适应于换行（多行）的情况下（单行情况下无效）， 可以设置 上对齐、 下对齐、居中、拉伸以及平均分 配剩余空间等属性值。 </li>
+<li> 总结就是单行找 align-items  多行找 align-content</li>
+</ul>
+<h3 id="3-7-flex-flow"><a href="#3-7-flex-flow" class="headerlink" title="3.7  flex-flow"></a>3.7  flex-flow</h3><p>flex-flow 属性是 flex-direction 和 flex-wrap 属性的复合属性</p>
+<blockquote>
+<p>flex-flow:row wrap; </p>
+</blockquote>
+<h2 id="4-flex布局子项常见属性"><a href="#4-flex布局子项常见属性" class="headerlink" title="4. flex布局子项常见属性"></a>4. flex布局子项常见属性</h2><h3 id="4-1-flex-属性"><a href="#4-1-flex-属性" class="headerlink" title="4.1  flex 属性"></a>4.1  flex 属性</h3><p>flex 属性定义子项目分配剩余空间，用flex来表示占多少份数。</p>
+<h3 id="4-2-align-self-控制子项自己在侧轴上的排列方式"><a href="#4-2-align-self-控制子项自己在侧轴上的排列方式" class="headerlink" title="4.2 align-self 控制子项自己在侧轴上的排列方式"></a>4.2 align-self 控制子项自己在侧轴上的排列方式</h3><p>align-self 属性允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性。 默认值为 auto，表示继承父元素的 align-items 属性，如果没有父元素，则等同于 stretch。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;      </span><br><span class="line">    <span class="comment">/* 设置自己在侧轴上的排列方式 */</span>      </span><br><span class="line">    <span class="attribute">align-self</span>: flex-end; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-order-属性定义项目的排列顺序"><a href="#4-3-order-属性定义项目的排列顺序" class="headerlink" title="4.3 order 属性定义项目的排列顺序"></a>4.3 order 属性定义项目的排列顺序</h3><p>数值越小，排列越靠前，默认为0。 注意：和 z-index 不一样。</p>
+<h1 id="8-移动WEB开发之rem适配布局"><a href="#8-移动WEB开发之rem适配布局" class="headerlink" title="8.移动WEB开发之rem适配布局"></a>8.移动WEB开发之rem适配布局</h1><h2 id="1-rem-基础"><a href="#1-rem-基础" class="headerlink" title="1. rem 基础"></a>1. rem 基础</h2><p>rem (root em)是一个相对单位，类似于em，em是相对于父元素字体大小。 </p>
+<p>不同的是rem的基准是相对于html元素的字体大小。 </p>
+<p>比如，根元素（html）设置font-size=12px; 非根元素设置width:2rem; 则换成px表示就是24px。<br>rem的优势：父元素文字大小可能不一致， 但是整个页面只有一个html，可以很好来控制整个页面的元素大小 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 根html 为 12px */</span> </span><br><span class="line"><span class="selector-tag">html</span> &#123;   <span class="attribute">font-size</span>: <span class="number">12px</span>; &#125; </span><br><span class="line"><span class="comment">/* 此时 div 的字体大小就是 24px */</span>       </span><br><span class="line"><span class="selector-tag">div</span> &#123;    <span class="attribute">font-size</span>: <span class="number">2rem</span>; &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-媒体查询"><a href="#2-媒体查询" class="headerlink" title="2. 媒体查询"></a>2. 媒体查询</h2><h3 id="2-1-什么是媒体查询"><a href="#2-1-什么是媒体查询" class="headerlink" title="2.1 什么是媒体查询"></a>2.1 什么是媒体查询</h3><p>媒体查询（Media Query）是CSS3新语法。</p>
+<ul>
+<li>使用 @media 查询，可以针对不同的媒体类型定义不同的样式 </li>
+<li>@media 可以针对不同的屏幕尺寸设置不同的样式 </li>
+<li>当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面 </li>
+<li>目前针对很多苹果手机、Android手机，平板等设备都用得到多媒体查</li>
+</ul>
+<h3 id="2-2-语法规范"><a href="#2-2-语法规范" class="headerlink" title="2.2 语法规范"></a>2.2 语法规范</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> mediatype <span class="keyword">and</span>|<span class="keyword">not</span>|<span class="keyword">only</span> (media feature) &#123;    </span><br><span class="line">    CSS-<span class="selector-tag">Code</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用 @media 开头 注意@符号 </li>
+<li>mediatype  媒体类型 </li>
+<li>关键字 and  not   only </li>
+<li>media feature 媒体特性 必须有小括号包含</li>
+</ul>
+<h4 id="1-mediatype-查询类型"><a href="#1-mediatype-查询类型" class="headerlink" title="1.mediatype 查询类型"></a>1.mediatype 查询类型</h4><p>将不同的终端设备划分成不同的类型，称为媒体类型</p>
+<img src="/posts/2890961836/1604548365625.png" class="" width="1604548365625">
+
+<h4 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2. 关键字"></a>2. 关键字</h4><p>关键字将媒体类型或多个媒体特性连接到一起做为媒体查询的条件。</p>
+<ul>
+<li>and：可以将多个媒体特性连接到一起，相当于“且”的意思。 </li>
+<li>not：排除某个媒体类型，相当于“非”的意思，可以省略。 </li>
+<li>only：指定某个特定的媒体类型，可以省略。 </li>
+</ul>
+<h4 id="3-媒体特性"><a href="#3-媒体特性" class="headerlink" title="3. 媒体特性"></a>3. 媒体特性</h4><p>每种媒体类型都具体各自不同的特性，根据不同媒体类型的媒体特性设置不同的展示风格。我们暂且了解三个。 注意他们要加小括号包含</p>
+<img src="/posts/2890961836/1604553325645.png" class="" width="1604553325645">
+
+<p>max-width ：xx  ；小于等于xx值的时候，显示的方式</p>
+<p>min-width: yy; 大于等于 yy 的时候显示的方式。</p>
+<p>最小可可见区域，使改样式产生效果的最小值</p>
+<img src="/posts/2890961836/1604553453127.png" class="" width="1604553453127">
+
+<p>写的时候从小到大</p>
+<h3 id="2-4-引入资源（理解）"><a href="#2-4-引入资源（理解）" class="headerlink" title="2.4 引入资源（理解）"></a>2.4 引入资源（理解）</h3><p>当样式比较繁多的时候，我们可以针对不同的媒体使用不同 stylesheets（样式表）。</p>
+<p>原理，就是直接在link中判断设备的尺寸，然后引用不同的css文件。</p>
+<h4 id="1-语法规范"><a href="#1-语法规范" class="headerlink" title="1. 语法规范"></a>1. 语法规范</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">media</span>=<span class="string">&quot;mediatype and|not|only (media feature)&quot;</span> <span class="attr">href</span>=<span class="string">&quot;mystylesheet.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-示例"><a href="#2-示例" class="headerlink" title="2. 示例"></a>2. 示例</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;styleA.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;screen and (min-width: 400px)&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Less-基础"><a href="#3-Less-基础" class="headerlink" title="3. Less 基础"></a>3. Less 基础</h2><h3 id="3-2-Less-介绍"><a href="#3-2-Less-介绍" class="headerlink" title="3.2 Less 介绍"></a>3.2 Less 介绍</h3><p>Less （Leaner Style Sheets 的缩写） 是一门 CSS 扩展语言，也成为CSS预处理器。</p>
+<p>做为 CSS 的一种形式的扩展，它并没有减少 CSS 的功能，而是在现有的 CSS 语法上，为CSS加入程序式语言的 特性。 </p>
+<p><strong>Less 变量</strong></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@变量名:值;</span><br></pre></td></tr></table></figure>
+
+<p>1.变量命名规范</p>
+<ul>
+<li>必须有@为前缀 </li>
+<li>不能包含特殊字符 </li>
+<li>不能以数字开头 </li>
+<li>大小写敏感</li>
+</ul>
+<p><strong>Less 编译</strong> </p>
+<p>Easy LESS 插件用来把less文件编译为 css文件 </p>
+<p>安装完毕插件，重新加载下 vscode。 </p>
+<p>只要保存一下Less文件，会自动生成CSS 文件。</p>
+<p><strong>Less 嵌套</strong> </p>
+<p>内层选择器的前面没有 &amp; 符号，则它被解析为父选择器的后代； </p>
+<p>如果有 &amp; 符号，它就被解析为父元素自身或父元素的伪类。</p>
+<p><strong>Less 运算</strong></p>
+<p>任何数字、颜色或者变量都可以参与运算。就是Less提供了加（+）、减（-）、乘（*）、除（/）算术运算。</p>
+<h2 id="4-rem-适配方案"><a href="#4-rem-适配方案" class="headerlink" title="4. rem 适配方案"></a>4. rem 适配方案</h2><h3 id="4-1-rem-实际开发适配方案"><a href="#4-1-rem-实际开发适配方案" class="headerlink" title="4.1 rem 实际开发适配方案"></a>4.1 rem 实际开发适配方案</h3><p>① 按照设计稿与设备宽度的比例，动态计算并设置 html 根标签的 font-size 大小；（媒体查询） </p>
+<p>② CSS 中，设计稿元素的宽、高、相对位置等取值，按照同等比例换算为 rem 为单位的值；</p>
+<h3 id="4-2-rem-适配方案技术使用（市场主流）"><a href="#4-2-rem-适配方案技术使用（市场主流）" class="headerlink" title="4.2 rem 适配方案技术使用（市场主流）"></a>4.2 rem 适配方案技术使用（市场主流）</h3><img src="/posts/2890961836/1604556440409.png" class="" width="1604556440409">
+
+<p>总结：</p>
+<ol>
+<li>两种方案现在都存在。 </li>
+<li>方案2 更简单，现阶段大家无需了解里面的js代码。</li>
+</ol>
+<h3 id="4-3-rem-实际开发适配方案1"><a href="#4-3-rem-实际开发适配方案1" class="headerlink" title="4.3 rem 实际开发适配方案1"></a>4.3 rem 实际开发适配方案1</h3><h4 id="1-设计稿常见尺寸宽度"><a href="#1-设计稿常见尺寸宽度" class="headerlink" title="1.设计稿常见尺寸宽度"></a>1.设计稿常见尺寸宽度</h4><p>一般情况下，我们以一套或两套效果图适应大部分的屏幕，放弃极端屏或对其优雅降级，牺牲一些效果 现在基本以750为准。</p>
+<h4 id="2-动态设置-html-标签-font-size-大小"><a href="#2-动态设置-html-标签-font-size-大小" class="headerlink" title="2.动态设置 html 标签 font-size 大小"></a>2.动态设置 html 标签 font-size 大小</h4><p>① 假设设计稿是750px </p>
+<p>② 假设我们把整个屏幕划分为15等份（划分标准不一可以是20份也可以是10等份） </p>
+<p>③ 每一份作为html字体大小，这里就是50px </p>
+<p>④ 那么在320px设备的时候，字体大小为320/15 就是  21.33px </p>
+<p>⑤ 用我们页面元素的大小 除以不同的 html 字体大小会发现他们比例还是相同的 </p>
+<p>⑥ 比如我们以 750为标准设计稿 </p>
+<p>⑦ 一个100*100像素的页面元素 在  750屏幕下，  就是 100 / 50  转换为rem  是  2rem * 2 rem  比例是 1比1 </p>
+<p>⑧ 320屏幕下，  html 字体大小为 21.33   则 2rem =  42.66px  此时宽和高都是  42.66  但是 宽和高的比例还是 1比1 </p>
+<p>⑨ 但是已经能实现不同屏幕下  页面元素盒子等比例缩放的效果</p>
+<h2 id="6-rem-适配方案2"><a href="#6-rem-适配方案2" class="headerlink" title="6. rem 适配方案2"></a>6. rem 适配方案2</h2><h3 id="1-简洁高效的rem适配方案flexible-js"><a href="#1-简洁高效的rem适配方案flexible-js" class="headerlink" title="1. 简洁高效的rem适配方案flexible.js"></a>1. 简洁高效的rem适配方案flexible.js</h3><p>手机淘宝团队出的简洁高效 移动端适配库 </p>
+<p>我们再也不需要在写不同屏幕的媒体查询，因为里面js做了处理 </p>
+<p>它的原理是把当前设备划分为10等份，但是不同设备下，比例还是一致的。 </p>
+<p>我们要做的，就是确定好我们当前设备的html 文字大小就可以了 </p>
+<p>比如当前设计稿是 750px， 那么我们只需要把 html 文字大小设置为 75px(750px / 10) 就可以 里面页面元素rem值： 页面元素的px 值 /  75  </p>
+<p>剩余的，让flexible.js来去算</p>
+<p>github地址：<a target="_blank" rel="noopener" href="https://github.com/amfe/lib-flexible">https://github.com/amfe/lib-flexible</a></p>
+<h3 id="2-VSCode-px-转换rem-插件-cssrem"><a href="#2-VSCode-px-转换rem-插件-cssrem" class="headerlink" title="2. VSCode  px 转换rem 插件 cssrem"></a>2. VSCode  px 转换rem 插件 cssrem</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io">Eric</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io/posts/2890961836/">https://ericwjian.github.io/posts/2890961836/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ericwjian.github.io" target="_blank">Eric</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A7%BB%E5%8A%A8web/">移动web</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/3306982612/" title="VScode 常用插件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">VScode 常用插件</div></div></a></div><div class="next-post pull-right"><a href="/posts/138443329/" title="SSM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SSM</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%9F%BA%E7%A1%80"><span class="toc-text">1.移动端基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%A7%86%E5%8F%A3"><span class="toc-text">2. 视口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%B8%83%E5%B1%80%E8%A7%86%E5%8F%A3-layout-viewport"><span class="toc-text">2.1 布局视口 layout viewport</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%A7%86%E8%A7%89%E8%A7%86%E5%8F%A3-visual-viewport"><span class="toc-text">2.2 视觉视口 visual viewport</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E7%90%86%E6%83%B3%E8%A7%86%E5%8F%A3-ideal-viewport"><span class="toc-text">2.3 理想视口 ideal viewport</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-meta%E8%A7%86%E5%8F%A3%E6%A0%87%E7%AD%BE"><span class="toc-text">2.5 meta视口标签</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BA%8C%E5%80%8D%E5%9B%BE"><span class="toc-text">3.二倍图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0-amp-%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0%E6%AF%94"><span class="toc-text">3.1 物理像素&amp;物理像素比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%A4%9A%E5%80%8D%E5%9B%BE"><span class="toc-text">3.2 多倍图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%83%8C%E6%99%AF%E7%BC%A9%E6%94%BE-background-size"><span class="toc-text">3.3 背景缩放 background-size</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">5.移动端技术解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-CSS%E5%88%9D%E5%A7%8B%E5%8C%96-normalize-css"><span class="toc-text">5.2 CSS初始化 normalize.css</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-CSS3-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-box-sizing"><span class="toc-text">5.3 CSS3 盒子模型 box-sizing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E7%89%B9%E6%AE%8A%E6%A0%B7%E5%BC%8F"><span class="toc-text">5.4 特殊样式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E5%B8%83%E5%B1%80"><span class="toc-text">6.移动端常见布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E6%B5%81%E5%BC%8F%E5%B8%83%E5%B1%80%EF%BC%88%E7%99%BE%E5%88%86%E6%AF%94%E5%B8%83%E5%B1%80%EF%BC%89"><span class="toc-text">6.1 流式布局（百分比布局）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-flex%E5%B8%83%E5%B1%80"><span class="toc-text">7.flex布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BC%A0%E7%BB%9F%E5%B8%83%E5%B1%80%E4%B8%8Eflex%E5%B8%83%E5%B1%80"><span class="toc-text">1.1 传统布局与flex布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%B8%83%E5%B1%80%E5%8E%9F%E7%90%86"><span class="toc-text">2.1 布局原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-flex%E5%B8%83%E5%B1%80%E7%88%B6%E9%A1%B9%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="toc-text">3. flex布局父项常见属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%B8%B8%E8%A7%81%E7%88%B6%E9%A1%B9%E5%B1%9E%E6%80%A7"><span class="toc-text">3.1 常见父项属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-flex-direction-%E8%AE%BE%E7%BD%AE%E4%B8%BB%E8%BD%B4%E7%9A%84%E6%96%B9%E5%90%91"><span class="toc-text">3.2 flex-direction 设置主轴的方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-justify-content-%E8%AE%BE%E7%BD%AE%E4%B8%BB%E8%BD%B4%E4%B8%8A%E7%9A%84%E5%AD%90%E5%85%83%E7%B4%A0%E6%8E%92%E5%88%97%E6%96%B9%E5%BC%8F"><span class="toc-text">3.3 justify-content 设置主轴上的子元素排列方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-flex-wrap-%E8%AE%BE%E7%BD%AE%E5%AD%90%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E6%8D%A2%E8%A1%8C"><span class="toc-text">3.4 flex-wrap 设置子元素是否换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-align-items-%E8%AE%BE%E7%BD%AE%E4%BE%A7%E8%BD%B4%E4%B8%8A%E7%9A%84%E5%AD%90%E5%85%83%E7%B4%A0%E6%8E%92%E5%88%97%E6%96%B9%E5%BC%8F%EF%BC%88%E5%8D%95%E8%A1%8C-%EF%BC%89"><span class="toc-text">3.5 align-items 设置侧轴上的子元素排列方式（单行 ）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-align-content-%E8%AE%BE%E7%BD%AE%E4%BE%A7%E8%BD%B4%E4%B8%8A%E7%9A%84%E5%AD%90%E5%85%83%E7%B4%A0%E7%9A%84%E6%8E%92%E5%88%97%E6%96%B9%E5%BC%8F%EF%BC%88%E5%A4%9A%E8%A1%8C%EF%BC%89"><span class="toc-text">3.6  align-content  设置侧轴上的子元素的排列方式（多行）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-flex-flow"><span class="toc-text">3.7  flex-flow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-flex%E5%B8%83%E5%B1%80%E5%AD%90%E9%A1%B9%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="toc-text">4. flex布局子项常见属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-flex-%E5%B1%9E%E6%80%A7"><span class="toc-text">4.1  flex 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-align-self-%E6%8E%A7%E5%88%B6%E5%AD%90%E9%A1%B9%E8%87%AA%E5%B7%B1%E5%9C%A8%E4%BE%A7%E8%BD%B4%E4%B8%8A%E7%9A%84%E6%8E%92%E5%88%97%E6%96%B9%E5%BC%8F"><span class="toc-text">4.2 align-self 控制子项自己在侧轴上的排列方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-order-%E5%B1%9E%E6%80%A7%E5%AE%9A%E4%B9%89%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%8E%92%E5%88%97%E9%A1%BA%E5%BA%8F"><span class="toc-text">4.3 order 属性定义项目的排列顺序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E7%A7%BB%E5%8A%A8WEB%E5%BC%80%E5%8F%91%E4%B9%8Brem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80"><span class="toc-text">8.移动WEB开发之rem适配布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-rem-%E5%9F%BA%E7%A1%80"><span class="toc-text">1. rem 基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-text">2. 媒体查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-text">2.1 什么是媒体查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="toc-text">2.2 语法规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-mediatype-%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B"><span class="toc-text">1.mediatype 查询类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">2. 关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AA%92%E4%BD%93%E7%89%B9%E6%80%A7"><span class="toc-text">3. 媒体特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%BC%95%E5%85%A5%E8%B5%84%E6%BA%90%EF%BC%88%E7%90%86%E8%A7%A3%EF%BC%89"><span class="toc-text">2.4 引入资源（理解）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="toc-text">1. 语法规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A4%BA%E4%BE%8B"><span class="toc-text">2. 示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Less-%E5%9F%BA%E7%A1%80"><span class="toc-text">3. Less 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Less-%E4%BB%8B%E7%BB%8D"><span class="toc-text">3.2 Less 介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-rem-%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="toc-text">4. rem 适配方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-rem-%E5%AE%9E%E9%99%85%E5%BC%80%E5%8F%91%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="toc-text">4.1 rem 实际开发适配方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-rem-%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E6%8A%80%E6%9C%AF%E4%BD%BF%E7%94%A8%EF%BC%88%E5%B8%82%E5%9C%BA%E4%B8%BB%E6%B5%81%EF%BC%89"><span class="toc-text">4.2 rem 适配方案技术使用（市场主流）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-rem-%E5%AE%9E%E9%99%85%E5%BC%80%E5%8F%91%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%881"><span class="toc-text">4.3 rem 实际开发适配方案1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%AE%BE%E8%AE%A1%E7%A8%BF%E5%B8%B8%E8%A7%81%E5%B0%BA%E5%AF%B8%E5%AE%BD%E5%BA%A6"><span class="toc-text">1.设计稿常见尺寸宽度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE-html-%E6%A0%87%E7%AD%BE-font-size-%E5%A4%A7%E5%B0%8F"><span class="toc-text">2.动态设置 html 标签 font-size 大小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-rem-%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%882"><span class="toc-text">6. rem 适配方案2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%AE%80%E6%B4%81%E9%AB%98%E6%95%88%E7%9A%84rem%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88flexible-js"><span class="toc-text">1. 简洁高效的rem适配方案flexible.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-VSCode-px-%E8%BD%AC%E6%8D%A2rem-%E6%8F%92%E4%BB%B6-cssrem"><span class="toc-text">2. VSCode  px 转换rem 插件 cssrem</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148432/" title="MyBatis 拦截器">MyBatis 拦截器</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148434/" title="MyBatis 集成druid数据源">MyBatis 集成druid数据源</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1166366203/" title="SQL调优">SQL调优</a><time datetime="2024-07-16T16:00:00.000Z" title="发表于 2024-07-17 00:00:00">2024-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3109398172/" title="ContextHolder">ContextHolder</a><time datetime="2024-07-11T16:00:00.000Z" title="发表于 2024-07-12 00:00:00">2024-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2889834893/" title="SpringCloud Feign">SpringCloud Feign</a><time datetime="2024-07-01T16:00:00.000Z" title="发表于 2024-07-02 00:00:00">2024-07-02</time></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+      appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

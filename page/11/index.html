@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Eric - 个人博客</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/page/11/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Eric',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-09-29 10:31:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3017659836/" title="JWT">JWT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-23T16:00:00.000Z" title="发表于 2020-07-24 00:00:00">2020-07-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/">认证授权</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/3017659836/#post-comment"><span class="valine-comment-count" data-xid="/posts/3017659836/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">视频地址
+
+一、JWT学习
+
+1、什么是JWTJSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA. 
+–[摘自官网]
+
+1.官方解释
+官网地址: https://jwt.io/introduction/翻译:JSON Web Token（JWT）是一个开放标准（RFC 7519），它定义了一种紧凑且自包含的方式，用于在各方之间作为JSON对 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2972324192/" title="Thymeleaf">Thymeleaf</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-22T16:00:00.000Z" title="发表于 2020-05-23 00:00:00">2020-05-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2972324192/#post-comment"><span class="valine-comment-count" data-xid="/posts/2972324192/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+SpringBoot 集成 Thymeleaf项目地址:
+1、集成Thymeleaf模板1、引入依赖12345&lt;!--使用thymelaf--&gt;&lt;dependency&gt;  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;  &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;&lt;/dependency&gt;
+
+2、编写配置12345spring:  thymeleaf:    cache: false  # 关闭缓存    prefix: classpath:/templates/ #指定模板位置    suffix: .html #指定后缀
+
+3、编写控制器测试12345678910//一定要是@Controller 不能再使用@RestController注解@Controller    @RequestMapping(&quot;hello&quot;)public class HelloController ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2049154275/" title="SpringCloud-尚硅谷">SpringCloud-尚硅谷</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-12T16:00:00.000Z" title="发表于 2020-04-13 00:00:00">2020-04-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringCloud/">SpringCloud</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2049154275/#post-comment"><span class="valine-comment-count" data-xid="/posts/2049154275/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">视频地址
+
+
+
+环境配置开启热部署
+
+
+1、引入spring-boot-devtools123456&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;    &lt;scope&gt;runtime&lt;/scope&gt;    &lt;optional&gt;true&lt;/optional&gt;&lt;/dependency&gt;
+
+2、开启idea自动编译模式idea默认没有开启自动编译。具体过程如下。 
+
+进入设置setting，Build,Execut, Deployment -&gt; Compiler 勾选右侧的Build Project automatically  
+
+
+
+
+ctrl+shift+alt+“/”  打开 
+
+
+
+
+SpringCloud 停更说明
+Eureka停用,可以使用zk作为服务注册中心
+服务调用,Ribbon准备 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1130309121/" title="SpringBoot 文件处理">SpringBoot 文件处理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-14T16:00:00.000Z" title="发表于 2020-03-15 00:00:00">2020-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1130309121/#post-comment"><span class="valine-comment-count" data-xid="/posts/1130309121/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+SpringBoot 文件处理项目地址：
+1、SpringBoot 静态资源的访问SpringBoot映射本地图片，外界可通过网络路径访问该图片在工作中，我们会把图片保存到服务器本地，比如E盘的某个目录下。然后前端image标签的src属性，填写网络路径即可访问到该图片，这该如何配置呢？有两种方法，请继续往下看
+第一种方法，我们可以修改application.yml文件，添加如下代码：
+12345678910spring:  mvc:    static-path-pattern: /image/**    #使用了此方式后，默认静态访问路径会失效，默认路径如下    #classpath:/META-INF/resources/,    #classpath:/resources/,    #classpath:/static/,    #classpath:/public/  resources:    static-locations: file:E:/picture/
+
+上面配置的意思是指，当我们访问项目的image路径时，就会映射到本地E盘的picture目录下。假设在E盘 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3463338894/" title="SpringBoot-多任务">SpringBoot-多任务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-10T16:00:00.000Z" title="发表于 2020-03-11 00:00:00">2020-03-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/3463338894/#post-comment"><span class="valine-comment-count" data-xid="/posts/3463338894/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Git地址
+1、Quartz1、三大核心Quartz由三部分组成。
+
+任务：Job。
+触发器：Trigger:定义任务的触发条件，触发时间，触发间隔，终止时间等。
+调度器：Schedule
+
+
+
+关键概念：
+
+Job 定义了一个任务的执行逻辑。
+JobDetail 是 Job 的一个执行实例。
+Trigger 是 JobDetail 的执行计划，定义了 JobDetail 什么时候执行、异常情况怎么执行等。
+Scheduler是调度容器，用来注册 JobDetail 和 Trigger，管理执行任务的执行、暂停、恢复等操作。
+监听器，分为 JobListener、TriggerListener和SchedulerListener，分别用来监听 JobDetail、Trigger 和Scheduler 的事件并做出增强处理，给任务协调执行提供了支持。
+
+2、任务
+Job：表示一个工作，要执行的具体内容。此接口中只有一个方法。要创建一个任务，必须得实现这个接口。该接口只有一个execute方法，任务每次被调用的时候都会执行这个execute方法的逻辑。
+JobExecutionConte ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3537957105/" title="SpringBoot学习">SpringBoot学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-02-04T16:00:00.000Z" title="发表于 2020-02-05 00:00:00">2020-02-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/3537957105/#post-comment"><span class="valine-comment-count" data-xid="/posts/3537957105/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Spring Boot1、SpringBoot的引言Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化Spring应用的 初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不 再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应 用开发领域(rapid application development)成为领导者。
+
+Spring Boot 全新框架  
+
+
+作用: 简化 Spring 应用初始搭建和开发过程。
+
+如何简化:  开发人员使用 springboot 只要基于特定方式进行配置，简化spring使用。
+
+
+springboot(微框架) = springmvc(控制器) + spring core(项目管理)
+2、SpringBoot的优势
+创建完整的独立的Spring应用程序 ：Spring Springmvc  只有一个容器。
+嵌入的Tomcat，无需部署WAR文件： springboot 内嵌 tomcat ,应用跑在内嵌服务器
+简化Maven配置,自动配置Spring Springmvc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1113489813/" title="CROS">CROS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-01-16T16:00:00.000Z" title="发表于 2020-01-17 00:00:00">2020-01-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1113489813/#post-comment"><span class="valine-comment-count" data-xid="/posts/1113489813/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+视频链接：
+CROS 解决跨域问题1、同源策略同源策略是由 Netscape 提出的一个著名的安全策略，它是浏览器最核心也最基本的安全功能，现在所有支持 JavaScript 的浏览器都会使用这个策略。所谓同源是指协议、域名以及端口要相同。同源策略是基于安全方面的考虑提出来的，这个策略本身没问题，但是我们在实际开发中，由于各种原因又经常有跨域的需求，传统的跨域方案是 JSONP，JSONP 虽然能解决跨域但是有一个很大的局限性，那就是只支持 GET 请求，不支持其他类型的请求，而今天我们说的 CORS（跨域源资源共享）（CORS，Cross-origin resource sharing）是一个 W3C 标准，它是一份浏览器技术的规范，提供了 Web 服务从不同网域传来沙盒脚本的方法，以避开浏览器的同源策略，这是 JSONP 模式的现代版。
+在 Spring 框架中，对于 CORS 也提供了相应的解决方案，今天我们就来看看 SpringBoot 中如何实现 CORS 。
+2、实践首先创建两个普通的 Spring Boot 项目，第一个命名为 provider 提供服务，第二个命名为  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1944733978/" title="Linux安装Nginx">Linux安装Nginx</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-18T16:00:00.000Z" title="发表于 2019-10-19 00:00:00">2019-10-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1944733978/#post-comment"><span class="valine-comment-count" data-xid="/posts/1944733978/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+1、Linux 安装 Nginx安装nginx相关依赖
+1、安装gcc12# nginx 编译时依赖 gcc 环境yum -y install gcc gcc-c++ 
+
+2、pcre、pcre-devel安装12# 让 nginx 支持重写功能yum install -y pcre pcre-devel
+
+3、zlib安装12# zlib 库提供了很多压缩和解压缩的方式，nginx 使用 zlib 对 http 包内容进行 gzip 压缩yum install -y zlib zlib-devel
+
+4、安装openssl12# 安全套接字层密码库，用于通信加密yum install -y openssl openssl-devel
+
+5、安装 Nginx1.下载压缩包
+2.把压缩包解压到usr/local/java
+1[root@bogon java]# tar -zxvf nginx-1.19.4.tar.gz
+
+3.配置
+
+切换到 nginx 解压后的目录
+
+1234# 执行配置文件./configure  --prefix=/usr/local/nginx --with-h ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1706463495/" title="Nginx">Nginx</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-18T16:00:00.000Z" title="发表于 2019-10-19 00:00:00">2019-10-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Nginx/">Nginx</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1706463495/#post-comment"><span class="valine-comment-count" data-xid="/posts/1706463495/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Nginx 可视化界面
+一、Nginx 简介1.反向代理1.正向代理 在客户端(浏览器)配置代理服务器，通过代理服务器进行互联网访问 
+
+
+举一个例子：大家都知道，现在国内是访问不了 Google 的，那么怎么才能访问 Google 呢？我们又想，美国人不是能访问 Google 吗（这不废话，Google就是美国的），如果我们电脑的对外公网 IP 地址能变成美国的 IP 地址，那不就可以访问 Google了。你很聪明，VPN 就是这样产生的。我们在访问 Google 时，先连上 VPN 服务器将我们的 IP 地址变成美国的 IP 地址，然后就可以顺利的访问了。
+　　这里的 VPN 就是做正向代理的。正向代理服务器位于客户端和服务器之间，为了向服务器获取数据，客户端要向代理服务器发送一个请求，并指定目标服务器，代理服务器将目标服务器返回的数据转交给客户端。这里客户端是要进行一些正向代理的设置的。
+2.反向代理反向代理，其实客户端对代理是无感知的，因为客户端不需要任何配置就可以访问，我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后,在返回给客户端，此时反向 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/410000554/" title="JVM虚拟机">JVM虚拟机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-12T12:46:25.000Z" title="发表于 2019-10-12 20:46:25">2019-10-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/410000554/#post-comment"><span class="valine-comment-count" data-xid="/posts/410000554/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+视频地址：
+前言1.Java虚拟机的家族1.虚拟机始祖Sun Classic
+
+
+2.使用最广HotSpot VM：它是Sun/OracleJDK和OpenJDK中的默认Java虚拟机，也是目前使用范围最广的Java虚拟机。
+
+
+一、认识 JVM1.JVM 架构图
+
+2.JVM 体系结构
+
+*注意：
+
+平常我们说的栈是指的Java栈；Native Method stack(本地方法栈) 里面装的都是native方法，负责和调用底层C++。
+
+方法区并不是存放方法的区域，它是存放类的描述信息(模板)的地方。
+
+加载之前是 “小class”，加载之后就变成了“大Class”，这是安装 java.lang.Class 模板生成了一个实例。“大CLass”就装载在方法区，模板实例化之后就得到 n 个相同的对象。
+
+JVM并不是通过检查文件后缀是不 .class 来判断是否需要加载的，而是通过打开文件开头的特定的文件标志。
+
+Execution Engine 执行引擎：负责解释命令，提交操作系统执行。
+
+
+二、类装载器1、运行原理负责加载class文件的，将class文件字节码内容加载到内存中 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/10/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/#content-inner">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/#content-inner">14</a><a class="extend next" rel="next" href="/page/12/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148432/" title="MyBatis 拦截器">MyBatis 拦截器</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148434/" title="MyBatis 集成druid数据源">MyBatis 集成druid数据源</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1166366203/" title="SQL调优">SQL调优</a><time datetime="2024-07-16T16:00:00.000Z" title="发表于 2024-07-17 00:00:00">2024-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3109398172/" title="ContextHolder">ContextHolder</a><time datetime="2024-07-11T16:00:00.000Z" title="发表于 2024-07-12 00:00:00">2024-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2889834893/" title="SpringCloud Feign">SpringCloud Feign</a><time datetime="2024-07-01T16:00:00.000Z" title="发表于 2024-07-02 00:00:00">2024-07-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/BAT/"><span class="card-category-list-name">BAT</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ES/"><span class="card-category-list-name">ES</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/IDEA/"><span class="card-category-list-name">IDEA</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Jenkins/"><span class="card-category-list-name">Jenkins</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/K8s/"><span class="card-category-list-name">K8s</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/seata/" style="font-size: 1.15em; color: rgb(20, 15, 87)">seata</a><a href="/tags/Prometheus/" style="font-size: 1.15em; color: rgb(146, 47, 163)">Prometheus</a><a href="/tags/hexo/" style="font-size: 1.15em; color: rgb(165, 90, 36)">hexo</a><a href="/tags/BAT/" style="font-size: 1.15em; color: rgb(11, 20, 160)">BAT</a><a href="/tags/%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98/" style="font-size: 1.15em; color: rgb(71, 118, 166)">实际问题</a><a href="/tags/Redis/" style="font-size: 1.45em; color: rgb(121, 77, 147)">Redis</a><a href="/tags/Docker/" style="font-size: 1.33em; color: rgb(109, 87, 62)">Docker</a><a href="/tags/RabbitMQ/" style="font-size: 1.21em; color: rgb(22, 78, 90)">RabbitMQ</a><a href="/tags/webpack/" style="font-size: 1.15em; color: rgb(91, 18, 119)">webpack</a><a href="/tags/Nodejs/" style="font-size: 1.15em; color: rgb(196, 61, 1)">Nodejs</a><a href="/tags/CROS/" style="font-size: 1.15em; color: rgb(101, 65, 0)">CROS</a><a href="/tags/VScode/" style="font-size: 1.15em; color: rgb(107, 92, 41)">VScode</a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.15em; color: rgb(180, 46, 165)">设计模式</a><a href="/tags/Vue/" style="font-size: 1.15em; color: rgb(196, 147, 183)">Vue</a><a href="/tags/JVM/" style="font-size: 1.15em; color: rgb(61, 13, 34)">JVM</a><a href="/tags/Java/" style="font-size: 1.27em; color: rgb(81, 33, 24)">Java</a><a href="/tags/Java%E5%BC%95%E7%94%A8/" style="font-size: 1.15em; color: rgb(121, 84, 95)">Java引用</a><a href="/tags/Alibaba/" style="font-size: 1.21em; color: rgb(124, 71, 131)">Alibaba</a><a href="/tags/Nacos/" style="font-size: 1.15em; color: rgb(41, 125, 60)">Nacos</a><a href="/tags/JUC/" style="font-size: 1.15em; color: rgb(112, 121, 140)">JUC</a><a href="/tags/GateWay/" style="font-size: 1.15em; color: rgb(49, 58, 107)">GateWay</a><a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 1.15em; color: rgb(64, 15, 98)">多线程</a><a href="/tags/Sentinel/" style="font-size: 1.15em; color: rgb(13, 148, 182)">Sentinel</a><a href="/tags/Sleuth/" style="font-size: 1.15em; color: rgb(2, 131, 76)">Sleuth</a><a href="/tags/feign/" style="font-size: 1.15em; color: rgb(16, 26, 35)">feign</a><a href="/tags/jsp/" style="font-size: 1.15em; color: rgb(123, 105, 5)">jsp</a><a href="/tags/SpringBoot/" style="font-size: 1.39em; color: rgb(171, 142, 174)">SpringBoot</a><a href="/tags/log/" style="font-size: 1.15em; color: rgb(160, 155, 61)">log</a><a href="/tags/AOP/" style="font-size: 1.15em; color: rgb(180, 33, 180)">AOP</a><a href="/tags/Thymeleaf/" style="font-size: 1.15em; color: rgb(71, 164, 153)">Thymeleaf</a><a href="/tags/Admin/" style="font-size: 1.15em; color: rgb(32, 187, 97)">Admin</a><a href="/tags/SpringCloud/" style="font-size: 1.15em; color: rgb(128, 30, 186)">SpringCloud</a><a href="/tags/web/" style="font-size: 1.15em; color: rgb(25, 192, 154)">web</a><a href="/tags/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" style="font-size: 1.15em; color: rgb(183, 55, 1)">文件处理</a><a href="/tags/xxl-job/" style="font-size: 1.15em; color: rgb(141, 152, 14)">xxl-job</a><a href="/tags/ShardingSphere/" style="font-size: 1.15em; color: rgb(200, 82, 154)">ShardingSphere</a><a href="/tags/Mybatis/" style="font-size: 1.27em; color: rgb(140, 170, 29)">Mybatis</a><a href="/tags/Activiti7/" style="font-size: 1.15em; color: rgb(142, 5, 193)">Activiti7</a><a href="/tags/MybatisPlus/" style="font-size: 1.15em; color: rgb(145, 36, 100)">MybatisPlus</a><a href="/tags/websocket/" style="font-size: 1.15em; color: rgb(181, 86, 178)">websocket</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">140</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">580.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-29T02:31:20.456Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+        appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+        serverURLs: ''
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
+
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

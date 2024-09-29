@@ -1,0 +1,328 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Eric - 个人博客</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/page/12/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Eric',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-09-29 10:31:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2857723967/" title="JUC">JUC</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-13T12:46:25.000Z" title="发表于 2019-09-13 20:46:25">2019-09-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2857723967/#post-comment"><span class="valine-comment-count" data-xid="/posts/2857723967/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+1、并发编程三个概念1、原子性原子性：即一个操作或者多个操作：要么全部执行并且执行的过程不会被任何因素打断；要么就都不执行。
+
+一个很经典的例子就是银行账户转账问题：
+
+比如从账户A向账户B转1000元，那么必然包括2个操作：从账户A减去1000元，往账户B加上1000元。
+试想一下，如果这两个操作不具备原子性，会造成什么样的后果。假如从账户A减去1000元之后，操作突然中止。然后又从B取出了500元，取出500元之后，再执行 往账户B加上1000元 的操作。这样就会导致账户A虽然减去了1000元，但是账户B没有收到这个转过来的1000元。
+所以这两个操作必须要具备原子性才能保证不出现一些意外的问题。
+2、可见性可见性是指当多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值。
+举个简单的例子，看下面这段代码：
+12345//线程1执行的代码int i = 0;i = 10;//线程2执行的代码j = i;
+
+假若执行线程 1 的是 CPU1，执行线程 2 的是 CPU2。由上面的分析可知，当线程1执行 i =10 这句时，会先把i的初始值加载到CPU ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2346149976/" title="Postman">Postman</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-29T12:46:25.000Z" title="发表于 2019-08-29 20:46:25">2019-08-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Postman/">Postman</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/2346149976/#post-comment"><span class="valine-comment-count" data-xid="/posts/2346149976/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+一、Postman 汉化教程postman官网下载地址https://www.postman.com/downloads/
+postman汉化包https://github.com/hlmd/Postman-cn/releases
+1.首先从官网下载postMan安装包
+
+
+2.下载postMan 汉化包(app.zip)
+
+
+3.将汉化包解压并复制到Postman目录下示例 C:\Users\WangJian\AppData\Local\Postman\app-9.14.0\resources
+4.重启postMan 即可完成汉化
+
+
+二、设置环境变量1.有时需要在不同的环境下跑相同的测试，此时可以通过设置环境变量来动态选择。点击右上角的设置按钮：
+
+
+2.使用这些键值的时候只需要加上两个花括号引用key，记得选取要测试的环境。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3709276103/" title="Typora">Typora</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-18T12:46:25.000Z" title="发表于 2019-08-18 20:46:25">2019-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Typora/">Typora</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/3709276103/#post-comment"><span class="valine-comment-count" data-xid="/posts/3709276103/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+MarkDown 语法1.标题​    1.一个 # 是一级标题，两个 # 是二级标题，一次类推，支持六级标题
+2.字体​    1.加粗：加粗的文字左右用两个 ** 包起来​    2.斜体：倾斜的文字左右用一个 * 包起来​    3.斜体加粗：要斜体加粗的文字左右用三个 *** 包起来
+3.引用​    在引用的文字前加 &gt;
+4.分割线​    三个以上的 - 或 * 都可以
+5.图片​    ![图片alt](图片地址 “图片title”) 
+6.超链接​    [超链接名](超链接地址 “超链接title”) title可加可不加
+7.列表​    1.无序列表 用 - + * 任何一种都可以实现​    2.有序列表 数字加 .​    3.无序列表 子项前加三个空格
+8.表格​    表头|表头|表头​    —|:–:|—:​    内容|内容|内容​    内容|内容|内容
+9.代码​    1.单行代码 用反引号 包起来​    1.代码块 前后用三个反引号引起来
+Typora 使用1.设置代码高亮显示这是输入 MarkDown 的扩展语法，一些解析器可能不 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4175467380/" title="Vue">Vue</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-07-12T16:00:00.000Z" title="发表于 2019-07-13 00:00:00">2019-07-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/4175467380/#post-comment"><span class="valine-comment-count" data-xid="/posts/4175467380/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">视频地址：
+
+ES6 补充1.1块级作用域ES6 之前没有块级作用域，ES5 的 var 没有块级作用域的概念，只有function有作用域的概念，ES6的 let、const 引入了块级作用域。
+ES5 之前 if 和 for 都没有作用域，所以很多时候需要使用function的作用域，比如闭包。
+1.1.1 什么是变量作用域变量在什么范围内可用，类似Java的全局变量和局部变量的概念，全局变量，全局都可用，局部变量只在范围内可用。ES5之前的var是没有块级作用域的概念，使用 var 声明的变量就是全局的。
+12345&#123;	var name = &#x27;zzz&#x27;;	console.log(name);&#125;console.log(name);
+
+上述代码中{}外的console.log(name)可以获取到name值并打印出来，用var声明赋值的变量是全局变量，没有块级作用域。
+1.1.2 没有块级作用域造成的问题if 块级1234567891011var func;if(true)&#123;	var name = &#x27;zzz&#x27;;	f ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1948779159/" title="Linux安装MYSQL">Linux安装MYSQL</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-04-17T16:00:00.000Z" title="发表于 2019-04-18 00:00:00">2019-04-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1948779159/#post-comment"><span class="valine-comment-count" data-xid="/posts/1948779159/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+1、压缩包方式安装一、准备工作1 下载mysql1https://dev.mysql.com/downloads/mysql/
+
+
+
+
+
+二、环境检查1 检查是否安装的MySQL123456[root@localhost ~]# find / -name mysql/etc/selinux/targeted/active/modules/100/mysql/usr/lib64/mysql/usr/share/mysql[root@localhost etc]# rpm -qa | grep -i mysql[root@localhost etc]# 
+
+若存在 mysql 安装文件，则会显示 Linux安装MySQL的版本信息 
+2 检查是否安装了 mariadb1234[root@localhost etc]# rpm -qa | grep mariadbmariadb-libs-5.5.64-1.el7.x86_64[root@localhost etc]# 
+
+ 如果有就将其卸载，以免与我们要安装的MySQL造成冲突： 
+123[root@localhost etc]# rpm ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1441854962/" title="Linux安装JDK">Linux安装JDK</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-03-25T16:00:00.000Z" title="发表于 2019-03-26 00:00:00">2019-03-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1441854962/#post-comment"><span class="valine-comment-count" data-xid="/posts/1441854962/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+JDK 安装1、卸载自带jdk1.查看系统是否自带 jdk
+1234567[root@bogon ~]# rpm -qa|grep jdkjava-1.8.0-openjdk-headless-1.8.0.222.b03-1.el7.x86_64java-1.7.0-openjdk-headless-1.7.0.221-2.6.18.1.el7.x86_64copy-jdk-configs-3.3-10.el7_5.noarchjava-1.8.0-openjdk-1.8.0.222.b03-1.el7.x86_64java-1.7.0-openjdk-1.7.0.221-2.6.18.1.el7.x86_64
+
+卸载全部：rpm -qa | grep -i jdk | xargs -n1 rpm -e --nodeps
+2.卸载系统自带的 jdk
+
+  rpm -e –nodeps  jdk版本信息
+
+1234rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.242.b08-1.el7.x86_64rpm -e --nodeps j ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4143746747/" title="Linux安装Tomcat">Linux安装Tomcat</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-03-25T16:00:00.000Z" title="发表于 2019-03-26 00:00:00">2019-03-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/4143746747/#post-comment"><span class="valine-comment-count" data-xid="/posts/4143746747/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+Tomcat安装1、上传安装包1.在 /usr 下创建 tomcat 目录，并将tomcat复制到这
+1[root@bogon usr]# cp /root/software/apache-tomcat-9.0.39.tar.gz /usr/tomcat/
+
+2.解压文件
+123[root@bogon tomcat]# tar -zxvf apache-tomcat-9.0.39.tar.gz[root@bogon tomcat]# lsapache-tomcat-9.0.39  apache-tomcat-9.0.39.tar.gz
+
+2、开启端口4.查看防火墙端口是否开启
+1[root@bogon bin]# firewall-cmd --list-ports
+
+5.开启 8080 端口
+12[root@bogon bin]# firewall-cmd --zone=public --add-port=8080/tcp --permanentsuccess
+
+3、配置 Tomcat配置快捷操作和开机启动 。
+⾸先进⼊ /etc/rc.d/init.d ⽬录，创建⼀个名为 tomc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3063199594/" title="Linux-防火墙">Linux-防火墙</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-03-14T16:00:00.000Z" title="发表于 2019-03-15 00:00:00">2019-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/3063199594/#post-comment"><span class="valine-comment-count" data-xid="/posts/3063199594/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+一、防火墙(firewall防火墙 )1、查看 firewall 服务状态1systemctl status firewalld
+
+12345678910[root@bogon network-scripts] systemctl status firewalld● firewalld.service - firewalld - dynamic firewall daemon   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; vendor preset: enabled)   Active: active (running) since 二 2020-10-27 09:37:43 CST; 3h 58min ago     Docs: man:firewalld(1) Main PID: 8246 (firewalld)    Tasks: 2   Memory: 22.0M   CGroup: /system.slice/firewalld.service           └─8246 / ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4134305729/" title="SpringBoot集成Mybatis">SpringBoot集成Mybatis</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-02-10T16:00:00.000Z" title="发表于 2019-02-11 00:00:00">2019-02-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/4134305729/#post-comment"><span class="valine-comment-count" data-xid="/posts/4134305729/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+整合Mybatis框架1、引入依赖1234567891011121314151617181920&lt;dependency&gt;  &lt;groupId&gt;com.alibaba&lt;/groupId&gt;  &lt;artifactId&gt;druid&lt;/artifactId&gt;  &lt;version&gt;1.2.4&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt;  &lt;groupId&gt;mysql&lt;/groupId&gt;  &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;  &lt;version&gt;5.1.38&lt;/version&gt;&lt;/dependency&gt;&lt;!--整合mybatis --&gt;&lt;!--说明：由于springboot整合mybatis版本中默认依赖mybatis 		 因此不需要额外引入mybati版本,否则会出现冲突--&gt;&lt;dependen ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1007327811/" title="SpringBoot集成MybatisPlus">SpringBoot集成MybatisPlus</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-02-10T16:00:00.000Z" title="发表于 2019-02-11 00:00:00">2019-02-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/posts/1007327811/#post-comment"><span class="valine-comment-count" data-xid="/posts/1007327811/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+整合MybatisPlus框架SpringBoot集成Mybatis-Plus_springboot集成mybatisplus_Java技术那些事儿的博客-CSDN博客
+一、简介MyBatis-Plus（简称 MP）是一个 MyBatis的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。因此，mybatis-plus包含mybatis的所有功能，因此无需再次引入mybatis。
+二、快速开始1、创建User表123456789DROP TABLE IF EXISTS user;CREATE TABLE user(    id BIGINT(20) NOT NULL COMMENT &#x27;主键ID&#x27;,    name VARCHAR(30) NULL DEFAULT NULL COMMENT &#x27;姓名&#x27;,    age INT(11) NULL DEFAULT NULL COMMENT &#x27;年龄&#x27;,    email VARCHAR(50) NULL DEFAULT NULL COMMENT &#x2 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/11/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#content-inner">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/#content-inner">13</a><a class="page-number" href="/page/14/#content-inner">14</a><a class="extend next" rel="next" href="/page/13/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148432/" title="MyBatis 拦截器">MyBatis 拦截器</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148434/" title="MyBatis 集成druid数据源">MyBatis 集成druid数据源</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1166366203/" title="SQL调优">SQL调优</a><time datetime="2024-07-16T16:00:00.000Z" title="发表于 2024-07-17 00:00:00">2024-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3109398172/" title="ContextHolder">ContextHolder</a><time datetime="2024-07-11T16:00:00.000Z" title="发表于 2024-07-12 00:00:00">2024-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2889834893/" title="SpringCloud Feign">SpringCloud Feign</a><time datetime="2024-07-01T16:00:00.000Z" title="发表于 2024-07-02 00:00:00">2024-07-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/BAT/"><span class="card-category-list-name">BAT</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ES/"><span class="card-category-list-name">ES</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/IDEA/"><span class="card-category-list-name">IDEA</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Jenkins/"><span class="card-category-list-name">Jenkins</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/K8s/"><span class="card-category-list-name">K8s</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/seata/" style="font-size: 1.15em; color: rgb(20, 15, 87)">seata</a><a href="/tags/Prometheus/" style="font-size: 1.15em; color: rgb(146, 47, 163)">Prometheus</a><a href="/tags/hexo/" style="font-size: 1.15em; color: rgb(165, 90, 36)">hexo</a><a href="/tags/BAT/" style="font-size: 1.15em; color: rgb(11, 20, 160)">BAT</a><a href="/tags/%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98/" style="font-size: 1.15em; color: rgb(71, 118, 166)">实际问题</a><a href="/tags/Redis/" style="font-size: 1.45em; color: rgb(121, 77, 147)">Redis</a><a href="/tags/Docker/" style="font-size: 1.33em; color: rgb(109, 87, 62)">Docker</a><a href="/tags/RabbitMQ/" style="font-size: 1.21em; color: rgb(22, 78, 90)">RabbitMQ</a><a href="/tags/webpack/" style="font-size: 1.15em; color: rgb(91, 18, 119)">webpack</a><a href="/tags/Nodejs/" style="font-size: 1.15em; color: rgb(196, 61, 1)">Nodejs</a><a href="/tags/CROS/" style="font-size: 1.15em; color: rgb(101, 65, 0)">CROS</a><a href="/tags/VScode/" style="font-size: 1.15em; color: rgb(107, 92, 41)">VScode</a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.15em; color: rgb(180, 46, 165)">设计模式</a><a href="/tags/Vue/" style="font-size: 1.15em; color: rgb(196, 147, 183)">Vue</a><a href="/tags/JVM/" style="font-size: 1.15em; color: rgb(61, 13, 34)">JVM</a><a href="/tags/Java/" style="font-size: 1.27em; color: rgb(81, 33, 24)">Java</a><a href="/tags/Java%E5%BC%95%E7%94%A8/" style="font-size: 1.15em; color: rgb(121, 84, 95)">Java引用</a><a href="/tags/Alibaba/" style="font-size: 1.21em; color: rgb(124, 71, 131)">Alibaba</a><a href="/tags/Nacos/" style="font-size: 1.15em; color: rgb(41, 125, 60)">Nacos</a><a href="/tags/JUC/" style="font-size: 1.15em; color: rgb(112, 121, 140)">JUC</a><a href="/tags/GateWay/" style="font-size: 1.15em; color: rgb(49, 58, 107)">GateWay</a><a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 1.15em; color: rgb(64, 15, 98)">多线程</a><a href="/tags/Sentinel/" style="font-size: 1.15em; color: rgb(13, 148, 182)">Sentinel</a><a href="/tags/Sleuth/" style="font-size: 1.15em; color: rgb(2, 131, 76)">Sleuth</a><a href="/tags/feign/" style="font-size: 1.15em; color: rgb(16, 26, 35)">feign</a><a href="/tags/jsp/" style="font-size: 1.15em; color: rgb(123, 105, 5)">jsp</a><a href="/tags/SpringBoot/" style="font-size: 1.39em; color: rgb(171, 142, 174)">SpringBoot</a><a href="/tags/log/" style="font-size: 1.15em; color: rgb(160, 155, 61)">log</a><a href="/tags/AOP/" style="font-size: 1.15em; color: rgb(180, 33, 180)">AOP</a><a href="/tags/Thymeleaf/" style="font-size: 1.15em; color: rgb(71, 164, 153)">Thymeleaf</a><a href="/tags/Admin/" style="font-size: 1.15em; color: rgb(32, 187, 97)">Admin</a><a href="/tags/SpringCloud/" style="font-size: 1.15em; color: rgb(128, 30, 186)">SpringCloud</a><a href="/tags/web/" style="font-size: 1.15em; color: rgb(25, 192, 154)">web</a><a href="/tags/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" style="font-size: 1.15em; color: rgb(183, 55, 1)">文件处理</a><a href="/tags/xxl-job/" style="font-size: 1.15em; color: rgb(141, 152, 14)">xxl-job</a><a href="/tags/ShardingSphere/" style="font-size: 1.15em; color: rgb(200, 82, 154)">ShardingSphere</a><a href="/tags/Mybatis/" style="font-size: 1.27em; color: rgb(140, 170, 29)">Mybatis</a><a href="/tags/Activiti7/" style="font-size: 1.15em; color: rgb(142, 5, 193)">Activiti7</a><a href="/tags/MybatisPlus/" style="font-size: 1.15em; color: rgb(145, 36, 100)">MybatisPlus</a><a href="/tags/websocket/" style="font-size: 1.15em; color: rgb(181, 86, 178)">websocket</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">140</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">580.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-29T02:31:20.456Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+        appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+        serverURLs: ''
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
+
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

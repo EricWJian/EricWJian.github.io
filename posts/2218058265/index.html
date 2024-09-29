@@ -1,0 +1,489 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Redis学习 | Eric</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、NoSql 入门和概述1、NoSql 是什么NosQL(NoSQL &amp;#x3D; Not Only SQL)，意即“不仅仅是SQL”，泛指非关系型的数据库。 2、为什么使用NoSQL随着互联网网站的兴起，传统的关系数据库在应付动态网站，特别是超大规模和高并发的纯动态网站已经显得力不从心，暴露了很多难以克"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/posts/2218058265/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Redis学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-19 15:25:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Redis学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-17T12:46:25.000Z" title="发表于 2021-01-17 20:46:25">2021-01-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-19T07:25:22.143Z" title="更新于 2024-04-19 15:25:22">2024-04-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Redis/">Redis</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Redis学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><hr>
+<h2 id="一、NoSql-入门和概述"><a href="#一、NoSql-入门和概述" class="headerlink" title="一、NoSql 入门和概述"></a>一、NoSql 入门和概述</h2><h3 id="1、NoSql-是什么"><a href="#1、NoSql-是什么" class="headerlink" title="1、NoSql 是什么"></a>1、NoSql 是什么</h3><p>NosQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，<code>泛指非关系型的数据库</code>。</p>
+<h3 id="2、为什么使用NoSQL"><a href="#2、为什么使用NoSQL" class="headerlink" title="2、为什么使用NoSQL"></a>2、为什么使用NoSQL</h3><p>随着互联网网站的兴起，传统的关系数据库在应付动态网站，特别是超大规模和高并发的纯动态网站已经显得力不从心，暴露了很多难以克服的问题。如<code>商城网站中对商品数据频繁查询</code>、<code>对热搜商品的排行统计</code>、<code>订单超时问题</code>、以及微信朋友圈（音频，视频）存储等相关使用传统的关系型数据库实现就显得非常复杂，虽然能实现相应功能但是在性能上却不是那么乐观。NoSQL 这个技术门类的出现，更好的解决了这些问题。</p>
+<h3 id="3、NoSQL的四大分类"><a href="#3、NoSQL的四大分类" class="headerlink" title="3、NoSQL的四大分类"></a>3、NoSQL的四大分类</h3><blockquote>
+<p>1.KV 键值存储数据库</p>
+</blockquote>
+<p>说明: </p>
+<ul>
+<li>这一类数据库主要会使用到一个哈希表，这个表中有一个特定的键和一个指针指向特定的数据。</li>
+</ul>
+<p>特点:</p>
+<ul>
+<li>Key/value模型对于IT系统来说的优势在于简单、易部署。  </li>
+<li>但是如果DBA只对部分值进行查询或更新的时候，Key/value就显得效率低下了。</li>
+</ul>
+<p>相关产品:</p>
+<ul>
+<li>Tokyo Cabinet/Tyrant,</li>
+<li>Redis</li>
+<li>SSDB</li>
+<li>Voldemort </li>
+<li>Oracle BDB</li>
+</ul>
+<blockquote>
+<p>列存储数据库</p>
+</blockquote>
+<p>说明:</p>
+<ul>
+<li>这部分数据库通常是用来应对分布式存储的海量数据。</li>
+</ul>
+<p>特点:</p>
+<ul>
+<li>键仍然存在，但是它们的特点是指向了多个列。这些列是由列家族来安排的。</li>
+</ul>
+<p>相关产品:</p>
+<ul>
+<li>Cassandra、HBase、Riak。</li>
+</ul>
+<blockquote>
+<p>文档型数据库</p>
+</blockquote>
+<p>说明:</p>
+<ul>
+<li>文档型数据库的灵感是来自于Lotus Notes办公软件的，而且它同第一种键值存储相类似该类型的数据模型是版本化的文档，半结构化的文档以特定的格式存储，比如JSON。文档型数据库可 以看作是键值数据库的升级版，允许之间嵌套键值。而且文档型数据库比键值数据库的查询效率更高。</li>
+</ul>
+<p>特点:</p>
+<ul>
+<li>以文档形式存储。</li>
+</ul>
+<p>相关产品:</p>
+<ul>
+<li>MongoDB、CouchDB、 MongoDb(4.x). 国内也有文档型数据库SequoiaDB，已经开源。</li>
+</ul>
+<blockquote>
+<p>图关系数据库</p>
+</blockquote>
+<p>说明:</p>
+<ul>
+<li>图形结构的数据库同其他行列以及刚性结构的SQL数据库不同，它是使用灵活的图形模型，并且能够扩展到多个服务器上。</li>
+<li>NoSQL数据库没有标准的查询语言(SQL)，因此进行数据库查询需要制定数据模型。许多NoSQL数据库都有REST式的数据接口或者查询API。</li>
+</ul>
+<p>特点:</p>
+<p>相关产品:</p>
+<ul>
+<li>Neo4J、InfoGrid、 Infinite Graph、</li>
+</ul>
+<h3 id="4、NoSQL应用场景"><a href="#4、NoSQL应用场景" class="headerlink" title="4、NoSQL应用场景"></a>4、NoSQL应用场景</h3><p>当下的应用是sql和nosql一起使用。</p>
+<ul>
+<li><p>数据模型比较简单</p>
+</li>
+<li><p>需要灵活性更强的IT系统</p>
+</li>
+<li><p>对数据库性能要求较高</p>
+</li>
+<li><p>不需要高度的数据一致性</p>
+</li>
+</ul>
+<h2 id="二、Redis入门介绍"><a href="#二、Redis入门介绍" class="headerlink" title="二、Redis入门介绍"></a>二、Redis入门介绍</h2><h3 id="1、Redis是什么"><a href="#1、Redis是什么" class="headerlink" title="1、Redis是什么"></a>1、Redis是什么</h3><p>是完全开源免费的，用C语言编写的，遵守BSD协议，是一个高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一,也被人们称为数据结构服务器</p>
+<p><strong>Redis 与其他 key - value缓存产品有以下三个特点</strong></p>
+<ul>
+<li><p>Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用</p>
+</li>
+<li><p>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set， zset， hash等数据结构的存储</p>
+</li>
+<li><p>Redis支持数据的备份，即master-slave模式的数据备份</p>
+</li>
+<li><p> Redis单线程,单进程</p>
+</li>
+</ul>
+<h3 id="2、Redis能干嘛"><a href="#2、Redis能干嘛" class="headerlink" title="2、Redis能干嘛"></a>2、Redis能干嘛</h3><ul>
+<li>内存存储和持久化: redis支持异步将内存中的数据写到硬盘上，同时不影响继续服务</li>
+<li>取最新N个数据的操作，如:可以将最新的10条评论的ID放在Redis的List集合里面</li>
+<li>模拟类似于HttpSession这种需要设定过期时间的功能</li>
+<li>发布、订阅消息系统</li>
+<li>定时器、计数器</li>
+</ul>
+<h2 id="三、Redis-数据类型"><a href="#三、Redis-数据类型" class="headerlink" title="三、Redis 数据类型"></a>三、Redis 数据类型</h2><h3 id="1、Redis-的五大数据类型"><a href="#1、Redis-的五大数据类型" class="headerlink" title="1、Redis 的五大数据类型"></a>1、Redis 的五大数据类型</h3><ul>
+<li>String 字符串</li>
+<li>Hash 哈希</li>
+<li>List 列表</li>
+<li>Set 集合</li>
+<li>Zset 有序集合</li>
+</ul>
+<h3 id="2、应用场景"><a href="#2、应用场景" class="headerlink" title="2、应用场景"></a>2、应用场景</h3><ul>
+<li>String 类型的应用场景：缓存对象、常规计数、分布式锁、共享 session 信息等。</li>
+<li>List 类型的应用场景：消息队列（但是有两个问题：1. 生产者需要自行实现全局唯一 ID；2. 不能以消费组形式消费数据）等。</li>
+<li>Hash 类型：缓存对象、购物车等。</li>
+<li>Set 类型：聚合计算（并集、交集、差集）场景，比如点赞、共同关注、抽奖活动等。</li>
+<li>Zset 类型：排序场景，比如排行榜、电话和姓名排序等。</li>
+</ul>
+<h3 id="3、key-键名称中的冒号"><a href="#3、key-键名称中的冒号" class="headerlink" title="3、key 键名称中的冒号"></a>3、key 键名称中的冒号</h3><p>Redis中key的命名，用<code>:</code>分隔不同的层次|命名空间，如：<code>user:id12345:contact</code><br>如果某个对象有<code>字段的字段</code>，用<code>.</code>连接。如<code>user:id12345:contact.mail</code>。</p>
+<h2 id="四、解析配置文件-redis-conf"><a href="#四、解析配置文件-redis-conf" class="headerlink" title="四、解析配置文件 redis.conf"></a>四、解析配置文件 redis.conf</h2><p>获取所有的 配置信息 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config get *</span><br></pre></td></tr></table></figure>
+
+<h3 id="0、NETWORK"><a href="#0、NETWORK" class="headerlink" title="0、NETWORK"></a>0、NETWORK</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bind</span> 127.0.0.1 <span class="comment">#绑定Ip</span></span><br><span class="line">protected-mode <span class="built_in">yes</span>  <span class="comment"># 保护模式</span></span><br><span class="line">port 6379   <span class="comment">#端口设置</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1、units-单位"><a href="#1、units-单位" class="headerlink" title="1、units 单位"></a>1、units 单位</h3><p>大小写不敏感</p>
+<h3 id="2、includes-包含"><a href="#2、includes-包含" class="headerlink" title="2、includes 包含"></a>2、includes 包含</h3><p>分模块，</p>
+<p>和我们的Struts2配置文件荜似，可以通过includes包含，redis.conf可以作为总闸，包含其他</p>
+<h3 id="3、GENERAL通用"><a href="#3、GENERAL通用" class="headerlink" title="3、GENERAL通用"></a>3、GENERAL通用</h3><ol>
+<li>==daemonize== :以守护进程的方式运行，默认是 no，需要手动开启为 yes(开启后，以后台方式运行，开启后，不占用一个窗口)</li>
+<li>pidfile ：如果以后台方式运行，需要指定一个pid文件。</li>
+<li>==port==：端口号</li>
+<li>tcp-backlog：511 保持官方设置即可</li>
+<li>timeout：0 代表不关闭，一直连接</li>
+<li>bind </li>
+<li>tcp-keepalive</li>
+<li>loglevel：日志的级别</li>
+<li>logfile: 日志的名字</li>
+<li>syslog-enabled ：是否开启系统日志</li>
+<li>syslog-ident：系统日志的标志</li>
+<li>syslog-facility</li>
+<li>databases：</li>
+</ol>
+<h3 id="4、SNAPSHOTTING快照"><a href="#4、SNAPSHOTTING快照" class="headerlink" title="4、SNAPSHOTTING快照"></a>4、SNAPSHOTTING快照</h3><ol>
+<li><p>Save  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果 900秒内  至少有一个key进行修改，进行持久化操作</span></span><br><span class="line">save 900 1  </span><br><span class="line">save 300 10</span><br><span class="line">save 60 10000</span><br></pre></td></tr></table></figure></li>
+<li><p>stop-writes-on-bgsave-error ：后台备份出错的时候停止写</p>
+</li>
+<li><p>rdbcompression 是否压缩</p>
+</li>
+<li><p>rdbchecksum</p>
+</li>
+<li><p>dbfilename</p>
+</li>
+<li><p>dir</p>
+</li>
+</ol>
+<h3 id="5、REPLICATION复制"><a href="#5、REPLICATION复制" class="headerlink" title="5、REPLICATION复制"></a>5、REPLICATION复制</h3><h3 id="6、SECURITY安全"><a href="#6、SECURITY安全" class="headerlink" title="6、SECURITY安全"></a>6、SECURITY安全</h3><ol>
+<li>设置密码</li>
+</ol>
+<h3 id="7、Limit-限制"><a href="#7、Limit-限制" class="headerlink" title="7、Limit 限制"></a>7、Limit 限制</h3><ol>
+<li>maxclients：最大连接数</li>
+<li>maxmemory：</li>
+<li>maxmemory-policy：缓存过期清除策略<ul>
+<li>volatile-Iru:使用LRU算法移除key，只对设置了过期时间的键</li>
+<li>allkeys-Iru:使用LRU算法移除key</li>
+<li>volatile-random:在过期集合中移除随机的key，只对设置了过期时间的键</li>
+<li>allkeys-random:移除随机的key</li>
+<li>volatile-ttl:移除那些TTL值最小的key，即那些最近要过期的key</li>
+<li>noeviction:不进行移除。针对写操作，只是返回错误信息</li>
+</ul>
+</li>
+<li>maxmemory-samples：</li>
+</ol>
+<h3 id="8、APPEND-ONLY-MODE追加"><a href="#8、APPEND-ONLY-MODE追加" class="headerlink" title="8、APPEND ONLY MODE追加"></a>8、APPEND ONLY MODE追加</h3><ol>
+<li>appendonly  默认是关闭的</li>
+<li>appendfilename</li>
+<li>appendfsync<ul>
+<li>always：同步持久化 每次发生数据变更会被立即记录到磁盘 性能较差但数据完整性比较好</li>
+<li>everysec：出厂默认推荐，异步操作，每秒记录 如果一秒内宕机，有数据丢失</li>
+<li>no</li>
+</ul>
+</li>
+<li>no-appendfsync-on-rewrite：重写时是否可以运用Appendfsync，用默认no即可，保证数据安全性。</li>
+<li>auto-aof-rewrite-min-size：设置重写的基准值</li>
+<li>auto-aof-rewrite-percentage：设置重写的基准值</li>
+</ol>
+<h3 id="9、常见的-redis-conf-配置"><a href="#9、常见的-redis-conf-配置" class="headerlink" title="9、常见的 redis.conf 配置"></a>9、常见的 redis.conf 配置</h3> <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># protected-mode是指保护模式，默认情况下是yes，表示不允许通过外界网络连接使用redis；如果需要通过网络访问redis，将该项改为no。</span></span><br><span class="line">protected-mode no</span><br></pre></td></tr></table></figure>
+
+
+
+<p>redis.conf 配置项说明如下。</p>
+<ol>
+<li><p><code>Redis默认不是以守护进程的方式运行，可以通过该配置项修改，使用yes启用守护进程daemonize yes</code></p>
+</li>
+<li><p>当Redisl守护进程方式运行时，Redis默认会把pid写入/var/run/redis.pid文件，可以通过pidfile指定pidfile /var/run/redis.pid</p>
+</li>
+<li><p>指定Redis监听端口，默认端口为6379，作者在自己的一篇博文中解释了为什么选用6379作为默认端口，因为6379在手机按键上MERZ对应的号码，而MERZ取自意大利歌女Alessia Merz的名字<br>port 6379</p>
+</li>
+<li><p>绑定的主机地址，<code>允许外部主机访问 bind 0.0.0.0</code></p>
+</li>
+<li><p>当客户端闲置多长时间后关闭连接,如果指定为0，表示关闭该功能 timeout 300</p>
+</li>
+<li><p>指定日志记录级别，Redis总共支持四个级别。debug、verbose、notice、warning，默认为verbose log level verbose</p>
+</li>
+<li><p>日志记录方式，默认为标准输出，如果配置Redis为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给/dev/nulllogfile stdout</p>
+</li>
+<li><p>设置数据库的数量，默认数据库为0，可以使用<code>SELECT &lt;\dbid&gt;</code> 命令在连接上指定数据库id ,databases 16</p>
+</li>
+<li><p>指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合save <seconds> <changes><br>Redis默认配置文件中提供了三个条件:</p>
+<blockquote>
+<p>  save 900 1<br>  save 300 10</p>
+<p>  save 60 10000<br>  分别表示900秒（15分钟）内有1个更改，300秒（5分钟）内有10个更改以及60秒内有10000个更改。</p>
+</blockquote>
+</li>
+<li><p>指定存储至本地数据库时是否压缩数据，默认为yes，Redis采用LZF压缩，如果为了节省CPU时间，可以关闭该选项，但会导致数据库文件变的巨大rdbcompression yes</p>
+</li>
+<li><p>指定本地数据库文件名，默认值为dump.rdb dbfilename dump.rdb</p>
+</li>
+<li><p>指定本地数据库存放目录dir ./I</p>
+</li>
+<li><p>设置当本机为slav服务时，设置master服务的IP地址及端口，在Redis启动时，它会自动从master进行数据同步<code>slaveof &lt;masterip&gt; &lt;masterport&gt;</code></p>
+</li>
+<li><p>.当master服务设置了密码保护时，slav服务连接master的密码<code>master auth &lt;master-password&gt;</code></p>
+</li>
+<li><p>.设置Redis连接密码，如果配置了连接密码，客户端在连接Redis时需要通过<code>AUTH &lt;password&gt;</code>命令提供密码，默认关闭requirepass foobared</p>
+</li>
+<li><p>设置同一时间最大客户端连接数，默认无限制，Redis可以同时打开的客户端连接数为Redis进程可以打开的最大文件措述符数，如果设置maxcients O，表示不作限制。当客户端连接数到达限制时，Redis会关闭新的连接并向客户端返回max number of clients reached错误信息<br>maxclients 128</p>
+</li>
+<li><p>指定Redis最大内存限制，Redis在启动时会把数据加载到内存中，达到最大内存后，Redis会先尝试清除已到期或即将到期的Key，当此方法处理后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis新的vm机制，会把Key存放内存，Value会存放在swap区<br>maxmemory <bytes></p>
+</li>
+<li><p>指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能会在断电时导致一段时间内的数据丢失。因为 redis本身同步数据文件是按上面save条件来同步的，所以有的数据会在一段时间内只存在于内存中。默认为no<br>appendonly no</p>
+</li>
+<li><p>指定更新日志文件名，默认为appendonly.aofappendfilename appendonly.aof</p>
+</li>
+<li><p>指定更新日志条件，共有3个可选值:</p>
+<ul>
+<li>no:表示等操作系统进行数据缓存同步到磁盘（快)</li>
+<li>always:表示每次更新操作后手动调用fsync()将数据写到磁盘（慢，安全)</li>
+<li>everysec:表示每秒同步一次(折衷,默认值)</li>
+<li>appendfsync everysec</li>
+</ul>
+</li>
+<li><p>指定是否启用虚拟内存机制，默认值为no，简单的介个绍一下，VW机制将数据分页存放，由Redis将访问量较少的页即冷数据swap到磁盘上，访问多的页面由磁盘自动换出到内存中（在后面的文章我会仔细分析Redis的VM机制)<br>vm-enabled no</p>
+</li>
+<li><p>虚拟内存文件路径，默认值为/tmp/redis.swap，不可多个Redis实例共享<br>vm-swap-file /tmp/redis.swap</p>
+</li>
+<li><p>将所有大于vm-max-memory的数据存入虚拟内存,无论vm-max-memory设置多小，所有索引数据都是内存存储的(Redis的素引数据就是keys)也就是说当vm-max-memory设置为0的时候,其实是所有value都存在于磁盘。默认值为0<br>vm-max-memory 0</p>
+</li>
+<li><p>Redis swap文件分成了很多的page,一个对象可以保存在多个page上面，但一个page上不能被多个对象共享，vm-page-size是要根据存情的数据大小来设定的.作者建议如果存储很多小对象，page大小最好设置为32或者64bytes;如果存储很大大对象，则可以使用更大的page，如果不确定，就使用默认值<br>vm-page-size 32</p>
+</li>
+<li><p>设置swap文件中的page数量，由于页表（一种表示页面空闲或使用的bitmap)是在放在内存中的，，在磁盘上每8个pages将消耗1byte的内存。vm-pages 134217728</p>
+</li>
+<li><p>设置访问swap这件的线程数,最好不要超过机器的核数,如果设置为O,那么所有对swap文件的操作都是串行的，可能会造成比较长时间的延迟。默认值为4vm-max-threads 4</p>
+</li>
+<li><p>设置在向客户端应答时，是否把较小的包合并为一个包发送，默认为开启glueoutputbuf yes</p>
+</li>
+<li><p>指定在超过一定的数量或者最大的元素超过某一临界值时，采用一种特殊的哈希算法hash-max-zipmap-entries 64<br>hash-max-zipmap-value 512</p>
+</li>
+<li><p>指定是否激活重置哈希，默认为开启（后面在介绍Redis的哈希算法时具体介绍)activerehashing yes</p>
+</li>
+<li><p>指定包含其它的配置文件，可以在同一主机上多个Redis实例之间使用同一份配置文件，而同时各个实例又拥有自己的特定配置文件include /path/to/local.conf</p>
+</li>
+</ol>
+<h2 id="五、持久化机制"><a href="#五、持久化机制" class="headerlink" title="五、持久化机制"></a>五、持久化机制</h2><p>两者同时 启用的话，先加载的是 AOF</p>
+<h3 id="1、RDB"><a href="#1、RDB" class="headerlink" title="1、RDB"></a>1、RDB</h3><h4 id="1、官网介绍"><a href="#1、官网介绍" class="headerlink" title="1、官网介绍"></a>1、官网介绍</h4><p>在指定的时间间隔内将内存中的数据集快照写入磁盘，也就是行话讲的Snapshot快照，它恢复时是将快照文件直接读到内存里</p>
+<h4 id="2、是什么"><a href="#2、是什么" class="headerlink" title="2、是什么"></a>2、是什么</h4><p>Redis会单独创建（( fork)一个子进程来进行持久化，会先将数据写入到一个临时文件中，待持久化过程都结束了，再用这个临时文件替换上次持久化好的文件。整个过程中，主进程是不进行任何IO操作的，这就确保了极高的性能</p>
+<p>如果需要进行大规模数据的恢复，且对于数据恢复的完整性不是非常敏感，那RDB方式要比AOF方式更加的高效。RDB的缺点是最后一次持久化后的数据可能丢失。</p>
+<h4 id="3、Fork"><a href="#3、Fork" class="headerlink" title="3、Fork"></a>3、Fork</h4><p>fork的作用是复制一个与当前进程一样的进程。新进程的所有数据（变量、环境变量、程序计数器等）数值都和原进程一致，但是是一个全新的进程，并作为原进程的子进程</p>
+<h4 id="4、rdb-保存的是dump-rdb文件"><a href="#4、rdb-保存的是dump-rdb文件" class="headerlink" title="4、rdb 保存的是dump.rdb文件"></a>4、rdb 保存的是dump.rdb文件</h4><h4 id="5、如何触发RDB快照"><a href="#5、如何触发RDB快照" class="headerlink" title="5、如何触发RDB快照"></a>5、如何触发RDB快照</h4><ol>
+<li>配置文件中默认的快照配置，冷拷贝后重新使用</li>
+<li>命令save或者是bgsave<ul>
+<li>Save：save时只管保存，其它不管，全部阻塞</li>
+<li>BGSAVE：Redis会在后台异步进行快照操作，快照同时还可以响应客户端请求。可以通过 lastsave 命令获取最后一次成功执行快照的时间</li>
+</ul>
+</li>
+<li>执行flushall命令，也会产生dump.rdb文件，但里面是空的，无意义</li>
+</ol>
+<h4 id="6、如何恢复"><a href="#6、如何恢复" class="headerlink" title="6、如何恢复"></a>6、如何恢复</h4><ol>
+<li>将备份文件 (dump.rdb) 移动到 redis 安装目录并启动服务即可</li>
+<li>CONFIG GET dir获取目录</li>
+</ol>
+<h4 id="7、优势"><a href="#7、优势" class="headerlink" title="7、优势"></a>7、优势</h4><ol>
+<li>适合大规模的数据恢复</li>
+<li>对数据完整性和一致性要求不高</li>
+</ol>
+<h4 id="8、劣势"><a href="#8、劣势" class="headerlink" title="8、劣势"></a>8、劣势</h4><ol>
+<li>在一定间隔时间做一次备份，所以如果redis意外down掉的话，就<br>会丢失最后一次快照后的所有修改</li>
+<li>fork的时候，内存中的数据被克隆了一份，大致2倍的膨胀性需要考虑</li>
+</ol>
+<h3 id="2、AOF-Append-Only-File"><a href="#2、AOF-Append-Only-File" class="headerlink" title="2、AOF(Append Only File)"></a>2、AOF(Append Only File)</h3><h4 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h4><p>以日志的形式来记录每个写操作，将Redis执行过的所有写指令记录下来(读操作不记录)，只许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作</p>
+<h4 id="2、AOF-启动-修复-恢复"><a href="#2、AOF-启动-修复-恢复" class="headerlink" title="2、AOF 启动/修复/恢复/"></a>2、AOF 启动/修复/恢复/</h4><h5 id="1、正常启动"><a href="#1、正常启动" class="headerlink" title="1、正常启动"></a>1、正常启动</h5><ol>
+<li>启动:设置Yes   –&gt;  修改默认的appendonly no，改为yes</li>
+<li>将有数据的aof文件复制一份保存到对应目录(config get dir)</li>
+<li>恢复:重启redis然后重新加载</li>
+</ol>
+<h5 id="2、异常启动"><a href="#2、异常启动" class="headerlink" title="2、异常启动"></a>2、异常启动</h5><ol>
+<li>启动:设置Yes  –&gt;  修改默认的appendonly no，改为yes</li>
+<li>备份被写坏的AOF文件</li>
+<li>修复:     redis-check-aof –fix进行修复</li>
+<li>恢复:重启redis然后重新加载</li>
+</ol>
+<h4 id="3、rewrite"><a href="#3、rewrite" class="headerlink" title="3、rewrite"></a>3、rewrite</h4><h5 id="1、是什么-1"><a href="#1、是什么-1" class="headerlink" title="1、是什么"></a>1、是什么</h5><p>AOF采用文件追加方式，文件会越来越大为避免出现此种情况，新增了重写机制,当AOF文件的大小超过所设定的阈值时，Redis就会启动AOF文件的内容压缩，只保留可以恢复数据的最小指令集.可以使用命令bgrewriteaof</p>
+<h5 id="2、重写原理"><a href="#2、重写原理" class="headerlink" title="2、重写原理"></a>2、重写原理</h5><p>AOF文件持续增长而过大时，会fork出一条新进程来将文件重写(也是先写临时文件最后再rename)，遍历新进程的内存中数据，每条记录有一条的Set语句。重写aof文件的操作，并没有读取旧的aof文件，而是将整个内存中的数据库内容用命令的方式重写了一个新的aof文件，这点和快照有点类似</p>
+<h5 id="3、触发机制"><a href="#3、触发机制" class="headerlink" title="3、触发机制"></a>3、触发机制</h5><p>Redis会记录上次重写时的AOF大小，默认配置是当AOF文件大小是上次rewrite后大小的一倍且文件大于64M时触发</p>
+<h4 id="4、优势"><a href="#4、优势" class="headerlink" title="4、优势"></a>4、优势</h4><ol>
+<li>每修改同步:appendfsync always同步持久化每次发生数据变更会被立即记录到磁盘·性能较差但数据完整性比较好</li>
+<li>每秒同步:appendfsync everysec 异步操作，每秒记录如果一秒内宕机，有数据丢失</li>
+<li>不同步: appendfsync no从不同步</li>
+</ol>
+<h4 id="5、劣势"><a href="#5、劣势" class="headerlink" title="5、劣势"></a>5、劣势</h4><ol>
+<li>相同数据集的数据而言aof文件要远大于rdb文件，恢复速度慢于rdb</li>
+<li>aof运行效效要慢于rdb,每秒同步策略效率较好，不同步效率和rdb相同</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io">Eric</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io/posts/2218058265/">https://ericwjian.github.io/posts/2218058265/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ericwjian.github.io" target="_blank">Eric</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Redis/">Redis</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/3763310134/" title="Java操作Redis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java操作Redis</div></div></a></div><div class="next-post pull-right"><a href="/posts/2446858108/" title="Redis 使用命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Redis 使用命令</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/2897749774/" title="Linux安装Redis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-13</div><div class="title">Linux安装Redis</div></div></a></div><div><a href="/posts/2446858108/" title="Redis 使用命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-16</div><div class="title">Redis 使用命令</div></div></a></div><div><a href="/posts/526887727/" title="Redis-缓存"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-26</div><div class="title">Redis-缓存</div></div></a></div><div><a href="/posts/3525568441/" title="Redis-分布式锁"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-13</div><div class="title">Redis-分布式锁</div></div></a></div><div><a href="/posts/3763310134/" title="Java操作Redis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-19</div><div class="title">Java操作Redis</div></div></a></div><div><a href="/posts/1278012423/" title="Redis中使用lua脚本"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-29</div><div class="title">Redis中使用lua脚本</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81NoSql-%E5%85%A5%E9%97%A8%E5%92%8C%E6%A6%82%E8%BF%B0"><span class="toc-text">一、NoSql 入门和概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81NoSql-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">1、NoSql 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8NoSQL"><span class="toc-text">2、为什么使用NoSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81NoSQL%E7%9A%84%E5%9B%9B%E5%A4%A7%E5%88%86%E7%B1%BB"><span class="toc-text">3、NoSQL的四大分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81NoSQL%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">4、NoSQL应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Redis%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D"><span class="toc-text">二、Redis入门介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Redis%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">1、Redis是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Redis%E8%83%BD%E5%B9%B2%E5%98%9B"><span class="toc-text">2、Redis能干嘛</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">三、Redis 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Redis-%E7%9A%84%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">1、Redis 的五大数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">2、应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81key-%E9%94%AE%E5%90%8D%E7%A7%B0%E4%B8%AD%E7%9A%84%E5%86%92%E5%8F%B7"><span class="toc-text">3、key 键名称中的冒号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-redis-conf"><span class="toc-text">四、解析配置文件 redis.conf</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0%E3%80%81NETWORK"><span class="toc-text">0、NETWORK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81units-%E5%8D%95%E4%BD%8D"><span class="toc-text">1、units 单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81includes-%E5%8C%85%E5%90%AB"><span class="toc-text">2、includes 包含</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81GENERAL%E9%80%9A%E7%94%A8"><span class="toc-text">3、GENERAL通用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81SNAPSHOTTING%E5%BF%AB%E7%85%A7"><span class="toc-text">4、SNAPSHOTTING快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81REPLICATION%E5%A4%8D%E5%88%B6"><span class="toc-text">5、REPLICATION复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81SECURITY%E5%AE%89%E5%85%A8"><span class="toc-text">6、SECURITY安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81Limit-%E9%99%90%E5%88%B6"><span class="toc-text">7、Limit 限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81APPEND-ONLY-MODE%E8%BF%BD%E5%8A%A0"><span class="toc-text">8、APPEND ONLY MODE追加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81%E5%B8%B8%E8%A7%81%E7%9A%84-redis-conf-%E9%85%8D%E7%BD%AE"><span class="toc-text">9、常见的 redis.conf 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6"><span class="toc-text">五、持久化机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81RDB"><span class="toc-text">1、RDB</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E5%AE%98%E7%BD%91%E4%BB%8B%E7%BB%8D"><span class="toc-text">1、官网介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">2、是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81Fork"><span class="toc-text">3、Fork</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81rdb-%E4%BF%9D%E5%AD%98%E7%9A%84%E6%98%AFdump-rdb%E6%96%87%E4%BB%B6"><span class="toc-text">4、rdb 保存的是dump.rdb文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81%E5%A6%82%E4%BD%95%E8%A7%A6%E5%8F%91RDB%E5%BF%AB%E7%85%A7"><span class="toc-text">5、如何触发RDB快照</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6%E3%80%81%E5%A6%82%E4%BD%95%E6%81%A2%E5%A4%8D"><span class="toc-text">6、如何恢复</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7%E3%80%81%E4%BC%98%E5%8A%BF"><span class="toc-text">7、优势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8%E3%80%81%E5%8A%A3%E5%8A%BF"><span class="toc-text">8、劣势</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81AOF-Append-Only-File"><span class="toc-text">2、AOF(Append Only File)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">1、是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81AOF-%E5%90%AF%E5%8A%A8-%E4%BF%AE%E5%A4%8D-%E6%81%A2%E5%A4%8D"><span class="toc-text">2、AOF 启动&#x2F;修复&#x2F;恢复&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E6%AD%A3%E5%B8%B8%E5%90%AF%E5%8A%A8"><span class="toc-text">1、正常启动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E5%BC%82%E5%B8%B8%E5%90%AF%E5%8A%A8"><span class="toc-text">2、异常启动</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81rewrite"><span class="toc-text">3、rewrite</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88-1"><span class="toc-text">1、是什么</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E9%87%8D%E5%86%99%E5%8E%9F%E7%90%86"><span class="toc-text">2、重写原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E8%A7%A6%E5%8F%91%E6%9C%BA%E5%88%B6"><span class="toc-text">3、触发机制</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81%E4%BC%98%E5%8A%BF"><span class="toc-text">4、优势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81%E5%8A%A3%E5%8A%BF"><span class="toc-text">5、劣势</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148432/" title="MyBatis 拦截器">MyBatis 拦截器</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148434/" title="MyBatis 集成druid数据源">MyBatis 集成druid数据源</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1166366203/" title="SQL调优">SQL调优</a><time datetime="2024-07-16T16:00:00.000Z" title="发表于 2024-07-17 00:00:00">2024-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3109398172/" title="ContextHolder">ContextHolder</a><time datetime="2024-07-11T16:00:00.000Z" title="发表于 2024-07-12 00:00:00">2024-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2889834893/" title="SpringCloud Feign">SpringCloud Feign</a><time datetime="2024-07-01T16:00:00.000Z" title="发表于 2024-07-02 00:00:00">2024-07-02</time></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+      appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

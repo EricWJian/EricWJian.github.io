@@ -1,0 +1,435 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MySQL字段类型和Java实体类型的转换问题 | Eric</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MySQL、MyBatis、Java类型转换1、MySQL 字段类型常用的字段类型大致可以分为数值类型、字符串类型、日期时间类型三大类 1、数值类型数值类型大类又可以分为整型、浮点型、定点型三小类。  整型  整型主要用于存储整数值，主要有以下几个字段类型：    类型 大小 范围(有符号)含边界"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/posts/1593002230/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MySQL字段类型和Java实体类型的转换问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-14 16:29:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">MySQL字段类型和Java实体类型的转换问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-13T16:00:00.000Z" title="发表于 2023-06-14 00:00:00">2023-06-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-14T08:29:36.392Z" title="更新于 2024-08-14 16:29:36">2024-08-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/SSM/">SSM</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MySQL字段类型和Java实体类型的转换问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><hr>
+<h1 id="MySQL、MyBatis、Java类型转换"><a href="#MySQL、MyBatis、Java类型转换" class="headerlink" title="MySQL、MyBatis、Java类型转换"></a>MySQL、MyBatis、Java类型转换</h1><h2 id="1、MySQL-字段类型"><a href="#1、MySQL-字段类型" class="headerlink" title="1、MySQL 字段类型"></a>1、MySQL 字段类型</h2><p>常用的字段类型大致可以分为<strong>数值类型</strong>、<strong>字符串类型</strong>、<strong>日期时间类型</strong>三大类</p>
+<h3 id="1、数值类型"><a href="#1、数值类型" class="headerlink" title="1、数值类型"></a>1、数值类型</h3><p>数值类型大类又可以分为<strong>整型</strong>、<strong>浮点型</strong>、<strong>定点型</strong>三小类。</p>
+<blockquote>
+<p>整型</p>
+</blockquote>
+<p>整型主要用于存储整数值，主要有以下几个字段类型：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>范围(有符号)含边界</th>
+<th>范围(无符号)含边界</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TINYINT</code></td>
+<td>1 字节</td>
+<td><code>-128 ~ 127</code></td>
+<td><code>0 ~255</code></td>
+<td>小整数值</td>
+</tr>
+<tr>
+<td><code>SMALLINT</code></td>
+<td>2 字节</td>
+<td><code>-32768 ~32767</code></td>
+<td><code>0~65535</code></td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td><code>MEDIUMINT</code></td>
+<td>3 字节</td>
+<td><code>-8388608 ~ 8388607</code></td>
+<td><code>0 ~16777215</code></td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td><code>INT 或 INTEGER</code></td>
+<td>4 字节</td>
+<td><code>-2147483648 ~ 2147483647</code></td>
+<td><code>0 ~4294967295</code></td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td><code>BIGINT</code></td>
+<td>8 字节</td>
+<td><code>-9223372036854775808 ~ 9223372036854775807</code></td>
+<td><code>0~ 18446744073709551615</code></td>
+<td>极大整数值</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>unsigned：无符号类型(非负)。unsigned时，我们只能添加正数，当不设置unsigned时，我们可以添加负数进去。</p>
+</li>
+<li><p>整型经常被用到，比如 tinyint、int、bigint 。默认是有符号的，</p>
+</li>
+<li><p>若只需存储无符号值，可增加 unsigned 属性。</p>
+</li>
+<li><p>int(M) 中的 M 代表最大显示宽度，并不是说 int(1) 就不能存储数值10了，不管设定了显示宽度是多少个字符，int 都是占用4个字节，即int(5)和int(10)可存储的范围一样；括号中数字的作用是用来表示最低显示位数的，一般和关键字 unsigned zerofill 一起用，如int(5) unsigned zerofill，就表示如果插入的是123，那么显示的会是00123，即前面补上0；如果插入的123456，显示的仍然是123456</p>
+</li>
+</ul>
+<blockquote>
+<p>浮点型</p>
+</blockquote>
+<p>浮点型主要有 float，double 两个，浮点型在数据库中存放的是近似值， float 和 double 平时用的不太多。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>FLOAT</code></td>
+<td>4 字节</td>
+<td>单精度浮点数值</td>
+</tr>
+<tr>
+<td><code>DOUBLE</code></td>
+<td>8 字节</td>
+<td>双精度浮点数值</td>
+</tr>
+</tbody></table>
+<ul>
+<li>FLOAT(M,D),DOUBLE(M,D): M表示总共可以存储的数字位数，D表示小数点后面的位数.</li>
+<li>M称为<code>精度</code> ，D称为 标度 。(M,D)中 整数位=M-D；</li>
+<li>定义为FLOAT(5,2)的一个列可以显示为-999.99-999.99。如果超过这个范围会报错。</li>
+<li>浮点类型，也可以加 UNSIGNED ，但是不会改变数据范围，例如：FLOAT(3,2) UNSIGNED仍然只能表示0-9.99的范围。</li>
+</ul>
+<blockquote>
+<p>定点型</p>
+</blockquote>
+<p>定点型字段类型有 DECIMAL 一个，主要用于存储有精度要求的小数。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>DECIMAL</code></td>
+<td>对<code>DECIMAL(M,D)</code>，如果<code>M&gt;D</code>，为<code>M+2</code>字节否则为<code>D+2</code>字节</td>
+<td>精确小数值</td>
+</tr>
+</tbody></table>
+<h3 id="2、字符串类型"><a href="#2、字符串类型" class="headerlink" title="2、字符串类型"></a>2、字符串类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CHAR</code></td>
+<td><code>0-255</code>字节</td>
+<td>定长字符串</td>
+</tr>
+<tr>
+<td><code>VARCHAR</code></td>
+<td><code>0-65535</code>字节</td>
+<td>变长字符串</td>
+</tr>
+<tr>
+<td><code>TINYTEXT</code></td>
+<td><code>0-255</code>字节</td>
+<td>短文本字符串</td>
+</tr>
+<tr>
+<td><code>TEXT</code></td>
+<td><code>0-65 535</code>字节</td>
+<td>长文本数据</td>
+</tr>
+<tr>
+<td><code>LONGTEXT</code></td>
+<td><code>0-4 294 967 295</code>字节</td>
+<td>极大文本数据</td>
+</tr>
+<tr>
+<td><code>TINYBLOB</code></td>
+<td><code>0-255</code>字节</td>
+<td>二进制字符串</td>
+</tr>
+<tr>
+<td><code>BLOB</code></td>
+<td><code>0-65 535</code>字节</td>
+<td>二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td><code>LONGBLOB</code></td>
+<td><code>0-4 294 967 295</code>字节</td>
+<td>二进制形式的极大文本数据</td>
+</tr>
+</tbody></table>
+<ul>
+<li>char 类型是定长的，MySQL 总是根据定义的字符串长度分配足够的空间。当保存 char 值时，在它们的右边填充空格以达到指定的长度，当检索到 char 值时，尾部的空格被删除掉。</li>
+<li>varchar 类型用于存储可变长字符串，存储时，如果字符没有达到定义的位数，也不会在后面补空格。</li>
+</ul>
+<h3 id="3、日期时间类型"><a href="#3、日期时间类型" class="headerlink" title="3、日期时间类型"></a>3、日期时间类型</h3><p>MySQL支持的日期和时间类型有 <strong>YEAR</strong> 、<strong>TIME</strong> 、<strong>DATE</strong> 、<strong>DATETIME</strong> 、<strong>TIMESTAMP</strong>，几种类型比较如下：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>显示格式</th>
+<th>存储范围</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>YEAR</code></td>
+<td>1 字节</td>
+<td><code>YYYY</code></td>
+<td><code>1901~2155</code></td>
+<td>年份值</td>
+</tr>
+<tr>
+<td><code>TIME</code></td>
+<td>3 字节</td>
+<td><code>hh:mm:ss 或 hhh:mm:ss</code></td>
+<td><code>-838:59:59 ~ 838:59:59</code></td>
+<td>时间值或持续时间</td>
+</tr>
+<tr>
+<td><code>DATE</code></td>
+<td>3 字节</td>
+<td><code>YYYY-MM-DD</code></td>
+<td><code>1000-01-01 ~ 9999-12-31</code></td>
+<td>日期值</td>
+</tr>
+<tr>
+<td><code>DATETIME</code></td>
+<td>8 字节</td>
+<td><code>YYYY-MM-DD hh:mm:ss</code></td>
+<td><code>1000-01-01 00:00:00 ~ 9999-12-31 23:59:59</code></td>
+<td>混合日期和时间值</td>
+</tr>
+<tr>
+<td><code>TIMESTAMP</code></td>
+<td>4 字节</td>
+<td><code>YYYY-MM-DD hh:mm:ss</code></td>
+<td><code>UTC 1970-01-01 00:00:01 ~ 2038-01-19 03:14:07</code></td>
+<td>混合日期和时间值,时间戳</td>
+</tr>
+</tbody></table>
+<p>TIMESTAMP和DATETIME的区别：</p>
+<ol>
+<li>TIMESTAMP存储空间比较小，表示的日期时间范围也比较小</li>
+<li>底层存储方式不同，TIMESTAMP底层存储的是毫秒值，距离1970-1-1 0:0:0 0毫秒的毫秒值。</li>
+<li><strong>两个日期比较大小或日期计算时，TIMESTAMP更方便、更快。</strong></li>
+<li>TIMESTAMP和时区有关。TIMESTAMP会根据用户的时区不同，显示不同的结果。而DATETIME则只能反映出插入时当地的时区，其他时区的人查看数据必然会有误差的。</li>
+<li>TIMESTAMP :只能存储“1970-01-01 00:00:01 UTC”到“2038-01-19 03:14:07 UTC”之间的时间。超出此范围，会出现错误 <code>1292 - Incorrect datetime value: &#39;2051-11-12 12:12:12&#39; for column &#39;create_time&#39;</code>。</li>
+</ol>
+<p><code>总体来说 DATETIME 使用范围更广</code>。</p>
+<h2 id="2、MyBatis-处理字段类型"><a href="#2、MyBatis-处理字段类型" class="headerlink" title="2、MyBatis 处理字段类型"></a>2、MyBatis 处理字段类型</h2><h3 id="1、-MyBatis处理日期有两种的jdbcType"><a href="#1、-MyBatis处理日期有两种的jdbcType" class="headerlink" title="1、 MyBatis处理日期有两种的jdbcType"></a>1、 MyBatis处理日期有两种的jdbcType</h3><ul>
+<li><p><code>jdbcType=DATE</code>：</p>
+<p>注意：此时的 DATE 指的是 <code>java.sql.Date</code>，不是 java.util.Date，要注意两者的区别。java.util.Date 通常情况下用它获取当前时间，java.sql.Date 是针对SQL语句使用的，它只包含日期而没有时间部分。</p>
+</li>
+<li><p><code>jdbcType=TIMESTAMP</code></p>
+</li>
+</ul>
+<h3 id="2、Mybatis中JdbcType的作用"><a href="#2、Mybatis中JdbcType的作用" class="headerlink" title="2、Mybatis中JdbcType的作用"></a>2、Mybatis中JdbcType的作用</h3><ol>
+<li>对于mysql数据库的插入来说，jdbcType是没用的。</li>
+<li>oracle数据库是有用的（值为null时有用）。</li>
+</ol>
+<h2 id="3、Java-处理时间"><a href="#3、Java-处理时间" class="headerlink" title="3、Java 处理时间"></a>3、Java 处理时间</h2><h3 id="1、Java中的时间类型"><a href="#1、Java中的时间类型" class="headerlink" title="1、Java中的时间类型"></a>1、Java中的时间类型</h3><p>Java中有两个Date类，一个是<code>java.util.Date</code>，通常情况下用它获取当前时间，另一个是<code>java.sql.Date</code>，是针对SQL语句使用的，它只包含日期而没有时间部分。</p>
+<p><code>备注</code>：我们常用的是 java.util.Date，不必考虑 java.sql.Date 的情况，只要明白它仅仅用于mybatis框架的jdbcType=DATE即可。</p>
+<blockquote>
+<p>java.util.Date</p>
+</blockquote>
+<p>同时表示日期和时间（JAVA没有DateTime），可表示MySQL的三种字段类型：</p>
+<p>1、date <code>YYYY-MM-DD</code><br>2、datetime <code>YYYY-MM-DD hh:mm:ss</code><br>3、timestamp <code>YYYY-MM-DD hh:mm:ss</code></p>
+<h3 id="2、Java-到-MyBatis-时间处理方式"><a href="#2、Java-到-MyBatis-时间处理方式" class="headerlink" title="2、Java 到 MyBatis 时间处理方式"></a>2、Java 到 MyBatis 时间处理方式</h3><ol>
+<li><p>使用 <code>java.util.Date</code> 作为参数传递给 Mapper 时，不管 MySQL 的日期字段类型是 date、datetime 或者timestamp 中的哪一种，默认缺省情况下，MyBatis都能够自动做出类型转换，可以直接使用 =、&gt;、&lt;、&gt;=、&lt;= 符号来进行筛选。</p>
+</li>
+<li><p>但是，当我们手动指定 <code>jdbcType=DATE</code> 的时候，MyBatis会自动截取掉时间，只保留日期。如果 MySQL 的日期字段类型是 datetime 或者 timestamp 一定不要这么写，否则属于画蛇添足，自讨没趣。</p>
+</li>
+<li><p>总之，在连接 MySQL 数据库的时候，当 jdbcType=”DATE” 类型时，返回的时间只有年月日（yyyy-MM-dd），当 jdbcType=”TIMESTAMP” 的时候，返回的时间是年月日和时分秒（yyyy-MM-dd HH:mm:ss）。</p>
+</li>
+</ol>
+<h2 id="4、MySQL中时区设置"><a href="#4、MySQL中时区设置" class="headerlink" title="4、MySQL中时区设置"></a>4、MySQL中时区设置</h2><p>1、可查看全局的时区设置和会话的时区设置</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> @<span class="variable">@global</span>.time_zone,@<span class="variable">@session</span>.time_zone;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------+---------------------+</span></span><br><span class="line"><span class="operator">|</span> @<span class="variable">@global</span>.time_zone <span class="operator">|</span> @<span class="variable">@session</span>.time_zone <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------+---------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">SYSTEM</span>             <span class="operator">|</span> <span class="keyword">SYSTEM</span>              <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------+---------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>System代表采用系统时区</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io">Eric</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io/posts/1593002230/">https://ericwjian.github.io/posts/1593002230/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ericwjian.github.io" target="_blank">Eric</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Mybatis/">Mybatis</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2375682332/" title="SpringCloud Alibaba Seata"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SpringCloud Alibaba Seata</div></div></a></div><div class="next-post pull-right"><a href="/posts/3699994232/" title="Linux安装minio"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux安装minio</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/4134305729/" title="SpringBoot集成Mybatis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-02-11</div><div class="title">SpringBoot集成Mybatis</div></div></a></div><div><a href="/posts/3661501281/" title="Mybatis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-08-11</div><div class="title">Mybatis</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL%E3%80%81MyBatis%E3%80%81Java%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">MySQL、MyBatis、Java类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81MySQL-%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B"><span class="toc-text">1、MySQL 字段类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B"><span class="toc-text">1、数值类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B"><span class="toc-text">2、字符串类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B"><span class="toc-text">3、日期时间类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81MyBatis-%E5%A4%84%E7%90%86%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B"><span class="toc-text">2、MyBatis 处理字段类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81-MyBatis%E5%A4%84%E7%90%86%E6%97%A5%E6%9C%9F%E6%9C%89%E4%B8%A4%E7%A7%8D%E7%9A%84jdbcType"><span class="toc-text">1、 MyBatis处理日期有两种的jdbcType</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Mybatis%E4%B8%ADJdbcType%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">2、Mybatis中JdbcType的作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Java-%E5%A4%84%E7%90%86%E6%97%B6%E9%97%B4"><span class="toc-text">3、Java 处理时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Java%E4%B8%AD%E7%9A%84%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B"><span class="toc-text">1、Java中的时间类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Java-%E5%88%B0-MyBatis-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">2、Java 到 MyBatis 时间处理方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81MySQL%E4%B8%AD%E6%97%B6%E5%8C%BA%E8%AE%BE%E7%BD%AE"><span class="toc-text">4、MySQL中时区设置</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148432/" title="MyBatis 拦截器">MyBatis 拦截器</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148434/" title="MyBatis 集成druid数据源">MyBatis 集成druid数据源</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1166366203/" title="SQL调优">SQL调优</a><time datetime="2024-07-16T16:00:00.000Z" title="发表于 2024-07-17 00:00:00">2024-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3109398172/" title="ContextHolder">ContextHolder</a><time datetime="2024-07-11T16:00:00.000Z" title="发表于 2024-07-12 00:00:00">2024-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2889834893/" title="SpringCloud Feign">SpringCloud Feign</a><time datetime="2024-07-01T16:00:00.000Z" title="发表于 2024-07-02 00:00:00">2024-07-02</time></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+      appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

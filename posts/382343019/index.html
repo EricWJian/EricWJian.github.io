@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>RabbitMQ面试题 | Eric</title><meta name="author" content="Eric"><meta name="copyright" content="Eric"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1、什么是 RabbitMQRabbitMQ是一款开源的，Erlang 编写的，基于 AMQP 协议的，消息中间件。 2、RabbitMQ 的优点 异步处理 - 相比于传统的串行、并行方式，提高了系统吞吐量。 应用解耦 - 系统间通过消息通信，不用关心其他系统的处理。 流量削锋 - 可以通过消息队"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://ericwjian.github.io/posts/382343019/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dfa2c883c8c4c23f4866185de932236";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RabbitMQ面试题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-06 10:07:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Eric"><span class="site-name">Eric</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">RabbitMQ面试题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-10T16:00:00.000Z" title="发表于 2022-06-11 00:00:00">2022-06-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-06T02:07:31.305Z" title="更新于 2023-11-06 10:07:31">2023-11-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RabbitMQ面试题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><hr>
+<h2 id="1、什么是-RabbitMQ"><a href="#1、什么是-RabbitMQ" class="headerlink" title="1、什么是 RabbitMQ"></a>1、什么是 RabbitMQ</h2><p>RabbitMQ是一款开源的，Erlang 编写的，基于 AMQP 协议的，消息中间件。</p>
+<h2 id="2、RabbitMQ-的优点"><a href="#2、RabbitMQ-的优点" class="headerlink" title="2、RabbitMQ 的优点"></a>2、RabbitMQ 的优点</h2><ol>
+<li>异步处理 - 相比于传统的串行、并行方式，提高了系统吞吐量。</li>
+<li>应用解耦 - 系统间通过消息通信，不用关心其他系统的处理。</li>
+<li>流量削锋 - 可以通过消息队列长度控制请求量；可以缓解短时间内的高并发请求。</li>
+<li>日志处理 - 解决大量日志传输。</li>
+<li>消息通讯 - 消息队列一般都内置了高效的通信机制，因此也可以用在纯的消息通讯。比如实现点对点消息队列，或者聊天室等。</li>
+</ol>
+<h2 id="3、使用-RabbitMQ-的场景"><a href="#3、使用-RabbitMQ-的场景" class="headerlink" title="3、使用 RabbitMQ 的场景"></a>3、使用 RabbitMQ 的场景</h2><ol>
+<li>服务间异步通信</li>
+<li>顺序消费</li>
+<li>定时任务</li>
+<li>流量削峰</li>
+</ol>
+<h2 id="4、RabbitMQ基本概念"><a href="#4、RabbitMQ基本概念" class="headerlink" title="4、RabbitMQ基本概念"></a>4、RabbitMQ基本概念</h2><img src="/posts/382343019/image-20220326114618193.png" class="" title="image-20220326114618193">
+
+<p><code>Producer</code>： 消息生产者，就是投递消息的程序。</p>
+<p><code>Connection</code>：publisher/consumer 和 broker 之间的 TCP 连接。</p>
+<p><code>Channel</code>：如果每一次访问 RabbitMQ 都建立一个 Connection，在消息量大的时候建立 TCP Connection 的开销将是巨大的，效率也较低；Channel 作为轻量级的Connection 极大减少了操作系统建立 TCP connection 的开销。</p>
+<p><code>Broker</code>：接收和分发消息的应用，RabbitMQ Server 就是 Message Broker。</p>
+<p><code>Exchange</code>：message 到达 broker 的第一站，根据分发规则，匹配查询表中的 routing key，分发消息到 queue 中去。</p>
+<p><code>Queue</code>：消息最终被送到这里等待 consumer 取走。</p>
+<p><code>Binding</code>：绑定，它的作用就是把exchange和queue按照路由规则绑定起来。</p>
+<p><code>Routing Key</code>： 路由关键字，exchange 根据这个关键字进行消息投递。</p>
+<p><code>Virtual host</code>：出于多租户和安全因素设计的，把 AMQP 的基本组件划分到一个虚拟的分组中，类似于网络中的 namespace 概念。当多个不同的用户使用同一个 RabbitMQ server 提供的服务时，可以划分出多个 vhost，每个用户在自己的 vhost 创建 exchange／queue 等。</p>
+<p><code>Consumer</code>：消息消费者，就是接受消息的程序。</p>
+<h2 id="5、生产者发布确认"><a href="#5、生产者发布确认" class="headerlink" title="5、生产者发布确认"></a>5、生产者发布确认</h2><blockquote>
+<p>发布确认模式:</p>
+</blockquote>
+<ol>
+<li>将信道设置成 confirm 模式（发送方确认模式），则所有在信道上发布的消息都会被指派一个唯一的 ID。</li>
+<li>一旦消息被投递到目的队列后，或者消息被写入磁盘后（可持久化的消息），broker  会发送一个确认给生产者（包含消息唯一 ID）。</li>
+<li>如果 RabbitMQ 发生内部错误从而导致消息丢失，会发送一条 nack 消息。</li>
+<li>发送方确认模式是异步的，生产者应用程序在等待确认的同时，可以继续发送消息。当确认消息到达生产者应用程序，生产者应用程序的回调方法就会被触发来处理确认消息。</li>
+</ol>
+<blockquote>
+<p>开启 发布确认 的方法</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启发布确认</span></span><br><span class="line">channel.confirmSelect();</span><br></pre></td></tr></table></figure>
+
+<h2 id="6、消费者确认机制"><a href="#6、消费者确认机制" class="headerlink" title="6、消费者确认机制"></a>6、消费者确认机制</h2><blockquote>
+<p>消费者消息应答</p>
+</blockquote>
+<p>消费者接收每一条消息后都必须进行确认。只有消费者确认了消息，RabbitMQ 才能安全地把消息从队列中删除。</p>
+<ol>
+<li>basicAck：用于肯定确认；</li>
+<li>basicNack：用于否定确认（可以重新入队）；</li>
+<li>basicReject：用于否定确认（可以重新入队）；</li>
+</ol>
+<blockquote>
+<p>特殊情况</p>
+</blockquote>
+<ol>
+<li>如果消费者接收到消息，在确认之前断开了连接或取消订阅，RabbitMQ 会认为消息没有被分发，消息会重新入队，然后重新分发给下一个订阅的消费者。</li>
+<li>如果消费者接收到消息却没有确认消息，连接也未断开，则 RabbitMQ 认为该消费者繁忙，将不会给该消费者分发更多的消息。</li>
+</ol>
+<h2 id="7、消息如何分发"><a href="#7、消息如何分发" class="headerlink" title="7、消息如何分发"></a>7、消息如何分发</h2><ol>
+<li>若该队列至少有一个消费者订阅，消息默认将以轮询的方式发送给消费者。每条消息只会分发给一个订阅的消费者。</li>
+<li>消息的不公平分发：假如有两个消费者，其中有个消费者 1 处理任务的速度非常快，而另外一个消费者 2处理速度却很慢，这个时候我们还是采用轮训分发的话，就会出现处理速度快的这个消费者很大一部分时间处于空闲状态，而处理慢的那个消费者一直在干活。</li>
+</ol>
+<blockquote>
+<p>设置消息不公平分发</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 每次只消费一条消息</span></span><br><span class="line">channel.basicQos(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>意思就是如果这个任务我还没有处理完或者我还没有应答你，你先别分配给我，我目前只能处理一个任务，然后 RabbitMQ 就会把该任务分配给没有那么忙的那个空闲消费者。从而出现能者多劳。</p>
+<h2 id="8、什么是消息的预期值"><a href="#8、什么是消息的预期值" class="headerlink" title="8、什么是消息的预期值"></a>8、什么是消息的预期值</h2><p>设置未确认消息的 缓冲区的大小。</p>
+<h2 id="9、如何确保消息不丢失"><a href="#9、如何确保消息不丢失" class="headerlink" title="9、如何确保消息不丢失"></a>9、如何确保消息不丢失</h2><p><strong>1、发送方确认模式</strong></p>
+<ul>
+<li>将信道设置成confirm模式(发送方确认模式)，则所有在信道上发布的消息都会被指派一个唯一的ID。</li>
+<li>一旦消息被投递到目的队列后，或者消息被写入磁盘后(可持久化的消息)，信道会发送一个确认给生产者。</li>
+<li>如果RabbitMQ发生内部错误从而导致消息丢失，会发送一条nack (notacknowledged，未确认)消息。</li>
+<li>发送方确认模式是异步的，生产者应用程序在等待确认的同时，可从继续发送消息。当确认消息到达生产者应用程序﹐生产者应用程序的回调方法就会被触发来<strong>处理确认消息。</strong></li>
+</ul>
+<p><strong>2、接收方确认机制</strong></p>
+<ul>
+<li>消费者接收每一条消息后都必须进行确认,ack机制。只有消费者确认了消息，RabbitMQ 才能安全地把消息从队列中删除。</li>
+<li>这里并没有用到超时机制，RabbitMQ仅通过Consumer的连接中断来确认是否需要重新发送消息。也就是说，只要连接不中断，RabbitMQ给了Consumer足够长的时间来处理消息。保证数据的最终一致性。</li>
+</ul>
+<p><strong>3、消息持久化</strong></p>
+<p>如何保证，当 RabbitMQ 服务停掉以后消息生产者发送过来的消息不丢失。此时需要<code>消息持久化</code>，我们需要将<code>队列和消息都标记为持久化</code>。</p>
+<ol>
+<li><p>队列实现持久化</p>
+<p>声明队列的时候指定参数 durable 为 true。</p>
+</li>
+<li><p>消息实现持久化</p>
+</li>
+</ol>
+<h2 id="10、死信队列"><a href="#10、死信队列" class="headerlink" title="10、死信队列"></a>10、死信队列</h2><p>由于特定的原因<code>导致 queue 中的某些消息无法被消费</code>，这样的消息如果没有后续的处理，就变成了死信，有死信自然就有了死信队列。</p>
+<p>应用场景:为了保证订单业务的消息数据不丢失，需要使用到 RabbitMQ 的死信队列机制，当消息消费发生异常时，将消息投入死信队列中。还有比如说: 用户在商城下单成功并点击去支付后在指定时间未支付时自动失效。</p>
+<blockquote>
+<p>死信的来源</p>
+</blockquote>
+<ol>
+<li>消息 TTL(消息的最大存活时间) 过期。</li>
+<li>队列达到最大长度(队列满了，无法再添加数据到 mq 中)。</li>
+<li>消息被拒绝(basic.reject 或 basic.nack)并且 requeue=false。</li>
+</ol>
+<h2 id="11、延时队列"><a href="#11、延时队列" class="headerlink" title="11、延时队列"></a>11、延时队列</h2><p>延时队列,队列内部是有序的，最重要的特性就体现在它的延时属性上，延时队列中的元素是希望在指定时间到了以后或之前取出和处理，简单来说，延时队列就是用来存放需要在指定时间被处理的元素的队列。</p>
+<blockquote>
+<p>延迟队列使用场景</p>
+</blockquote>
+<ul>
+<li>订单在十分钟之内未支付则自动取消</li>
+<li>新创建的店铺，如果在十天内都没有上传过商品，则自动发送消息提醒。</li>
+<li>用户注册成功后，如果三天内没有登陆则进行短信提醒。</li>
+<li>用户发起退款，如果三天内没有得到处理则通知相关运营人员。</li>
+<li>预定会议后，需要在预定的时间点前十分钟通知各个与会人员参加会议</li>
+</ul>
+<blockquote>
+<p>安装 x-delayed-message 插件。</p>
+</blockquote>
+<h2 id="12、消息的幂等性问题"><a href="#12、消息的幂等性问题" class="headerlink" title="12、消息的幂等性问题"></a>12、消息的幂等性问题</h2><blockquote>
+<p>幂等性概念</p>
+</blockquote>
+<p>用户对于同一操作发起的一次请求或者多次请求的结果是一致的，不会因为多次点击而产生了副作用。</p>
+<blockquote>
+<p>问题产生：消息重复消费</p>
+</blockquote>
+<p>消费者在消费 MQ 中的消息时，MQ 已把消息发送给消费者，消费者在给MQ 返回 ack 时网络中断，故 MQ 未收到确认信息，该条消息会重新发给其他的消费者，或者在网络重连后再次发送给该消费者，但实际上该消费者已成功消费了该条消息，造成消费者消费了重复的消息。</p>
+<blockquote>
+<p>解决办法</p>
+</blockquote>
+<p>MQ 消费者的幂等性的解决一般使用全局 ID 或者写个唯一标识比如时间戳 或者 UUID 或者订单消费者消费 MQ 中的消息也可利用 MQ 的该 id 来判断，或者可按自己的规则生成一个全局唯一 id，每次消费消息时用该 id 先判断该消息是否已消费过。</p>
+<h2 id="13、优先级队列"><a href="#13、优先级队列" class="headerlink" title="13、优先级队列"></a>13、优先级队列</h2><p>对消息队列进行排序，优先处理优先级比较高的消息。</p>
+<h2 id="14、消息怎么路由？"><a href="#14、消息怎么路由？" class="headerlink" title="14、消息怎么路由？"></a>14、消息怎么路由？</h2><p>消息提供方：路由-&gt;一至多个队列；</p>
+<p>消息发布到交换器时，消息将拥有一个路由键（routing key），在消息创建时设定。</p>
+<p>通过队列路由键，可以把队列绑定到交换器上。</p>
+<p>消息到达交换器后，RabbitMQ 会将消息的路由键与队列的路由键进行匹配（针对不同的交换器有不同的路由规则）；</p>
+<blockquote>
+<p>常用的交换器主要分为一下三种：</p>
+</blockquote>
+<p><code>fanout</code>：如果交换器收到消息，将会广播到所有绑定的队列上</p>
+<p><code>direct</code>：如果路由键完全匹配，消息就被投递到相应的队列</p>
+<p><code>topic</code>：可以使来自不同源头的消息能够到达同一个队列。 使用 topic 交换器时，可以使用通配符</p>
+<h2 id="15、RabbitMQ-的集群"><a href="#15、RabbitMQ-的集群" class="headerlink" title="15、RabbitMQ 的集群"></a>15、RabbitMQ 的集群</h2><p><code>1.普通集群模式</code></p>
+<p><code>2.镜像集群模式</code></p>
+<h2 id="16、RabbitMQ的工作模式"><a href="#16、RabbitMQ的工作模式" class="headerlink" title="16、RabbitMQ的工作模式"></a>16、RabbitMQ的工作模式</h2><ol>
+<li><p><code>simple 模式</code></p>
+<p>简单队列，一个生产者对应一个消费者。</p>
+</li>
+<li><p><code>work 工作模式</code></p>
+<p>资源的竞争，一个生产者对应多个消费者，但是一条消息只能被一个消费者消费。默认采取的策略是轮询模式。</p>
+</li>
+<li><p><code>publish/subscribe 发布订阅</code></p>
+<p>一个消费者将消息首先发送到交换器，交换器绑定到多个队列，然后被监听该队列的消费者所接收并消费。交换器主要有:<code>direct</code>、<code>fanout</code>、<code>topic</code>。</p>
+</li>
+<li><p><code>routing 路由模式</code></p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io">Eric</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ericwjian.github.io/posts/382343019/">https://ericwjian.github.io/posts/382343019/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ericwjian.github.io" target="_blank">Eric</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/3636862956/" title="MySQL面试题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MySQL面试题</div></div></a></div><div class="next-post pull-right"><a href="/posts/2914853936/" title="Redis面试题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Redis面试题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/2037477332/" title="面试其他问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-11</div><div class="title">面试其他问题</div></div></a></div><div><a href="/posts/1514862636/" title="实际面试"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-12</div><div class="title">实际面试</div></div></a></div><div><a href="/posts/1514862635/" title="数据结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-12</div><div class="title">数据结构</div></div></a></div><div><a href="/posts/742890947/" title="Mybatis 面试题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-11</div><div class="title">Mybatis 面试题</div></div></a></div><div><a href="/posts/1636770274/" title="SpringMVC 面试题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-11</div><div class="title">SpringMVC 面试题</div></div></a></div><div><a href="/posts/1218378067/" title="Spring面试题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-11</div><div class="title">Spring面试题</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eric</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">140</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">31</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/wangjian_uuid" target="_blank" title="Gitee"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:358070983@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=358070983&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-RabbitMQ"><span class="toc-text">1、什么是 RabbitMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81RabbitMQ-%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">2、RabbitMQ 的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E4%BD%BF%E7%94%A8-RabbitMQ-%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="toc-text">3、使用 RabbitMQ 的场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81RabbitMQ%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">4、RabbitMQ基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E7%94%9F%E4%BA%A7%E8%80%85%E5%8F%91%E5%B8%83%E7%A1%AE%E8%AE%A4"><span class="toc-text">5、生产者发布确认</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81%E6%B6%88%E8%B4%B9%E8%80%85%E7%A1%AE%E8%AE%A4%E6%9C%BA%E5%88%B6"><span class="toc-text">6、消费者确认机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81%E6%B6%88%E6%81%AF%E5%A6%82%E4%BD%95%E5%88%86%E5%8F%91"><span class="toc-text">7、消息如何分发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E6%B6%88%E6%81%AF%E7%9A%84%E9%A2%84%E6%9C%9F%E5%80%BC"><span class="toc-text">8、什么是消息的预期值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9%E3%80%81%E5%A6%82%E4%BD%95%E7%A1%AE%E4%BF%9D%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1"><span class="toc-text">9、如何确保消息不丢失</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E3%80%81%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97"><span class="toc-text">10、死信队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11%E3%80%81%E5%BB%B6%E6%97%B6%E9%98%9F%E5%88%97"><span class="toc-text">11、延时队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12%E3%80%81%E6%B6%88%E6%81%AF%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">12、消息的幂等性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13%E3%80%81%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97"><span class="toc-text">13、优先级队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14%E3%80%81%E6%B6%88%E6%81%AF%E6%80%8E%E4%B9%88%E8%B7%AF%E7%94%B1%EF%BC%9F"><span class="toc-text">14、消息怎么路由？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15%E3%80%81RabbitMQ-%E7%9A%84%E9%9B%86%E7%BE%A4"><span class="toc-text">15、RabbitMQ 的集群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16%E3%80%81RabbitMQ%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-text">16、RabbitMQ的工作模式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148432/" title="MyBatis 拦截器">MyBatis 拦截器</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3346148434/" title="MyBatis 集成druid数据源">MyBatis 集成druid数据源</a><time datetime="2024-09-18T16:00:00.000Z" title="发表于 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1166366203/" title="SQL调优">SQL调优</a><time datetime="2024-07-16T16:00:00.000Z" title="发表于 2024-07-17 00:00:00">2024-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3109398172/" title="ContextHolder">ContextHolder</a><time datetime="2024-07-11T16:00:00.000Z" title="发表于 2024-07-12 00:00:00">2024-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2889834893/" title="SpringCloud Feign">SpringCloud Feign</a><time datetime="2024-07-01T16:00:00.000Z" title="发表于 2024-07-02 00:00:00">2024-07-02</time></div></div></div></div></div></div></main><footer id="footer" style="background: #47577e"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '2N3fEF3CzNAzKwVbFlhSTUuM-gzGzoHsz',
+      appKey: '9m41Klhi8IgsrNrbyMnoCHrN',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
